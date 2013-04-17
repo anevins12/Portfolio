@@ -85,7 +85,8 @@ footer h6,
 	font-weight: normal;
 }
 
-h2, h3, h5 {
+h2, h3, h5,
+.about footer h5 {
 	font-size: 1.25em;
 }
 
@@ -115,7 +116,8 @@ footer h5 {
 h1,
 h4,
 footer h5,
-.about h4 {
+.about h4
+.about #container .hobbies h5 {
 	color: #4F4F51;
 }
 
@@ -381,8 +383,6 @@ header nav .pointer {
 	color: #fff;
 }
 
-
-
 .about #container .hobbies h5 {
 	padding: 10px 0;
 	border-bottom: 1px solid #333;
@@ -444,6 +444,15 @@ header nav .pointer {
 .front-end #container .col li .link:hover { background-image: url("/assets/i/link-icon-front-hover.png"); }
 .ux #container .col li .link:hover { background-image: url("/assets/i/link-icon-ux-hover.png"); }
 .other #container .col li .link:hover { background-image: url("/assets/i/link-icon-other-hover.png"); }
+
+/* CONTACT page */
+
+input {
+	border: 0;
+	-webkit-box-shadow: inset 0px 3px 5px 0px #cccccc;
+	box-shadow: inset 0px 3px 5px 0px #cccccc;
+}
+
 
 /* ---------------------------- */
 /* ---------- //CONTAINER------- */

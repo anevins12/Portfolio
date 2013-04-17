@@ -1,5 +1,5 @@
 
-	<body class="about">
+	<body class="contact about">
 
 		<div id="wrapper">
 
@@ -28,30 +28,81 @@
 			<div id="container" class="clear">
 
 				<div class="title">
-					<h3>About</h3>
+					<h3>Contact</h3>
 					<p>
-						Hi, I'm just going to be telling you a little bit about me, so I don't turn out to be a robot.
+						If you want or need to send me a message, there's a form you can fill out below that will send your message to me.
 					</p>
 				</div>
 
 				<div class="col large">
-					<h4>Where I am now</h4>
-					<p>
-						I live in Bristol and have done all my life. I'm in my final year of University studying Web Design.
-					</p>
-					<p>
-						Last year I did a placement year and had a really insightful experience
-						learning about Web Development and Front-End Development.
-						I worked with two web agencies, both based in Bristol.
-					</p>
-					<p>
-						I'm just about to finish my University course of Web Design,
-						expecting a 1st degree grade and am looking forward to a career in Front-End Development.
-					</p>
+					<h4>Yay! Form filling!</h4>
+
+					<?php
+
+					if ( !empty( $errors ) ) {
+
+						?>
+						<div class="errprs"
+							<h5>Hang on</h5>
+							<ul>
+
+							<?php
+							foreach ( $errors as $error ) {
+							?>
+								<li>
+								<?php echo $error; ?>
+								</li>
+
+								<?php
+							}
+							?>
+							</ul>
+						</div>
+						<?php
+
+					}
+					
+					echo form_open('/contact/send') ;
+
+					$data = array(
+					  'name'        => 'name',
+					  'id'          => 'name',
+					  'value'       => 'Your name',
+					  'maxlength'   => '100',
+					  'size'        => '50',
+					  'style'       => 'width: 99.5%',
+					);
+
+					echo form_input($data);
+
+					$data = array(
+					  'name'        => 'email',
+					  'id'          => 'email',
+					  'value'       => 'Your contact email',
+					  'maxlength'   => '100',
+					  'size'        => '100',
+					  'style'       => 'width: 99.5%',
+					);
+
+					echo form_input($data);
+
+					$data = array(
+					  'name'        => 'msg',
+					  'id'          => 'msg',
+					  'value'       => 'Your message',
+					  'style'       => 'width: 99.5%', 'height: 300px'
+					);
+
+					echo form_textarea($data);
+					echo form_submit('submit', 'Send message');
+
+					echo form_close();
+					?>
+
 				</div>
 				<div class="col small">
-					<h4>Here I am</h4>
-					<img src="/assets/i/me.png" alt="Andrew Nevins" class="me" />
+					<h4>Whereabouts</h4>
+					<img src="/assets/i/map.png" alt="Bristol" class="me" />
 				</div>
 
 				<div class="hobbies">
@@ -101,11 +152,7 @@
 						</p>
 					</div>
 				</div>
-				
 
-
-
-				
 			</div>
 
 			<footer class="clear">
@@ -129,4 +176,25 @@
 
 	</body>
 
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>/assets/js/scripts.js"></script>
+	<script>
+
+		jQuery(document).ready(function($){
+			$('form input');
+			$('form input, form textarea').click(function(){
+				$this = $(this);
+				if ($this.val() == 'Your message' || $this.val() == 'Your contact email' || $this.val() == 'Your name') {
+					$(this).val('');
+				}
+			});
+			$('form').submit(function() {
+				console.log(this);
+				if ($this.val() == 'Your message' || $this.val() == 'Your contact email' || $this.val() == 'Your name') {
+					$(this).val('');
+				}
+			})
+		});
+
+	</script>
 </html>

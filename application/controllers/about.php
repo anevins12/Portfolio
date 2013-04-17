@@ -14,9 +14,7 @@ class About extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('portfoliomodel');
 		$this->load->helper('url');
-		$this->load->library('image_lib');
 	}
 
 	public function index() {

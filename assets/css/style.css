@@ -12,8 +12,20 @@
 
 @import "/assets/css/resets.css";
 
-body,
+p {
+	margin: 10px 0;
+	line-height: 1.6em;
+}
+
 .title p {
+	margin: 0;
+	line-height: 1em;
+}
+
+body,
+.title p,
+.about h4,
+.about h5 {
 	font-family: georgia;
 }
 
@@ -27,7 +39,8 @@ nav#global li:first-child{
 }
 
 header nav#supplementary li:last-child,
-nav#global li:last-child {
+nav#global li:last-child,
+.about #container .hobbies .col:last-child{
 	margin-right: 0;
 }
 
@@ -65,7 +78,9 @@ h1, h2 {
 
 h2,
 .title p,
-footer h6 {
+footer h6,
+.about h4,
+.about h5 {
 	font-style: italic;
 	font-weight: normal;
 }
@@ -82,7 +97,8 @@ h6 {
 	font-size: 1.2em;
 }
 
-h4 {
+h4,
+.about h5 {
 	font-size: 1em;
 }
 
@@ -98,7 +114,8 @@ footer h5 {
 
 h1,
 h4,
-footer h5 {
+footer h5,
+.about h4 {
 	color: #4F4F51;
 }
 
@@ -307,6 +324,69 @@ header nav .pointer {
 
 #container .col:nth-child(3) {
 	width: 271px;
+}
+
+/*ABOUT page*/
+.about #container .col {
+	float: left;
+	background: none;
+}
+
+.about #container .col.large {
+	width: 630px;
+	margin-right: 49px;
+}
+
+.about #container .col.small {
+	width: 220px;
+}
+
+.about img.me {
+	width: 100%;
+}
+
+.about #container .large h4 {
+	text-align: left;
+}
+
+.about #container .hobbies .col{
+	width: 197px;
+	margin-right: 10px;
+	padding: 10px;
+}
+
+.about #container .hobbies .col:nth-child(2) { background: #F15A22; }
+.about #container .hobbies .col:nth-child(3) { background: #B2D235; }
+.about #container .hobbies .col:nth-child(4) { background: #AB4A9C; }
+.about #container .hobbies .col:nth-child(5) { background: #ED1164; }
+
+.about #container .hobbies h6 {
+	color: #fcfcfc;
+}
+
+.about #container .hobbies h6 a {
+	padding: 10px;
+	background: #fcfcfc;
+	color: #464747;
+	border-bottom: 5px solid #464747;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 0.7em;
+	display: block;
+	text-align: center;
+}
+
+.about #container .hobbies p {
+	color: #fff;
+}
+
+
+
+.about #container .hobbies h5 {
+	padding: 10px 0;
+	border-bottom: 1px solid #333;
+	margin-bottom: 10px;
 }
 
 #container .col h4 {

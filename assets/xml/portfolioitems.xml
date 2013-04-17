@@ -12,8 +12,8 @@
 	<item>
 		<name>Literead App Design</name>
 		<desc>App to help students manage their reading</desc>
-		<image_url>joetremlin_home_large.png</image_url>
-		<site_url/>
+		<image_url>literead.png</image_url>
+		<site_url>http://andrewnevins.co.uk/id/</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>UX</cat>
@@ -21,10 +21,21 @@
 	</item>
 
 	<item>
+		<name>My New Portfolio</name>
+		<desc>Built in CodeIgniter using AJAX calls to internal functions</desc>
+		<image_url>portfolio_large.png</image_url>
+		<site_url/>
+		<uni>no</uni>
+		<year>4</year>
+		<cat>Front-End</cat>
+		<subCat>CodeIgniter</subCat>
+	</item>
+
+	<item>
 		<name>Final Year Project</name>
 		<desc>Produced data visualisations showing mood in the UK from Twitter</desc>
-		<image_url>scribble.png</image_url>
-		<site_url>http://snag.gy/H3Jr8.jpg</site_url>
+		<image_url>dmp_large.png</image_url>
+		<site_url>http://andrewnevins.co.uk/application/view/all</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>Front-End</cat>
@@ -54,10 +65,10 @@
 	</item>
 
 	<item>
-		<name>Bristol Nights</name>
-		<desc>Design comps built into static template and separated to WordPress templates</desc>
-		<image_url>bnights_home_large.png</image_url>
-		<site_url>http://www.bristolnights.com/</site_url>
+		<name>Cabot IT</name>
+		<desc>Design comps built into static template and converted to CodeIgniter</desc>
+		<image_url>cabot_home_large.png</image_url>
+		<site_url></site_url>
 		<uni>no</uni>
 		<year>3</year>
 		<cat>Front-End</cat>
@@ -65,10 +76,21 @@
 	</item>
 
 	<item>
+		<name>Bristol Nights</name>
+		<desc>Design comps built into static template and separated to WordPress templates</desc>
+		<image_url>bnights_home_large.png</image_url>
+		<site_url>http://www.bristolnights.com/</site_url>
+		<uni>no</uni>
+		<year>3</year>
+		<cat>Front-End</cat>
+		<subCat>WordPress</subCat>
+	</item>
+
+	<item>
 		<name>Sandford Festival</name>
 		<desc>Design and development of the Sandford Folk Festival website.</desc>
 		<image_url>wdp2_large_home.png</image_url>
-		<site_url>http://joetremlindesigns.co.uk</site_url>
+		<site_url/>
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>Front-End</cat>

@@ -22,13 +22,11 @@ body,
 	clear: left;
 }
 
-li:first-child,
 header nav#supplementary li:first-child,
 nav#global li:first-child{
 	margin-left: 0;
 }
 
-li:last-child,
 header nav#supplementary li:last-child,
 nav#global li:last-child {
 	margin-right: 0;
@@ -49,7 +47,6 @@ a:visited {
 }
 
 li {
-	font-weight: bold;
 	font-size: 0.78em;
 }
 
@@ -68,7 +65,8 @@ h1, h2 {
 }
 
 h2,
-.title p {
+.title p,
+footer h6 {
 	font-style: italic;
 	font-weight: normal;
 }
@@ -87,10 +85,21 @@ h6 {
 
 h4 {
 	font-size: 1em;
+}
+
+footer h6 {
+	font-size: .95em;
+}
+
+h4,
+li,
+footer h5 {
 	font-weight: bold;
 }
 
-h1, h4 {
+h1,
+h4,
+footer h5 {
 	color: #4F4F51;
 }
 
@@ -113,7 +122,11 @@ h3 {
 }
 
 
-
+header,
+#container,
+footer {
+	overflow: hidden;
+}
 
 
 /* ---------- HEADER ---------- */
@@ -121,7 +134,6 @@ h3 {
 header {
 	border-top: 10px solid #333434;
 	padding-top: 20px;
-	overflow: hidden;
 }
 
 header nav#supplementary {
@@ -179,6 +191,7 @@ nav#global li {
 	width: 136px;
 	height: 136px;
 	margin: 0 18px;
+	position: relative;
 }
 
 nav#global li.selected {
@@ -224,17 +237,33 @@ nav#global li#ux a:hover,
 nav#global li#other a:hover {
 	background-color: #4F4F51;
 	-webkit-transition-property: background;
-	-webkit-transition-duration: .3s
-} 
+	-webkit-transition-duration: .4s
+}
+
+header nav .pointer {
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #333;
+	position: absolute;
+	bottom: -36px;
+	left: 55px;
+}
+
+.front-end header nav .pointer { border-bottom-color: #f15a22; }
+.ux header nav .pointer { border-bottom-color: #B2D235; }
+.other header nav .pointer { border-bottom-color: #AB4A9C; }
+
 /* ---------------------------- */
 /* ---------- //HEADER -------- */
 
 
 
 
-
 /* ----------- CONTAINER -------- */
 /* ------------------------------ */
+#container {
+	margin-bottom: 40px;
+}
 
 #container .title {
 	background: #eee;
@@ -256,13 +285,29 @@ nav#global li#other a:hover {
 
 #container .col {
 	float: left;
-	width: 290px;
-	background: url("/assets/i/vert-separator.png") no-repeat;
-	background-position: right 50px;
+	width: 313px;
 }
 
-#container .col:last-child {
-	background: none;
+#container .col#codeigniter {
+	width: 315px;
+}
+
+#container .col#codeigniter,
+#container .col#custom {
+	background: url("/assets/i/vert-separator.png") no-repeat;
+	background-position-y: 90px;
+}
+
+#container .col#codeigniter {
+	background-position-x: 288px;
+}
+
+#container .col#custom {
+	background-position-x: 19px;
+}
+
+#container .col#wordpress {
+	width: 271px;
 }
 
 #container .col h4 {
@@ -279,6 +324,82 @@ nav#global li#other a:hover {
 	margin-top: 10px;
 }
 
+#container .col#custom ul {
+	float: right;
+}
+
 #container .col li {
-	margin-bottom: 17px;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+#container .col li a.fancybox {
+	border-bottom: 5px solid #fff;
+}
+
+#container .col li a.fancybox:hover {
+	border-bottom: 5px solid #333;
+}
+
+.front-end #container .col li a.fancybox:hover { border-color: #f15a22; }
+.ux #container .col li a.fancybox:hover { border-color: #B2D235; }
+.other #container .col li a.fancybox:hover { border-color: #AB4A9C; }
+
+#container .col li .link {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#container .col li .desc {
+	display: none;
+}
+
+#container .col li .link {
+	height: 29px;
+	width: 29px;
+	background: url("/assets/i/link-icon.png") no-repeat;
+	border: 0;
+}
+
+.front-end #container .col li .link:hover { background-image: url("/assets/i/link-icon-front-hover.png"); }
+.ux #container .col li .link:hover { background-image: url("/assets/i/link-icon-ux-hover.png"); }
+.other #container .col li .link:hover { background-image: url("/assets/i/link-icon-other-hover.png"); }
+
+/* ---------------------------- */
+/* ---------- //CONTAINER------- */
+
+
+
+
+/* ----------- FOOTER ----------- */
+/* ------------------------------ */
+footer {
+	background: #eee;
+	border-bottom: 10px solid #333434;
+	padding: 0 15px 15px;
+}
+
+footer .border {
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPXr1/3YUQWAwloampugQvCBECKwILIAmBBdAGQIACjUBLXTfw7qAAAAABJRU5ErkJggg==");
+	display: block;
+	height: 10px;
+	margin-bottom: 10px
+}
+
+footer hgroup {
+	float: left;
+}
+
+footer nav {
+	float: right;
+}
+
+footer nav li {
+	float: right;
+	margin: 0 15px 15px;
+}
+
+footer nav li.front-end {
+	clear: both;
 }

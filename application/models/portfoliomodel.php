@@ -50,7 +50,7 @@ class Portfoliomodel extends CI_Model {
 		
 		foreach ( $this->portfolioItems as $item ) {
 
-			if ( $item->cat == $category ) {
+			if ( $item->cat == $category ) { 
 				$categoryItems[] = $item;
 			}
 
@@ -65,8 +65,8 @@ class Portfoliomodel extends CI_Model {
 		$config[ 'image_library' ] = 'gd2';
 		$config[ 'create_thumb' ] = TRUE;
 		$config[ 'maintain_ratio' ] = TRUE;
-		$config[ 'width' ]	 = 252;
-		$config[ 'height' ]	= 243;
+		$config[ 'width' ]	 = 265;
+		$config[ 'height' ]  = 250;
 
 		foreach ( $items as $item ) {
 

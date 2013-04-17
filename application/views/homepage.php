@@ -3,13 +3,14 @@
 <html>
 	<head>
 		<title></title>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link href="<?php echo base_url(); ?>/assets/css/jquery.fancybox.css" rel="stylesheet" />
 		<link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet" />
-		<script></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>/assets/js/jquery.fancybox.pack.js"></script>
 	</head>
 
-	<body>
-
+	<body class="front-end">
+		
 		<div id="wrapper">
 
 			<header>
@@ -84,48 +85,14 @@
 		</div>
 
 	</body>
-
+	<script type="text/javascript" src="<?php echo base_url()?>/assets/js/scripts.js"></script>
 	<script>
 		
 		
 		jQuery(document).ready(function($) {
-			var items;
-			$.get("/index.php/items/getItems?callback=?", function(items){
 
-				items = $.parseJSON(items);
-
-				$.each(items, function(k,v) {  
-					if (v.site_url.length == 0){
-						var link = '';
-						var span = '';
-					}
-					else {
-						var link = v.name;
-						var span = '<img class="link" src="span-image-link-thingy.png" />'
-					}
-
-					var html = '<li>\n\
-									<a href="' + link + '"> ' + span + '<img src="' + v.thumb_url + '" alt="' + v.name + '"/></a> \n\
-							    </li>';
-
-					var hoverHtml = '<h4>' + v.name + '</h4><p>' + v.desc + '</p>';
-
-					if (v.subCat == 'CodeIgniter') {
-						$('#codeigniter ul').append(html);
-					}
-
-					if (v.subCat == 'UX') {
-						$('#ux ul').append(html);
-					}
-
-					if (v.subCat == 'Custom') {
-						$('#custom ul').append(html);
-					}
-				});
-
-			});
-
-
+			getFrontEndItems();
+			$(".fancybox").fancybox();
 
 		});
 

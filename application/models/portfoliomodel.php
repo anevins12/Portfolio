@@ -75,7 +75,7 @@ class Portfoliomodel extends CI_Model {
 			$name = str_replace('.png', '_thumb.png', $item->image_url);
 			$thumb_file = 'assets/i/items/' . $name;
 
-			if ( !file_exists( $thumb_file ) ) {
+			if ( !file_exists( $thumb_file ) ) { 
 
 				if( isset( $item->image_url ) ) {
 

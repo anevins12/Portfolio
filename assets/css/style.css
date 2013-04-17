@@ -242,8 +242,12 @@ nav#global li#other a:hover {
 }
 
 #container .title h3 {
-	background: #F15A22 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPXr1/3YUQWAwloampugQvCBECKwILIAmBBdAGQIACjUBLXTfw7qAAAAABJRU5ErkJggg==");
+	background: #333 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPXr1/3YUQWAwloampugQvCBECKwILIAmBBdAGQIACjUBLXTfw7qAAAAABJRU5ErkJggg==");
 }
+
+.front-end #container .title h3 { background-color: #f15a22; }
+.ux #container .title h3 { background-color: #B2D235; }
+.other #container .title h3 { background-color: #AB4A9C; }
 
 #container .title h3,
 #container .title p {
@@ -260,9 +264,17 @@ nav#global li#other a:hover {
 #container .col h4 {
 	padding: 10px 0;
 	text-align: center;
-	border-bottom: 1px solid #F15A22;
+	border-bottom: 1px solid #333;
 }
+
+.front-end #container .col h4 { border-color: #f15a22; }
+.ux #container .col h4 { border-color: #B2D235; }
+.other #container .col h4 { border-color: #AB4A9C; }
 
 #container .col ul {
 	margin-top: 10px;
+}
+
+#container .col li {
+	margin-bottom: 17px;
 }

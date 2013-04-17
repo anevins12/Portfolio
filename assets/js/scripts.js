@@ -27,23 +27,23 @@ function getItems( category ) {
 			var hoverHtml = '<h4>' + v.name + '</h4><p>' + v.desc + '</p>';
 
 			if (v.subCat == 'CodeIgniter') {
-				$('#codeigniter ul').append(html);
+				$('#codeigniter ul').append(html).hide().slideDown();
 			}
 
 			if (v.subCat == 'WordPress') {
-				$('#wordpress ul').append(html);
+				$('#wordpress ul').append(html).hide().slideDown();
 			}
 
 			if (v.subCat == 'Custom') {
-				$('#custom ul').append(html);
+				$('#custom ul').append(html).hide().slideDown();
 			}
 
 			if (v.subCat == 'App') {
-				$('#app ul').append(html);
+				$('#app ul').append(html).hide().slideDown();
 			}
 
 			if (v.subCat == 'Software') {
-				$('#software ul').append(html);
+				$('#software ul').append(html).hide().slideDown();
 			}
 		});
 

@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-	<head>
-		<title></title>
-		<link href="<?php echo base_url(); ?>/assets/css/jquery.fancybox.css" rel="stylesheet" />
-		<link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet" />
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url()?>/assets/js/jquery.fancybox.pack.js"></script>
-	</head>
 
 	<body class="front-end">
 		
@@ -85,6 +75,9 @@
 		</div>
 
 	</body>
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>/assets/js/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="<?php echo base_url()?>/assets/js/scripts.js"></script>
 	<script>
 		

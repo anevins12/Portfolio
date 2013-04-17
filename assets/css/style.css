@@ -261,6 +261,10 @@ nav#global li#other a:hover {
 	background-position: right 50px;
 }
 
+#container .col:last-child {
+	background: none;
+}
+
 #container .col h4 {
 	padding: 10px 0;
 	text-align: center;

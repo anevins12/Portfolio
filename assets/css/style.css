@@ -391,6 +391,10 @@ footer hgroup {
 	float: left;
 }
 
+footer h6 {
+	margin-top: 2px;
+}
+
 footer nav {
 	float: right;
 }

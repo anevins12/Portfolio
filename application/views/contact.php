@@ -42,8 +42,8 @@
 					if ( !empty( $errors ) ) {
 
 						?>
-						<div class="errprs"
-							<h5>Hang on</h5>
+						<div class="errors">
+							<h5>Hold on</h5>
 							<ul>
 
 							<?php
@@ -62,95 +62,59 @@
 
 					}
 					
-					echo form_open('/contact/send') ;
+					if ( !$success ) {
+						echo form_open('/contact/send') ;
+						extract( $_POST );
+						if ( !isset( $name ) ) $name = 'Your name';
+						if ( !isset( $email ) ) $email = 'Your contact email';
+						if ( !isset( $msg ) ) $msg = 'Your message';
 
-					$data = array(
-					  'name'        => 'name',
-					  'id'          => 'name',
-					  'value'       => 'Your name',
-					  'maxlength'   => '100',
-					  'size'        => '50',
-					  'style'       => 'width: 99.5%',
-					);
+						$data = array(
+						  'name'        => 'name',
+						  'id'          => 'name',
+						  'value'       => $name,
+						  'maxlength'   => '100',
+						  'size'        => '50'
+						);
 
-					echo form_input($data);
+						echo form_input($data);
 
-					$data = array(
-					  'name'        => 'email',
-					  'id'          => 'email',
-					  'value'       => 'Your contact email',
-					  'maxlength'   => '100',
-					  'size'        => '100',
-					  'style'       => 'width: 99.5%',
-					);
+						$data = array(
+						  'name'        => 'email',
+						  'id'          => 'email',
+						  'value'       => $email,
+						  'maxlength'   => '100',
+						  'size'        => '100'
+						);
 
-					echo form_input($data);
+						echo form_input($data);
 
-					$data = array(
-					  'name'        => 'msg',
-					  'id'          => 'msg',
-					  'value'       => 'Your message',
-					  'style'       => 'width: 99.5%', 'height: 300px'
-					);
+						$data = array(
+						  'name'        => 'msg',
+						  'id'          => 'msg',
+						  'value'       => $msg
+						);
 
-					echo form_textarea($data);
-					echo form_submit('submit', 'Send message');
+						echo form_textarea($data);
+						echo form_submit('submit', 'Send message');
 
-					echo form_close();
+						echo form_close();
+					}
+					else {
+						?>
+					<div class="success">
+						<h5>Message sent</h5>
+						<p>Thanks for taking the time to message me.</p>
+						<p>I may contact you promptly via email to the address you provided in the form.</p>
+					</div>
+						<?php
+					}
 					?>
 
 				</div>
 				<div class="col small">
 					<h4>Whereabouts</h4>
 					<img src="/assets/i/map.png" alt="Bristol" class="me" />
-				</div>
-
-				<div class="hobbies">
-					<h5>What I like to do</h5>
-					<div class="col">
-						<h6>Take pictures of stuff</h6>
-						<p>
-							Yeah, I'm not a photographer but just another fan of Instagram.
-						</p>
-						<p>
-							I did however like taking photos of stuff before Instagram came out ;)
-						</p>
-						<h6><a href="http://web.stagram.com/n/andrewn12/">My Instagram Feed</a></h6>
-					</div>
-
-					<div class="col">
-						<h6>Swim</h6>
-						<p>
-							After training for a swimming test for a canoe club,
-							I've discovered how great swimming is! No, really, I'm serious, but not really.
-						</p>
-						<p>
-							I'm not competitive, but I find swimming really helps relieve stress.
-						</p>
-					</div>
-
-					<div class="col">
-						<h6>Help WordPress</h6>
-						<p>
-							9 months ago I needed some help on WordPress.org's forums.
-							I didn't get an answer, but I found I could answer other people. Great!
-							I felt useful.
-						</p>
-						<p>
-							Ever since then, I've been helping people out with basic WordPress stuff, but mainly it's CSS and HTML support.
-						</p>
-						<p>
-							I've even been given an Administrator account :)
-						</p>
-						<h6><a href="http://wordpress.org/support/profile/anevins">My WordPress profile</a></h6>
-					</div>
-
-					<div class="col">
-						<h6>Other</h6>
-						<p>
-							I do have other hobbies, but I think I'll be going OTT with this page if I say them all.
-						</p>
-					</div>
 				</div>
 
 			</div>
@@ -163,11 +127,11 @@
 				</hgroup>
 				<nav>
 					<ul>
-						<li class="last"><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
-						<li class="front-end last"><a href="">Front-end</a></li>
-						<li><a href="">User experience</a></li>
-						<li><a href="">Other stuff</a></li>
+						<li class="last"><a href="/about">About</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li class="front-end last"><a href="/items">Front-end</a></li>
+						<li><a href="/items/ux">User experience</a></li>
+						<li><a href="/items/other">Other stuff</a></li>
 					</ul>
 				</nav>
 			</footer>
@@ -186,14 +150,9 @@
 				$this = $(this);
 				if ($this.val() == 'Your message' || $this.val() == 'Your contact email' || $this.val() == 'Your name') {
 					$(this).val('');
+					$(this).css("color", "#4F4F51");
 				}
 			});
-			$('form').submit(function() {
-				console.log(this);
-				if ($this.val() == 'Your message' || $this.val() == 'Your contact email' || $this.val() == 'Your name') {
-					$(this).val('');
-				}
-			})
 		});
 
 	</script>

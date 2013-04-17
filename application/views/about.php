@@ -116,11 +116,11 @@
 				</hgroup>
 				<nav>
 					<ul>
-						<li class="last"><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
-						<li class="front-end last"><a href="">Front-end</a></li>
-						<li><a href="">User experience</a></li>
-						<li><a href="">Other stuff</a></li>
+						<li class="last"><a href="/about">About</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li class="front-end last"><a href="/items">Front-end</a></li>
+						<li><a href="/items/ux">User experience</a></li>
+						<li><a href="/items/other">Other stuff</a></li>
 					</ul>
 				</nav>
 			</footer>

@@ -218,6 +218,8 @@ nav#global li.selected {
 
 nav#global li a {
 	border-radius: 53.5px;
+	-moz-border-radius: 53.5px;
+	-webkit-border-radius: 53.5px;
 	width: 107px;
 	height: 107px;
 	float: left;
@@ -313,15 +315,12 @@ header nav .pointer {
 #container .col:nth-child(2),
 #container .col:nth-child(4) {
 	background: url("/assets/i/vert-separator.png") no-repeat;
-	background-position-y: 90px;
+	background-position: 288px 90px;
 }
 
-#container .col:nth-child(2) {
-	background-position-x: 288px;
-}
 
 #container .col:nth-child(4) {
-	background-position-x: 19px;
+	background-position: 19px 90px;
 }
 
 #container .col:nth-child(3) {
@@ -447,10 +446,87 @@ header nav .pointer {
 
 /* CONTACT page */
 
-input {
+input[type="text"],
+textarea {
 	border: 0;
 	-webkit-box-shadow: inset 0px 3px 5px 0px #cccccc;
 	box-shadow: inset 0px 3px 5px 0px #cccccc;
+	padding: 10px;
+	width: 609px;
+	border-bottom: 1px solid #eee;
+	font-family: georgia;
+	font-style: italic;
+	font-size: 1.1em;
+	color: #ccc;
+	margin: 7px 0;
+}
+
+textarea {
+	height: 100px;
+}
+
+input {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	float: right;
+	width: auto;
+	padding: 10px;
+	font-size: 1.1em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: #f15922;
+	background: -moz-linear-gradient(
+		top,
+		#ff7e4f 0%,
+		#f15922);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ff7e4f),
+		to(#f15922));
+	border: 1px solid #9e2c03;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(138,138,138,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+	margin-right: 0;
+	cursor: pointer;
+}
+
+.errors,
+.success {
+	padding: 10px;
+	background: #eee;
+}
+
+.errors h5,
+.success h5 {
+	font-style: normal;
+	font-family: arial;
+}
+
+#container .col .errors li {
+	margin: 5px 0;
+	color: red;
+}
+
+.success h5 {
+	margin-top: 10px;
+	color: #80cb2a;
+	font-weight: bold;
+	font-size: 1.4em;
 }
 
 

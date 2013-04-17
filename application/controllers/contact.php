@@ -20,21 +20,24 @@ class Contact extends CI_Controller {
 	}
 
 	public function index() {
-		$this->form_validation->set_rules('name', 'name', 'required');
-		$this->form_validation->set_rules('email', 'email', 'required');
-		$this->form_validation->set_rules('msg', 'message', 'required');
+		$this->form_validation->set_rules( 'name', 'name', 'required' );
+		$this->form_validation->set_rules( 'email', 'email', 'required' );
+		$this->form_validation->set_rules( 'msg', 'message', 'required' );
 
-		$this->load->view('header');
-		$this->load->view('contact');
+		$data['success'] = false;
+		$this->load->view( 'header' );
+		$this->load->view( 'contact', $data );
 	}
 
 	public function send() {
+
 		$name = '';
 		$email = '';
 		$msg = '';
-		extract($_POST);
+		extract( $_POST );
 
-		$data['errors'] = array();
+		$data[ 'errors' ] = array();
+		$data[ 'success' ] = false;
 
 		if ( $name == 'Your name' || empty( $name ) ) {
 			$data['errors'][] = "Your name is empty";
@@ -48,8 +51,24 @@ class Contact extends CI_Controller {
 			$data['errors'][] = "Your message is empty";
 		}
 
+		if ( empty( $data['errors'] ) ) {
+
+			$email = 'andrew2.nevins@live.uwe.ac.uk';
+			$subject = "$name has entered your contact form";
+
+			$message = " Name: $name \n Email: $email \n Message: $msg";
+
+			mail( $email, $subject, $message);
+
+			$data['success'] = true;
+
+		}
+
 		$this->load->view('header');
 		$this->load->view('contact', $data);
+
 	}
+
+
 
 }

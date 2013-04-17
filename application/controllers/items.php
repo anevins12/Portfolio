@@ -31,6 +31,12 @@ class Items extends CI_Controller {
 		$this->load->view('ux');
 	}
 
+	public function other() {
+		$this->setItems();
+		$this->load->view('header');
+		$this->load->view('other');
+	}
+
 	public function getItem() {
 		echo $this->portfoliomodel->getPortfolioItem( 'Joe Tremlin Designs' );
 	}

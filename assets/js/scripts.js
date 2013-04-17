@@ -45,6 +45,18 @@ function getItems( category ) {
 			if (v.subCat == 'Software') {
 				$('#software ul').append(html).hide().slideDown();
 			}
+
+			if (v.subCat == 'Web Design') {
+				$('#webDesign ul').append(html).hide().slideDown();
+			}
+
+			if (v.subCat == 'Logo') {
+				$('#logo ul').append(html).hide().slideDown();
+			}
+
+			if (v.subCat == 'Illsutration') {
+				$('#illustration ul').append(html).hide().slideDown();
+			}
 		});
 
 	});

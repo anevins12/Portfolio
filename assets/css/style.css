@@ -292,21 +292,21 @@ header nav .pointer {
 	width: 315px;
 }
 
-#container .col#codeigniter,
-#container .col#custom {
+#container .col:nth-child(2),
+#container .col:nth-child(4) {
 	background: url("/assets/i/vert-separator.png") no-repeat;
 	background-position-y: 90px;
 }
 
-#container .col#codeigniter {
+#container .col:nth-child(2) {
 	background-position-x: 288px;
 }
 
-#container .col#custom {
+#container .col:nth-child(4) {
 	background-position-x: 19px;
 }
 
-#container .col#wordpress {
+#container .col:nth-child(3) {
 	width: 271px;
 }
 

@@ -10,6 +10,39 @@
 <portfolioItems>
 
 	<item>
+		<name>Web Developers Conference '13</name>
+		<desc>Designed for the Web Developers Conference in 2013 that is to occur in Bristol</desc>
+		<image_url>wdc.png</image_url>
+		<site_url>http://2013.webdevconf.com</site_url>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>Other</cat>
+		<subCat>Web Design</subCat>
+	</item>
+
+	<item>
+		<name>Action for Climate Control</name>
+		<desc>For a local newspaper in wales (uni project)</desc>
+		<image_url>eacc_colour.png</image_url>
+		<site_url>http://andrewnevins.co.uk/images/newsletter.pdf</site_url>
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
+		<name>Twin Cities</name>
+		<desc>To symbolise the link between two twinned cities (uni project)</desc>
+		<image_url>dsa_logo_colour.png</image_url>
+		<site_url />
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
 		<name>Literead App Design</name>
 		<desc>App to help students manage their reading</desc>
 		<image_url>literead.png</image_url>

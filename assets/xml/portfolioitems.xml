@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : portfolioitems.xml
+    Created on : 12 April 2013, 12:05
+    Author     : andrew
+    Description: All portfolio items.
+-->
+
+<portfolioItems>
+
+	<item>
+		<name>Literead App Design</name>
+		<desc>App to help students manage their reading</desc>
+		<image_url>joetremlin_home_large.png</image_url>
+		<site_url/>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>UX</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+	<item>
+		<name>Final Year Project</name>
+		<desc>Produced data visualisations showing mood in the UK from Twitter</desc>
+		<image_url>http://snag.gy/H3Jr8.jpg</image_url>
+		<site_url>http://snag.gy/H3Jr8.jpg</site_url>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>Front-End</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+	<item>
+		<name>Joe Tremlin Designst</name>
+		<desc>A freelance project, design and development</desc>
+		<image_url>joetremlin_home_large.png</image_url>
+		<site_url>http://joetremlindesigns.co.uk</site_url>
+		<uni>no</uni>
+		<year>3</year>
+		<cat>Front-End</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+	<item>
+		<name>MJM Wood Machinery</name>
+		<desc>Design comps built into static template and converted to CodeIgniter</desc>
+		<image_url>mjm_home_large.png</image_url>
+		<site_url>http://www.mjmwoodmachines.com/</site_url>
+		<uni>no</uni>
+		<year>3</year>
+		<cat>Front-End</cat>
+		<subCat>CodeIgniter</subCat>
+	</item>
+
+	<item>
+		<name>Bristol Nights</name>
+		<desc>Design comps built into static template and separated to WordPress templates</desc>
+		<image_url>bnights_home_large.png</image_url>
+		<site_url>http://www.bristolnights.com/</site_url>
+		<uni>no</uni>
+		<year>3</year>
+		<cat>Front-End</cat>
+		<subCat>CodeIgniter</subCat>
+	</item>
+
+	<item>
+		<name>Sandford Festival</name>
+		<desc>Design and development of the Sandford Folk Festival website.</desc>
+		<image_url>wdp2_large_home.png</image_url>
+		<site_url>http://joetremlindesigns.co.uk</site_url>
+		<uni>yes</uni>
+		<year>2</year>
+		<cat>Front-End</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+	<item>
+		<name>Organic Fruit Shop</name>
+		<desc>Design and development of an organic fruit shop website.</desc>
+		<image_url>wp_large_exotic.png</image_url>
+		<site_url></site_url>
+		<uni>yes</uni>
+		<year>2</year>
+		<cat>Front-End</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+	<item>
+		<name>Morgan &amp; Allen Developments</name>
+		<desc>Design and development of an energy saving consultant organisation.</desc>
+		<image_url>m_a_product_large.png</image_url>
+		<site_url>http://www.morgan-allen.co.uk</site_url>
+		<uni>yes</uni>
+		<year>2</year>
+		<cat>Front-End</cat>
+		<subCat>Custom</subCat>
+	</item>
+
+
+</portfolioItems>

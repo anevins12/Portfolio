@@ -1,0 +1,268 @@
+/* 
+    Document   : style
+    Created on : 16-Apr-2013, 21:59:57
+    Author     : andrew
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "/assets/css/resets.css";
+
+body,
+.title p {
+	font-family: georgia;
+}
+
+.clear {
+	clear: left;
+}
+
+li:first-child,
+header nav#supplementary li:first-child,
+nav#global li:first-child{
+	margin-left: 0;
+}
+
+li:last-child,
+header nav#supplementary li:last-child,
+nav#global li:last-child {
+	margin-right: 0;
+}
+
+p, li, h1, h3, h4, h5 {
+	font-family: arial, sans-serif;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a,
+a:link,
+a:visited {
+	color: #464747;
+}
+
+li {
+	font-weight: bold;
+	font-size: 0.78em;
+}
+
+li a {
+	border-bottom: 1px solid #464747;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 2.8em;
+}
+
+h1, h2 {
+	text-align: right;
+	background: #eee;
+}
+
+h2,
+.title p {
+	font-style: italic;
+	font-weight: normal;
+}
+
+h2, h3, h5 {
+	font-size: 1.25em;
+}
+
+h6 {
+	font-size: 1.333em;
+}
+
+.title p {
+	font-size: 1.2em;
+}
+
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+h1, h4 {
+	color: #4F4F51;
+}
+
+.title h3 {
+	color: #fcfcfc;
+}
+
+h2, .title p {
+	color: #414042;
+}
+
+h3 {
+	color: #231F20;
+}
+
+
+#wrapper {
+	width: 900px;
+	margin: 0 auto;
+}
+
+
+
+
+
+/* ---------- HEADER ---------- */
+/* ---------------------------- */
+header {
+	border-top: 10px solid #333434;
+	padding-top: 20px;
+	overflow: hidden;
+}
+
+header nav#supplementary {
+	height: 48px;
+}
+
+header nav#supplementary ul {
+	float: right;
+}
+
+header nav#supplementary li {
+	margin: 0 12px;
+}
+
+header hgroup {
+	width: 324px;
+}
+
+header hgroup h1 {
+	margin-bottom: 0;
+}
+
+header hgroup h2 {
+	margin-top: 10px;
+}
+
+header hgroup h1,
+header hgroup h2 {
+	float: right;
+	padding: 3px 10px;
+}
+
+nav#global {
+	width: 510px;
+	float: right;
+	padding-bottom: 31px;
+}
+
+nav#global ul {
+	float: right;
+}
+
+nav ul,
+nav a {
+	display: block;
+}
+
+nav li,
+header hgroup {
+	float: left;
+}
+
+nav#global li {
+	background: url("/assets/i/nav-bg.png") no-repeat;
+	width: 136px;
+	height: 136px;
+	margin: 0 18px;
+}
+
+nav#global li.selected {
+	background: url("/assets/i/nav-bg.png"), url("/assets/i/nav-bg-selected.png") no-repeat;
+}
+
+nav#global li a {
+	border-radius: 53.5px;
+	width: 107px;
+	height: 107px;
+	float: left;
+	margin: 15px 14px 15px 15px;
+
+	background-position: center center;
+	line-height: 128px;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	border-bottom: 0;
+}
+
+nav#global li#front a {
+	background: #F15A22 url("/assets/i/front-end-icon.png") no-repeat;
+}
+
+nav#global li#ux a {
+	background: #B2D235 url("/assets/i/ux-icon.png") no-repeat;
+}
+
+nav#global li#other a {
+	background: #AB4A9C url("/assets/i/other-icon.png") no-repeat;
+}
+
+nav#global li#front a,
+nav#global li#ux a,
+nav#global li#other a {
+	background-position: 37px 28px;
+}
+
+nav#global li#front a:hover,
+nav#global li#ux a:hover,
+nav#global li#other a:hover {
+	background-color: #4F4F51;
+	-webkit-transition-property: background;
+	-webkit-transition-duration: .4s
+} 
+/* ---------------------------- */
+/* ---------- //HEADER -------- */
+
+
+
+
+
+/* ----------- CONTAINER -------- */
+/* ------------------------------ */
+
+#container .title {
+	background: #eee;
+	margin-bottom: 30px;
+}
+
+#container .title h3 {
+	background: #F15A22 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPXr1/3YUQWAwloampugQvCBECKwILIAmBBdAGQIACjUBLXTfw7qAAAAABJRU5ErkJggg==");
+}
+
+#container .title h3,
+#container .title p {
+	padding: 10px 15px 10px;
+}
+
+#container .col {
+	float: left;
+	width: 290px;
+	background: url("/assets/i/vert-separator.png") no-repeat;
+	background-position: right 50px;
+}
+
+#container .col h4 {
+	padding: 10px 0;
+	text-align: center;
+	border-bottom: 1px solid #F15A22;
+}
+
+#container .col ul {
+	margin-top: 10px;
+}

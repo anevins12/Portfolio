@@ -324,7 +324,7 @@ header nav .pointer {
 	margin-top: 10px;
 }
 
-#container .col#custom ul {
+#container .col:nth-child(4) ul {
 	float: right;
 }
 

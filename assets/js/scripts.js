@@ -54,7 +54,7 @@ function getItems( category ) {
 				$('#logo ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Illsutration') {
+			if (v.subCat == 'Illustration') {
 				$('#illustration ul').append(html).hide().slideDown();
 			}
 		});

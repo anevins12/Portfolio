@@ -21,6 +21,62 @@
 	</item>
 
 	<item>
+		<name>Uncontainable Excitement</name>
+		<desc>Just for fun and utilising Illustrator's brushes</desc>
+		<image_url>box.png</image_url>
+		<site_url />
+		<uni>no</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Illustration</subCat>
+	</item>
+
+	<item>
+		<name>Green Fingers</name>
+		<desc>A reward card if students were to recycle</desc>
+		<image_url>greenfingers_colour.png</image_url>
+		<site_url/>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>Other</cat>
+		<subCat>Illustration</subCat>
+	</item>
+
+	<item>
+		<name>Information Overload</name>
+		<desc>A poster describing how not to make posters</desc>
+		<image_url>overload-poster.png</image_url>
+		<site_url>http://andrewnevins.co.uk/images/infooverload2.pdf</site_url>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>Other</cat>
+		<subCat>Illustration</subCat>
+	</item>
+
+
+	<item>
+		<name>Abstract Landscape</name>
+		<desc>Trying to replicate landscape in Illustrator's brushes</desc>
+		<image_url>landscape.png</image_url>
+		<site_url/>
+		<uni>no</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Illustration</subCat>
+	</item>
+
+	<item>
+		<name>Erewhon Action on Climate Control poster</name>
+		<desc>A poster describing how to prevent climate control locally</desc>
+		<image_url>eacc_newsletter.png</image_url>
+		<site_url>http://andrewnevins.co.uk/images/newsletter.pdf</site_url>
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Illustration</subCat>
+	</item>
+	
+	<item>
 		<name>Action for Climate Control</name>
 		<desc>For a local newspaper in wales (uni project)</desc>
 		<image_url>eacc_colour.png</image_url>
@@ -38,6 +94,50 @@
 		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
+		<name>Coventry &amp; Cork</name>
+		<desc>Just another variation to show the link between two twinned cities (uni project)</desc>
+		<image_url>covcork_colour.png</image_url>
+		<site_url />
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
+		<name>Incolour</name>
+		<desc>A spectrum of colours made for fun</desc>
+		<image_url>incolour_colour.png</image_url>
+		<site_url />
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
+		<name>Smalltown Books</name>
+		<desc>For a bookshop website (uni project)</desc>
+		<image_url>smalltown_colour.png</image_url>
+		<site_url />
+		<uni>yes</uni>
+		<year>1</year>
+		<cat>Other</cat>
+		<subCat>Logo</subCat>
+	</item>
+
+	<item>
+		<name>WeFloor</name>
+		<desc>Experiment for a flooring organisation</desc>
+		<image_url>wefloor_colour.png</image_url>
+		<site_url />
+		<uni>no</uni>
+		<year>2</year>
 		<cat>Other</cat>
 		<subCat>Logo</subCat>
 	</item>

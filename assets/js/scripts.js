@@ -1,7 +1,7 @@
-function getFrontEndItems() {
+function getItems( category ) {
 	
 	var items;
-	$.get("/index.php/items/getCategoryItems/Front-End?callback=?", function(items){
+	$.get("/index.php/items/getCategoryItems/" + category + "?callback=?", function(items){
 
 		items = $.parseJSON(items);
 
@@ -36,6 +36,14 @@ function getFrontEndItems() {
 
 			if (v.subCat == 'Custom') {
 				$('#custom ul').append(html);
+			}
+
+			if (v.subCat == 'App') {
+				$('#app ul').append(html);
+			}
+
+			if (v.subCat == 'Software') {
+				$('#software ul').append(html);
 			}
 		});
 

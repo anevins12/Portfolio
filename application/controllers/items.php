@@ -22,7 +22,13 @@ class Items extends CI_Controller {
 	public function index() {
 		$this->setItems();
 		$this->load->view('header');
-		$this->load->view('items');
+		$this->load->view('front-end');
+	}
+
+	public function ux() {
+		$this->setItems();
+		$this->load->view('header');
+		$this->load->view('ux');
 	}
 
 	public function getItem() {
@@ -37,7 +43,7 @@ class Items extends CI_Controller {
 
 	public function getCategoryItems ( $category ) {
 		$this->setItems();
-		$categoryItems = $this->portfoliomodel->getPortfolioItemsFromCategory( $category ); 
+		$categoryItems = $this->portfoliomodel->getPortfolioItemsFromCategory( $category );
 		echo $categoryItems;
 	}
 

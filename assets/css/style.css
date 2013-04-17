@@ -224,7 +224,7 @@ nav#global li#ux a:hover,
 nav#global li#other a:hover {
 	background-color: #4F4F51;
 	-webkit-transition-property: background;
-	-webkit-transition-duration: .4s
+	-webkit-transition-duration: .3s
 } 
 /* ---------------------------- */
 /* ---------- //HEADER -------- */

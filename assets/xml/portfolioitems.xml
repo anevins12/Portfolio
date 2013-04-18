@@ -46,7 +46,7 @@
 		<name>Information Overload</name>
 		<desc>A poster describing how not to make posters</desc>
 		<image_url>overload-poster.png</image_url>
-		<site_url>http://andrewnevins.co.uk/images/infooverload2.pdf</site_url>
+		<site_url>http://new.andrewnevins.co.uk/assets/i/infooverload2.pdf</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>Other</cat>
@@ -69,7 +69,7 @@
 		<name>Erewhon Action on Climate Control poster</name>
 		<desc>A poster describing how to prevent climate control locally</desc>
 		<image_url>eacc_newsletter.png</image_url>
-		<site_url>http://andrewnevins.co.uk/images/newsletter.pdf</site_url>
+		<site_url>http://new.andrewnevins.co.uk/assets/i/newsletter.pdf</site_url>
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>Other</cat>
@@ -157,7 +157,7 @@
 		<name>Bristol Harbour Festival</name>
 		<desc>This project involved designing a graphical user interface for a touch-screen based information system, for the Bristol Harbour Festival. The interface was designed following the usability principles of Norman and Nielsen.</desc>
 		<image_url>hci_large.png</image_url>
-		<site_url>http://andrewnevins.co.uk/images/hci.pdf</site_url>
+		<site_url>http://new.andrewnevins.co.uk/assets/i/hci.pdf</site_url>
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>UX</cat>
@@ -184,10 +184,11 @@
 		<year>4</year>
 		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
+		<featured/>
 	</item>
 
 	<item>
-		<name>Joe Tremlin Designst</name>
+		<name>Joe Tremlin Designs</name>
 		<desc>A freelance project, design and development</desc>
 		<image_url>joetremlin_home_large.png</image_url>
 		<site_url>http://joetremlindesigns.co.uk</site_url>

@@ -9,16 +9,25 @@ function getItems( category ) {
 
 			if (typeof(v.site_url) == "object"){
 				var span = '';
+				var title = '<h4>' + v.name + '</h4>';
 			}
 			else { 
 				var link = v.site_url;
 				var span = '<a href="' + link + '" class="link"></a>';
-				
+				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';	
+			}
+
+			if (typeof(v.featured) == 'object') {
+				var featured = '<span class="featured">Final Year Project</span>';
+			}
+			else {
+				var featured = '';
 			}
 
 			var html = '<li>\n\
+							' + title + '	\n\
 							<a class="fancybox" href="/assets/i/items/' + v.image_url + '" title="' + v.name + '"> '
-								+ '<img src="' + v.thumb_url + '" alt="' + v.name + '"/>\n\
+								+ '<img src="' + v.thumb_url + '" alt="' + v.name + '"/>' + featured + '\n\
 							</a> \n\ \n\ '
 							 + span + '  \n\
 							<p class="desc">' + v.desc + '</p>	\n\

@@ -19,7 +19,8 @@ p {
 
 .title p {
 	margin: 0;
-	line-height: 1em;
+	padding: 6px 15px 10px;
+	line-height: 1.5em;
 }
 
 body,
@@ -141,7 +142,6 @@ h3 {
 
 
 header,
-#container,
 footer {
 	overflow: hidden;
 }
@@ -180,7 +180,7 @@ header hgroup h2 {
 
 header hgroup h1,
 header hgroup h2 {
-	float: right;
+	float: left;
 	padding: 3px 10px;
 }
 
@@ -283,6 +283,7 @@ header nav .pointer {
 /* ------------------------------ */
 #container {
 	margin-bottom: 40px;
+	float: left;
 }
 
 #container .title {
@@ -407,7 +408,11 @@ header nav .pointer {
 }
 
 #container .col li {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+#container .col li a {
 	position: relative;
 }
 
@@ -425,13 +430,29 @@ header nav .pointer {
 
 #container .col li .link {
 	position: absolute;
-	top: 10px;
+	top: 40px;
 	left: 10px;
 }
 
 #container .col li .desc {
-	display: none;
+	margin: 5px 0 0 0;
+	background: url("/assets/i/horiz-separator.png") no-repeat;
+	background-position: left bottom;
+	padding-bottom: 10px;
 }
+
+#container .col li h4,
+#container .col li .desc {
+	width: 265px;
+}
+
+#container .col li h4 {
+	border-bottom: 0;
+}
+
+.front-end #container .col li h4 a:hover { color: #f15a22; }
+.ux #container .col li h4 a:hover { color: #B2D235; }
+.other #container .col li h4 a:hover { color: #AB4A9C; }
 
 #container .col li .link {
 	height: 29px;
@@ -443,6 +464,26 @@ header nav .pointer {
 .front-end #container .col li .link:hover { background-image: url("/assets/i/link-icon-front-hover.png"); }
 .ux #container .col li .link:hover { background-image: url("/assets/i/link-icon-ux-hover.png"); }
 .other #container .col li .link:hover { background-image: url("/assets/i/link-icon-other-hover.png"); }
+
+.front-end #container .col li .featured { background-image: url("/assets/i/featured-front.png"); }
+.ux #container .col li .featured { background-image: url("/assets/i/featured-ux.png"); }
+.other #container .col li .featured { background-image: url("/assets/i/featured-other.png"); }
+
+#container .col li .featured {
+	display: block;
+	width: 322px;
+	height: 38px;
+	position: absolute;
+	bottom: 2px;
+	left: -25px;
+	background-repeat: no-repeat;
+
+	text-align: center;
+	vertical-align: middle;
+	line-height: 34px;
+	color: #fcfcfc;
+	font-size: 16px;
+}
 
 /* CONTACT page */
 
@@ -457,7 +498,7 @@ textarea {
 	font-family: georgia;
 	font-style: italic;
 	font-size: 1.1em;
-	color: #ccc;
+	color: #aaa;
 	margin: 7px 0;
 }
 
@@ -556,7 +597,7 @@ footer hgroup {
 }
 
 footer h6 {
-	margin-top: 2px;
+	margin-top: 5px;
 }
 
 footer nav {

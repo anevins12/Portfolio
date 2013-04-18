@@ -11,13 +11,26 @@
 
 	<item>
 		<name>Web Developers Conference '13</name>
-		<desc>Designed for the Web Developers Conference in 2013 that is to occur in Bristol</desc>
+		<desc>This site was designed for the Web Developers Conference in 2013 that is to occur in Bristol.</desc>
 		<image_url>wdc.png</image_url>
 		<site_url>http://2013.webdevconf.com</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>Other</cat>
 		<subCat>Web Design</subCat>
+		<featured />
+	</item>
+
+	<item>
+		<name>Online Library</name>
+		<desc>Uses an XML database and retrieves data through API interfaces. The DOM manipulated through jQuery GET requests. This site also implements HTML5 localstorage for caching.</desc>
+		<image_url>atwd.png</image_url>
+		<site_url>http://andrewnevins.co.uk/atwd/courses</site_url>
+		<uni>yes</uni>
+		<year>4</year>
+		<cat>Front-End</cat>
+		<subCat>CodeIgniter</subCat>
+		<featured />
 	</item>
 
 	<item>
@@ -144,13 +157,16 @@
 
 	<item>
 		<name>Literead App Design</name>
-		<desc>App to help students manage their reading</desc>
+		<desc>To help students manage their reading, an app was designed that provided students with their course literature and helped them make notes on that literature.
+		The problem we were trying to resolve was the messy uninified resource locations students have and how cumbersome it is to carry around physical copies of literature.
+		</desc>
 		<image_url>literead.png</image_url>
 		<site_url>http://andrewnevins.co.uk/id/</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>UX</cat>
 		<subCat>App</subCat>
+		<featured />
 	</item>
 	
 	<item>
@@ -177,7 +193,10 @@
 
 	<item>
 		<name>Twitter Happiness</name>
-		<desc>Produced data visualisations showing mood in the UK from Twitter</desc>
+		<desc>Produced data visualisations showing mood in the UK from Twitter. It utilises the D3js library to create bubble-like animations that can be interacted with. 
+		Cities are depicted in the United Kingdom with their averaged mood for the Christmas period. 
+		The application's sentiment analysis process was taken the Twitter Mood Predicts the Stock Market paper from Bollen et al. (2011), which meant it was hand-written into PHP from the paper.
+		</desc>
 		<image_url>dmp_large.png</image_url>
 		<site_url>http://andrewnevins.co.uk/application/view/all</site_url>
 		<uni>yes</uni>
@@ -189,7 +208,7 @@
 
 	<item>
 		<name>Joe Tremlin Designs</name>
-		<desc>A freelance project, design and development</desc>
+		<desc>A freelance project to design and develop a portfolio website for a graphic designer. </desc>
 		<image_url>joetremlin_home_large.png</image_url>
 		<site_url>http://joetremlindesigns.co.uk</site_url>
 		<uni>no</uni>

@@ -21,19 +21,22 @@ class Items extends CI_Controller {
 
 	public function index() {
 		$this->setItems();
-		$this->load->view('header');
+		$data['title'] = 'Front-End Developer Andrew Nevins';
+		$this->load->view('header',  $data);
 		$this->load->view('front-end');
 	}
 
 	public function ux() {
 		$this->setItems();
-		$this->load->view('header');
+		$data['title'] = 'User Experience work from Andrew Nevins';
+		$this->load->view('header', $data);
 		$this->load->view('ux');
 	}
 
 	public function other() {
 		$this->setItems();
-		$this->load->view('header');
+		$data['title'] = 'Other work from Andrew Nevins';
+		$this->load->view('header', $data);
 		$this->load->view('other');
 	}
 

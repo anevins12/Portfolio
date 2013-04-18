@@ -25,7 +25,8 @@ class Contact extends CI_Controller {
 		$this->form_validation->set_rules( 'msg', 'message', 'required' );
 
 		$data['success'] = false;
-		$this->load->view( 'header' );
+		$data['title'] = 'Contact Andrew Nevins';
+		$this->load->view( 'header', $data );
 		$this->load->view( 'contact', $data );
 	}
 
@@ -64,7 +65,8 @@ class Contact extends CI_Controller {
 
 		}
 
-		$this->load->view('header');
+		$data['title'] = 'Message sent to Andrew Nevins';
+		$this->load->view('header', $data);
 		$this->load->view('contact', $data);
 
 	}

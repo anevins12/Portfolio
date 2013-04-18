@@ -284,6 +284,7 @@ header nav .pointer {
 #container {
 	margin-bottom: 40px;
 	float: left;
+	width: 100%;
 }
 
 #container .title {
@@ -326,6 +327,11 @@ header nav .pointer {
 
 #container .col:nth-child(3) {
 	width: 271px;
+}
+
+#container .col img {
+	-webkit-box-shadow: 0 1px 3px 0 #ccc;
+	box-shadow: 0 1px 3px 0 #ccc;
 }
 
 /*ABOUT page*/

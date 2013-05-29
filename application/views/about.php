@@ -6,7 +6,7 @@
 			<header>
 				<nav id="supplementary">
 					<ul>
-						<li><a href="/about/">About</a></li>
+						<li class="selected"><a href="/about/">About</a></li>
 						<li><a href="/contact/">Contact</a></li>
 					</ul>
 				</nav>
@@ -45,8 +45,7 @@
 						I worked with two web agencies, both based in Bristol.
 					</p>
 					<p>
-						I'm just about to finish my University course of Web Design,
-						expecting a 1st degree grade and am looking forward to a career in Front-End Development.
+						I'm just about to finish my University course and am expecting a 1st degree grade. I am also looking forward to a career in Front-End Development.
 					</p>
 				</div>
 				<div class="col small">

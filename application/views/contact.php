@@ -7,7 +7,7 @@
 				<nav id="supplementary">
 					<ul>
 						<li><a href="/about/">About</a></li>
-						<li><a href="/contact/">Contact</a></li>
+						<li class="selected"><a href="/contact/">Contact</a></li>
 					</ul>
 				</nav>
 				<div class="clear">
@@ -47,19 +47,30 @@
 							<ul>
 
 							<?php
-							foreach ( $errors as $error ) {
-							?>
-								<li>
-								<?php echo $error; ?>
-								</li>
 
-								<?php
-							}
-							?>
+								foreach ( $errors as $error ) {
+								?>
+									<li>
+									<?php echo $error; ?>
+									</li>
+
+									<?php
+								}
+								?>
 							</ul>
 						</div>
 						<?php
 
+					}
+
+					if ( $bozo ) {
+						?>
+
+						<div id="nope">
+							<p>Nope.</p>
+						</div>
+
+						<?php
 					}
 					
 					if ( !$success ) {

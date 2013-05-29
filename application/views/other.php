@@ -82,7 +82,7 @@
 
 		jQuery(document).ready(function($) {
 
-			getItems('Other');
+			getItems('3');
 			$('.fancybox').fancybox();
 
 		});

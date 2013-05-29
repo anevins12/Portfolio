@@ -5,7 +5,7 @@ function getItems( category ) {
 
 		items = $.parseJSON(items);
 
-		$.each(items, function(k,v) {
+		$.each(items, function(k,v) { console.log(v);
 
 			if (typeof(v.site_url) == "object"){
 				var span = '';
@@ -14,7 +14,7 @@ function getItems( category ) {
 			else { 
 				var link = v.site_url;
 				var span = '<a href="' + link + '" class="link"></a>';
-				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';	
+				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';
 			}
 
 			if (typeof(v.featured) == 'object') {
@@ -66,7 +66,9 @@ function getItems( category ) {
 			if (v.subCat == 'Illustration') {
 				$('#illustration ul').append(html).hide().slideDown();
 			}
+			
 		});
+		
 
 	});
 
@@ -85,7 +87,27 @@ function getFooter() {
 			//can't get it working at the moment
 			//want to generate footer menu based on header menus
 
-
 	})
 
+}
+
+function followElement() {
+
+    var $sidebar   = $("#submit"),
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 15;
+
+    $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding
+            });
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0
+            });
+        }
+    });
+    
 }

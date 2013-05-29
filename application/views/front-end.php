@@ -83,9 +83,10 @@
 		
 		jQuery(document).ready(function($) {
 
-			getItems('Front-End');
-			$('.fancybox').fancybox();
+			getItems('1');
 
+			$('.fancybox').fancybox();
+			
 		});
 
 		

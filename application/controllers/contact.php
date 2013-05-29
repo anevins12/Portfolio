@@ -25,9 +25,11 @@ class Contact extends CI_Controller {
 		$this->form_validation->set_rules( 'msg', 'message', 'required' );
 
 		$data['success'] = false;
-		$data['title'] = 'Contact Andrew Nevins';
+		$data['bozo'] = false;
+		$data['title'] = 'Contact Andrew Nevins'; 
 		$this->load->view( 'header', $data );
 		$this->load->view( 'contact', $data );
+
 	}
 
 	public function send() {
@@ -39,6 +41,7 @@ class Contact extends CI_Controller {
 
 		$data[ 'errors' ] = array();
 		$data[ 'success' ] = false;
+		$data[ 'bozo' ] = false;
 
 		if ( $name == 'Your name' || empty( $name ) ) {
 			$data['errors'][] = "Your name is empty";
@@ -54,14 +57,26 @@ class Contact extends CI_Controller {
 
 		if ( empty( $data['errors'] ) ) {
 
-			$email = 'andrew2.nevins@live.uwe.ac.uk';
+			$send_email = 'andrew2.nevins@live.uwe.ac.uk';
 			$subject = "$name has entered your contact form";
+			$subject_ip = $this->input->ip_address();
+			$message = " Name: $name \n Email: $email \n IP: $subject_ip \n Message: $msg";
+			$badIPs = array('145.62.32.129','');
 
-			$message = " Name: $name \n Email: $email \n Message: $msg";
+			if ( !in_array($subject_ip, $badIPs) ) {
 
-			mail( $email, $subject, $message);
+				mail( $send_email, $subject, $message);
+				$data[ 'success' ] = true;
 
-			$data['success'] = true;
+			}
+
+			else {
+
+				$data[ 'success' ] = false;
+				$data[ 'bozo' ] = true;
+				mail( 'andrew2.nevins@live.uwe.ac.uk', 'Someone received your BOZO message', 'On your contact form, someone received your BOZO message for the IP of: ' . $subject_ip );
+				
+			}
 
 		}
 

@@ -1,0 +1,44 @@
+/* 
+    Document   : style.css
+    Created on : 29-May-2013, 13:55:41
+    Author     : andrew
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+label {
+	display: block;
+	clear: left;
+}
+
+h1 {
+	margin-bottom: 70px;
+}
+
+h1, h2 {
+	text-align: left;
+	padding: 10px;
+}
+
+h2 {
+	margin: 35px 0 10px 0;
+}
+
+form {
+	width: 70%;
+}
+
+#wrapper {
+	position: relative;
+}
+
+#submit {
+	position: absolute;
+	right: 0;
+	top: 260px;
+}

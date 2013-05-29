@@ -16,7 +16,7 @@
 		<site_url>http://2013.webdevconf.com</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Web Design</subCat>
 		<featured />
 	</item>
@@ -28,7 +28,7 @@
 		<site_url>http://andrewnevins.co.uk/atwd/courses</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
 		<featured />
 	</item>
@@ -40,9 +40,8 @@
 		<site_url />
 		<uni>no</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -52,9 +51,8 @@
 		<site_url/>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -64,9 +62,8 @@
 		<site_url>http://new.andrewnevins.co.uk/assets/i/infooverload2.pdf</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured />
 	</item>
 
 
@@ -77,9 +74,8 @@
 		<site_url/>
 		<uni>no</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -89,9 +85,8 @@
 		<site_url>http://new.andrewnevins.co.uk/assets/i/newsletter.pdf</site_url>
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured />
 	</item>
 	
 	<item>
@@ -101,9 +96,8 @@
 		<site_url>http://andrewnevins.co.uk/images/newsletter.pdf</site_url>
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -113,21 +107,19 @@
 		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
 		<name>Coventry &amp; Cork</name>
-		<desc>Just an3 variation to show the link between two twinned cities (uni project)</desc>
+		<desc>Just another variation to show the link between two twinned cities (uni project)</desc>
 		<image_url>covcork_colour.png</image_url>
 		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -137,9 +129,8 @@
 		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -149,9 +140,8 @@
 		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -161,9 +151,8 @@
 		<site_url />
 		<uni>no</uni>
 		<year>2</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -175,7 +164,7 @@
 		<site_url>http://andrewnevins.co.uk/id/</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>2</cat>
+		<cat>UX</cat>
 		<subCat>App</subCat>
 		<featured />
 	</item>
@@ -187,9 +176,8 @@
 		<site_url>http://new.andrewnevins.co.uk/assets/i/hci.pdf</site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>2</cat>
+		<cat>UX</cat>
 		<subCat>Software</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -199,9 +187,8 @@
 		<site_url/>
 		<uni>no</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
-		<featured />
 	</item>
 
 	<item>
@@ -214,7 +201,7 @@
 		<site_url>http://andrewnevins.co.uk/application/view/all</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
 		<featured/>
 	</item>
@@ -226,7 +213,7 @@
 		<site_url>http://joetremlindesigns.co.uk</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
 	</item>
 
@@ -237,7 +224,7 @@
 		<site_url>http://www.mjmwoodmachines.com/</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
 	</item>
 
@@ -248,7 +235,7 @@
 		<site_url></site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
 	</item>
 
@@ -259,7 +246,7 @@
 		<site_url>http://www.bristolnights.com/</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>WordPress</subCat>
 	</item>
 
@@ -270,7 +257,7 @@
 		<site_url/>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
 	</item>
 
@@ -281,7 +268,7 @@
 		<site_url></site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
 	</item>
 
@@ -292,7 +279,7 @@
 		<site_url>http://www.morgan-allen.co.uk</site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
 	</item>
 

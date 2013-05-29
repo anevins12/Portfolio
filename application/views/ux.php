@@ -6,8 +6,8 @@
 			<header>
 				<nav id="supplementary">
 					<ul>
-						<li><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/contact">Contact</a></li>
 					</ul>
 				</nav>
 				<div class="clear">
@@ -77,7 +77,7 @@
 
 		jQuery(document).ready(function($) {
 
-			getItems('UX');
+			getItems('2');
 			$('.fancybox').fancybox();
 
 		});

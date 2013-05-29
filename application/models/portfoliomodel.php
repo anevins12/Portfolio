@@ -14,20 +14,30 @@ class Portfoliomodel extends CI_Model {
 	private $portfolioItems = array();
 	
 	public function __construct() {
-           parent::__construct();
-    }
+	    
+		parent::__construct();
+		
+		$this->load->helper('url');
+		$items = simplexml_load_file( base_url() . "assets/xml/portfolioitems.xml" );
 
-	public function setPortfolioItems( $items ) {
-
-		foreach ( $items as $item ) {
+		foreach ( $items->item as $item ) {
 			$this->portfolioItems[] = $item;
 		}
 
-	}
+    }
 
-	public function getPortfolioItems() {
+	public function getPortfolioItems( $front = false ) {
 
-	   return json_encode( $this->portfolioItems );
+		//Basically if being used on the front-end
+		if ( $front ) {
+
+			$this->load->model('categoriesmodel');
+			$categories = $this->categoriesmodel->getCategories();				
+			return json_encode( $this->portfolioItems );
+			
+		}
+
+		return $this->portfolioItems;
 		
 	}
 
@@ -47,7 +57,7 @@ class Portfoliomodel extends CI_Model {
 	public function getPortfolioItemsFromCategory( $category ) {
 
 		$categoryItems = array();
-		
+
 		foreach ( $this->portfolioItems as $item ) {
 
 			if ( $item->cat == $category ) { 
@@ -99,6 +109,18 @@ class Portfoliomodel extends CI_Model {
 
 		}
 		
+	}
+	
+	public function checkFile( $file ) {
+		if ( !$xml = simplexml_load_file( base_url() . $file ) ) {
+			return "Accessed Denied";
+		}
+		return $xml;
+	}
+	
+	private function backupFile( $file ) {
+		$this->portfoliomodel->checkFile( $file );
+		copy( realpath( $file ) , str_replace( '.xml', '', realpath( $file ) ) . '-' . date( "i-H-d-m-y" ) . '.xml' );
 	}
 
 }

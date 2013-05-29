@@ -151,7 +151,7 @@ footer {
 /* ---------------------------- */
 header {
 	border-top: 10px solid #333434;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 header nav#supplementary {
@@ -165,6 +165,18 @@ header nav#supplementary ul {
 header nav#supplementary li {
 	margin: 0 12px;
 }
+
+#supplementary a {
+	border-width: 3px;
+	border-color: #eee;
+	padding: 5px;
+}
+
+#supplementary a:hover,
+#supplementary .selected a {
+	border-color: #FFF200;
+}
+
 
 header hgroup {
 	width: 324px;
@@ -305,6 +317,10 @@ header nav .pointer {
 	padding: 10px 15px 10px;
 }
 
+#container .title p {
+	padding: 15px 17px;
+}
+
 #container .col {
 	float: left;
 	width: 313px;
@@ -316,7 +332,7 @@ header nav .pointer {
 
 #container .col:nth-child(2),
 #container .col:nth-child(4) {
-	background: url("/assets/i/vert-separator.png") no-repeat;
+	background: url("/assets/i/vert-separator.png") repeat-y;
 	background-position: 288px 90px;
 }
 
@@ -346,6 +362,14 @@ header nav .pointer {
 }
 
 .about #container .col.small {
+	width: 220px;
+}
+
+.about #container .large h4 {
+	width: 100%;
+}
+
+.about #container .small h4 {
 	width: 220px;
 }
 
@@ -392,7 +416,7 @@ header nav .pointer {
 .about #container .hobbies h5 {
 	padding: 10px 0;
 	border-bottom: 1px solid #333;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 }
 
 #container .col h4 {
@@ -405,8 +429,18 @@ header nav .pointer {
 .ux #container .col h4 { border-color: #B2D235; }
 .other #container .col h4 { border-color: #AB4A9C; }
 
+#container .col > h4 {
+	width: 265px;
+	float: left;
+	margin-bottom: 25px;
+}
+
+#container .col:nth-child(4) > h4 {
+	float: right;
+}
+
 #container .col ul {
-	margin-top: 10px;
+	clear: both;
 }
 
 #container .col:nth-child(4) ul {
@@ -492,6 +526,17 @@ header nav .pointer {
 }
 
 /* CONTACT page */
+.contact #container .large h4{
+	width: 100%;
+}
+
+.contact #container .small h4 {
+	width: 220px;
+}
+
+.contact #container .small img {
+	margin-top: 7px;
+}
 
 input[type="text"],
 textarea {
@@ -556,6 +601,8 @@ input[type="submit"] {
 .success {
 	padding: 10px;
 	background: #eee;
+	clear: left;
+	margin-bottom: 10px;
 }
 
 .errors h5,
@@ -612,9 +659,33 @@ footer nav {
 
 footer nav li {
 	float: right;
-	margin: 0 15px 15px;
+	margin: 0 10px 10px;
 }
 
 footer nav li.front-end {
 	clear: both;
+}
+
+#nope {
+	background: deeppink;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	height: 1000px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+/* MISC */
+#nope p {
+	color: white;
+	font-weight: bold;
+	font-size: 300px;
+}
+
+.overlay {
+	background: black;
 }

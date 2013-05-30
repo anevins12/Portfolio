@@ -6,7 +6,7 @@
 
 class Categoriesmodel extends CI_Model {
 
-	private $categories = array();
+	private $categories;
 
 	public function __construct() {
 
@@ -15,10 +15,10 @@ class Categoriesmodel extends CI_Model {
 		$this->load->helper('url');
 		$categories = simplexml_load_file( base_url() . "assets/xml/categories.xml" );
 
-		foreach ( $categories as $k => $v ) {
-			$this->categories[ ( string ) $v->attributes() ] = ( string ) $v;
+		foreach ( $categories->category as $k => $v ) {
+			$this->categories[] = array( $k => $v );
 		}
-
+		
 	}
 
 	public function getCategoryName( $id ) {
@@ -33,22 +33,30 @@ class Categoriesmodel extends CI_Model {
 
 	}
 
-	public function getCategories( $simpleXML = false) {
+	public function getCategories( $sub = false ) {
 
-		//Because you can't assign arrays to properties of a SimpleXMLObject,
-		//You need to first convert that array to a SimpleXMLObject.
-		//http://stackoverflow.com/questions/1397036/how-to-convert-array-to-simplexml
-		if ( $simpleXML ) {
+		foreach ( $this->categories as $category ) {
 
-			$xml = new SimpleXMLElement('<root/>');
-			array_walk_recursive($this->categories, array ($xml, 'addChild'));
+			$attributes = $category['category']->attributes();
 
-			return $xml;
+			if ( $attributes->sub == 'false' ) {
+				$mainCategories[ (string) $attributes->id ] = (string) $attributes->name;
+			}
+			else { 
+				$subCategories[ (string) $attributes->id ] = (string) $attributes->name;
+			}
 
 		}
 
-		return $this->categories;
+		if ( $sub ) {
+			return $subCategories;
+		}
+		
+		return $mainCategories;
+		
 	}
+
+
 }
 
 ?>

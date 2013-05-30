@@ -35,35 +35,35 @@ function getItems( category ) {
 
 			var hoverHtml = '<h4>' + v.name + '</h4><p>' + v.desc + '</p>';
 
-			if (v.subCat == 'CodeIgniter') {
+			if (v.subCat == '4') {
 				$('#codeigniter ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'WordPress') {
+			if (v.subCat == '5') {
 				$('#wordpress ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Custom') {
+			if (v.subCat == '6') {
 				$('#custom ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'App') {
+			if (v.subCat == '7') {
 				$('#app ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Software') {
+			if (v.subCat == '8') {
 				$('#software ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Web Design') {
+			if (v.subCat == '9') {
 				$('#webDesign ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Logo') {
+			if (v.subCat == '10') {
 				$('#logo ul').append(html).hide().slideDown();
 			}
 
-			if (v.subCat == 'Illustration') {
+			if (v.subCat == '11') {
 				$('#illustration ul').append(html).hide().slideDown();
 			}
 			

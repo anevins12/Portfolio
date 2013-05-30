@@ -154,7 +154,8 @@ class Portfoliomodel extends CI_Model {
 			$origItem[ 0 ]->name = $item[ 'title' ];
 			$origItem[ 0 ]->desc = $item[ 'description' ];
 			$origItem[ 0 ]->site_url = $item[ 'url' ];
-			$origItem[ 0 ]->cat = $item[ 'category' ];
+			$origItem[ 0 ]->cat = $item[ 'mainCategory' ];
+			$origItem[ 0 ]->subCat = $item[ 'subCategory' ];
 
 			if ( !isset( $item[ 'featured' ] ) ) {
 				$item[ 'featured' ] = 'false';

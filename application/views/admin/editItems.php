@@ -12,7 +12,7 @@
 	<div id="wrapper">
 		<h1> Your portfolio items </h1>
 		<?php
-
+		
 		foreach ( $items as $k => $v ) {
 
 			//Define undefined values (comes up as object in simpleXML)
@@ -25,7 +25,6 @@
 			if ( $v->featured != 'false') {
 				$featured = true;
 			}
-		
 
 		?>
 			<h2><?php echo $v->name ?></h2>
@@ -62,22 +61,18 @@
 			echo form_label('Website link', 'url');
 			echo form_input( $data );
 
-			$options = $category;
+			$options = $mainCategories;
 
-			echo form_label('Category', 'category');
-			echo form_dropdown( 'category', $options, $v->cat );
-
-			$data = array(
-				"name"        => "sub_category",
-				"id"          => "sub_category",
-				"value"       => $v->subCat
-			);
+			echo form_label('Category', 'mainCategory');
+			echo form_dropdown( 'mainCategory', $options, $v->cat );
 
 			echo form_label( 'Featured', 'featured' ); 
 			echo form_checkbox( 'featured', '' , $featured);
 
-			echo form_label('Sub-category', 'sub_category');
-			echo form_input( $data );
+			$options = $subCategories;
+
+			echo form_label('Sub-category', 'subCategory');
+			echo form_dropdown( 'subCategory', $options, $v->subCat );
 
 			echo form_submit('submit', 'Update', 'id="submit"');
 			echo form_close();

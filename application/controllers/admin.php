@@ -13,7 +13,8 @@
 class Admin extends CI_Controller {
 
 	private $items = array();
-	private $category = array();
+	private $mainCategories = array();
+	private $subCategories = array();
 
 	public function __construct() {
 		parent::__construct();
@@ -23,12 +24,14 @@ class Admin extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->items = $this->portfoliomodel->getPortfolioItems();
-		$this->category = $this->categoriesmodel->getCategories();
+		$this->mainCategories = $this->categoriesmodel->getCategories();
+		$this->subCategories = $this->categoriesmodel->getCategories( $sub = true ); 
 	}
 
 	public function index() {
 		$data['items'] = $this->items;
-		$data['category'] = $this->category;
+		$data['mainCategories'] = $this->mainCategories;
+		$data['subCategories'] = $this->subCategories;
 		$this->load->view( 'admin/editItems', $data );
 	}
 
@@ -45,7 +48,8 @@ class Admin extends CI_Controller {
 		htmlentities($url);
 
 		$data['items'] = $this->items;
-		$data['category'] = $this->category;
+		$data['mainCategories'] = $this->mainCategories;
+		$data['subCategories'] = $this->subCategories;
 		
 		if ( $this->portfoliomodel->updateItem( $_POST ) ) { 
 			$this->load->view( 'admin/editItems', $data );

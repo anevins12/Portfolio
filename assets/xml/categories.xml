@@ -10,8 +10,16 @@
 
 <categories>
 
-	<category id="1">Front-End</category>
-	<category id="2">UX</category>
-	<category id="3">Other</category>
-
+	<category sub="false" id="1" name="Front-End" />
+	<category sub="false" id="2" name="UX" />
+	<category sub="false" id="3" name="Other" />
+	<category sub="true" id="4" name="CodeIgniter" />
+	<category sub="true" id="5" name="WordPress" />
+	<category sub="true" id="6" name="Custom" />
+	<category sub="true" id="7" name="App" />
+	<category sub="true" id="8" name="Software" />
+	<category sub="true" id="9" name="Web Design" />
+	<category sub="true" id="10" name="Logo" />
+	<category sub="true" id="11" name="Illustration" />
+	
 </categories>

@@ -15,8 +15,8 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>3</cat>
-		<subCat>Web Design</subCat>
-		<featured>false</featured>
+		<subCat>9</subCat>
+		<featured></featured>
 	</item>
 
 	<item id="2">
@@ -27,7 +27,7 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>1</cat>
-		<subCat>CodeIgniter</subCat>
+		<subCat>4</subCat>
 		<featured>true</featured>
 	</item>
 
@@ -39,7 +39,7 @@
 		<uni>no</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Illustration</subCat>
+		<subCat>11</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -51,7 +51,7 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>3</cat>
-		<subCat>Illustration</subCat>
+		<subCat>11</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -63,7 +63,7 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>3</cat>
-		<subCat>Illustration</subCat>
+		<subCat>11</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -75,7 +75,7 @@
 		<uni>no</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Illustration</subCat>
+		<subCat>11</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -87,7 +87,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Illustration</subCat>
+		<subCat>11</subCat>
 		<featured>false</featured>
 	</item>
 	
@@ -99,7 +99,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -111,7 +111,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -123,7 +123,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -135,7 +135,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -147,7 +147,7 @@
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -159,7 +159,7 @@
 		<uni>no</uni>
 		<year>2</year>
 		<cat>3</cat>
-		<subCat>Logo</subCat>
+		<subCat>10</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -173,7 +173,7 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>2</cat>
-		<subCat>App</subCat>
+		<subCat>7</subCat>
 		<featured>true</featured>
 	</item>
 	
@@ -185,7 +185,7 @@
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>2</cat>
-		<subCat>Software</subCat>
+		<subCat>8</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -197,7 +197,7 @@
 		<uni>no</uni>
 		<year>4</year>
 		<cat>1</cat>
-		<subCat>CodeIgniter</subCat>
+		<subCat>4</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -212,7 +212,7 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>1</cat>
-		<subCat>Custom</subCat>
+		<subCat>6</subCat>
 		<featured>true</featured>
 	</item>
 
@@ -224,7 +224,7 @@
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
-		<subCat>Custom</subCat>
+		<subCat>6</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -236,7 +236,7 @@
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
-		<subCat>CodeIgniter</subCat>
+		<subCat>4</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -248,7 +248,7 @@
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
-		<subCat>CodeIgniter</subCat>
+		<subCat>4</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -260,8 +260,8 @@
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
-		<subCat>WordPress</subCat>
-		<featured/>
+		<subCat>5</subCat>
+		<featured>false</featured>
 	</item>
 
 	<item id="22">
@@ -272,7 +272,7 @@
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>1</cat>
-		<subCat>Custom</subCat>
+		<subCat>6</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -284,7 +284,7 @@
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>1</cat>
-		<subCat>Custom</subCat>
+		<subCat>6</subCat>
 		<featured>false</featured>
 	</item>
 
@@ -296,7 +296,7 @@
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>1</cat>
-		<subCat>Custom</subCat>
+		<subCat>6</subCat>
 		<featured>false</featured>
 	</item>
 

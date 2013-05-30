@@ -31,7 +31,7 @@ class Admin extends CI_Controller {
 	public function index() {
 		$data['items'] = $this->items;
 		$data['mainCategories'] = $this->mainCategories;
-		$data['subCategories'] = $this->subCategories;
+		$data['subCategories'] = $this->subCategories; 
 		$this->load->view( 'admin/editItems', $data );
 	}
 

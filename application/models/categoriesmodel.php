@@ -39,11 +39,14 @@ class Categoriesmodel extends CI_Model {
 
 			$attributes = $category['category']->attributes();
 
-			if ( $attributes->sub == 'false' ) {
+			if ( empty( $attributes->parent ) ) {
 				$mainCategories[ (string) $attributes->id ] = (string) $attributes->name;
 			}
 			else { 
-				$subCategories[ (string) $attributes->id ] = (string) $attributes->name;
+				$subCategories[] = array( 'id' => (string) $attributes->id,
+										  'name' => (string) $attributes->name,
+										  'parentCategory' => (string) $attributes->parent
+										);
 			}
 
 		}

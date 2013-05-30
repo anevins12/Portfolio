@@ -7,14 +7,14 @@ function getItems( category ) {
 
 		$.each(items, function(k,v) { 
 
-			if (typeof(v.site_url) == "object"){
+			if (typeof(v.siteURL) == "object"){
 				var span = '';
 				var title = '<h4>' + v.name + '</h4>';
 			}
 			else { 
-				var link = v.site_url;
+				var link = v.siteURL;
 				var span = '<a href="' + link + '" class="link"></a>';
-				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';
+				var title = '<h4><a href="' + v.siteURL + '">' + v.name + '</a></h4>';
 			}
 
 			if ( v.featured != 'false') {

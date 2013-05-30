@@ -55,7 +55,7 @@
 			$data = array(
 				"name"        => "url",
 				"id"          => "url",
-				"value"       => $v->site_url
+				"value"       => "http://$v->siteURL"
 			);
 
 			echo form_label('Website link', 'url');
@@ -64,15 +64,36 @@
 			$options = $mainCategories;
 
 			echo form_label('Category', 'mainCategory');
-			echo form_dropdown( 'mainCategory', $options, $v->cat );
+			echo form_dropdown( 'mainCategory', $options, $v->cat, 'id="mainCategory"' );
 
 			echo form_label( 'Featured', 'featured' ); 
 			echo form_checkbox( 'featured', '' , $featured);
 
-			$options = $subCategories;
+			echo form_label('Sub-category', 'subCategory');  
+			
+			
+			//Have to create my own dropdown
+			//Because I want to pass data attributes in the <option> elements
+			?>
+			<select name="subCategory" id="subCategory">
+			<?php
+			foreach ( $subCategories as $category ) {
 
-			echo form_label('Sub-category', 'subCategory');
-			echo form_dropdown( 'subCategory', $options, $v->subCat );
+				$selected = '';
+
+				if ( $v->subCat == $category['id'] ) {
+					$selected = 'selected="selected"';
+				}
+
+			?>
+				<option value="<?php echo $category['id'] ?>" data-parent-category="<?php echo $category['parentCategory'] ?>" <?php echo $selected ?>>
+					<?php echo $category['name'] ?>
+				</option>
+			<?php
+			}
+			?>
+			</select>
+			<?php
 
 			echo form_submit('submit', 'Update', 'id="submit"');
 			echo form_close();
@@ -86,6 +107,14 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/scripts.js" type="text/javascript"></script>
 	<script type="text/javascript">
+
+		jQuery(document).ready(function($){
+
+			var selected = $('#mainCategory').find(':selected');
+			console.log(selected);
+			
+
+		});
 
 	</script>
 </body>

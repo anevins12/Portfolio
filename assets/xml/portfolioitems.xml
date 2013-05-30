@@ -11,13 +11,13 @@
 		<name>Web Developers Conference '13 </name>
 		<desc>This site was designed for the Web Developers Conference in 2013 that is to occur in Bristol. </desc>
 		<image_url>wdc.png</image_url>
-		<site_url></site_url>
+		<site_url>dsa</site_url>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>3</cat>
 		<subCat>9</subCat>
 		<featured></featured>
-	</item>
+	<siteURL>dsa</siteURL></item>
 
 	<item id="2">
 		<name>Online Library</name>
@@ -35,7 +35,7 @@
 		<name>Uncontainable Excitement</name>
 		<desc>Just for fun and utilising Illustrator's brushes</desc>
 		<image_url>box.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -47,7 +47,7 @@
 		<name>Green Fingers</name>
 		<desc>A reward card if students were to recycle</desc>
 		<image_url>greenfingers_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>3</cat>
@@ -71,7 +71,7 @@
 		<name>Abstract Landscape</name>
 		<desc>Trying to replicate landscape in Illustrator's brushes</desc>
 		<image_url>landscape.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -107,7 +107,7 @@
 		<name>Twin Cities</name>
 		<desc>To symbolise the link between two twinned cities (uni project)</desc>
 		<image_url>dsa_logo_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -119,7 +119,7 @@
 		<name>Coventry &amp; Cork</name>
 		<desc>Just an3 variation to show the link between two twinned cities (uni project)</desc>
 		<image_url>covcork_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -131,7 +131,7 @@
 		<name>Incolour</name>
 		<desc>A spectrum of colours made for fun</desc>
 		<image_url>incolour_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -143,7 +143,7 @@
 		<name>Smalltown Books</name>
 		<desc>For a bookshop website (uni project)</desc>
 		<image_url>smalltown_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>1</year>
 		<cat>3</cat>
@@ -155,7 +155,7 @@
 		<name>WeFloor</name>
 		<desc>Experiment for a flooring organisation</desc>
 		<image_url>wefloor_colour.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>2</year>
 		<cat>3</cat>
@@ -193,7 +193,7 @@
 		<name>My New Portfolio</name>
 		<desc>Built in CodeIgniter using AJAX calls to internal functions</desc>
 		<image_url>portfolio_large.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>4</year>
 		<cat>1</cat>
@@ -244,7 +244,7 @@
 		<name>Cabot IT</name>
 		<desc>Design comps built into static template and converted to CodeIgniter</desc>
 		<image_url>cabot_home_large.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
@@ -256,7 +256,7 @@
 		<name>Bristol Nights</name>
 		<desc>Design comps built into static template and separated to WordPress templates</desc>
 		<image_url>bnights_home_large.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
@@ -268,7 +268,7 @@
 		<name>Sandford Festival</name>
 		<desc>Design and development of the Sandford Folk Festival website.</desc>
 		<image_url>wdp2_large_home.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>1</cat>
@@ -280,7 +280,7 @@
 		<name>Organic Fruit Shop</name>
 		<desc>Design and development of an organic fruit shop website.</desc>
 		<image_url>wp_large_exotic.png</image_url>
-		<site_url/>
+		<siteURL/>
 		<uni>yes</uni>
 		<year>2</year>
 		<cat>1</cat>

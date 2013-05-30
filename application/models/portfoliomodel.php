@@ -11,39 +11,41 @@
  */
 class Portfoliomodel extends CI_Model {
 
-	private $portfolioItems = array();
+	private $items = array();
+	private $table;
+	private $tablePath;
 	
 	public function __construct() {
 	    
 		parent::__construct();
 		
 		$this->load->helper('url');
-		$items = simplexml_load_file( base_url() . "assets/xml/portfolioitems.xml" );
+		$this->tablePath = "assets/xml/portfolioitems.xml";
+		$this->table = simplexml_load_file( realpath( $this->tablePath ) );
 
-		foreach ( $items->item as $item ) {
-			$this->portfolioItems[] = $item;
+		foreach ( $this->table->item as $item ) {
+			$this->items[] = $item;
 		}
 
     }
 
 	public function getPortfolioItems( $front = false ) {
 
+		$this->load->model('categoriesmodel');
+		$categories = $this->categoriesmodel->getCategories();
+		
 		//Basically if being used on the front-end
 		if ( $front ) {
-
-			$this->load->model('categoriesmodel');
-			$categories = $this->categoriesmodel->getCategories();				
-			return json_encode( $this->portfolioItems );
-			
+			return json_encode( $this->items );
 		}
 
-		return $this->portfolioItems;
+		return $this->items;
 		
 	}
 
 	public function getPortfolioItem( $name ) {
 
-		foreach ( $this->portfolioItems as $item ) {
+		foreach ( $this->items as $item ) {
 			
 			if (  $item[ 'name' ] == $name ) {
 				$portfolioItem = $item;
@@ -58,7 +60,7 @@ class Portfoliomodel extends CI_Model {
 
 		$categoryItems = array();
 
-		foreach ( $this->portfolioItems as $item ) {
+		foreach ( $this->items as $item ) {
 
 			if ( $item->cat == $category ) { 
 				$categoryItems[] = $item;
@@ -121,6 +123,54 @@ class Portfoliomodel extends CI_Model {
 	private function backupFile( $file ) {
 		$this->portfoliomodel->checkFile( $file );
 		copy( realpath( $file ) , str_replace( '.xml', '', realpath( $file ) ) . '-' . date( "i-H-d-m-y" ) . '.xml' );
+	}
+
+	public function updateItem( $item ){
+
+		$file = new DOMDocument();
+		$itemId = $item['id'];
+		
+		//load the XML file into the DOM, loading statically
+		$file->load( $this->tablePath );
+
+		//check if file has loaded
+		if ( !$file ) {
+			show_error('There was no XML file loaded');
+			log_message('error', 'No XML file was loaded');
+		}
+
+		//if there is a node named 'item'
+		if ( $file->getElementsByTagName( 'item' ) ) {
+			//get all book by book id
+			$origItem = $this->table->xpath( "//*[@id='$itemId']" );
+		} 
+		else {
+			show_error( "The XML file contains no nodes named 'item'" );
+			log_message( 'error', "XML file has no 'item' nodes" );
+		}
+
+		if ( count( $origItem ) > 0 ) {
+
+			$origItem[ 0 ]->name = $item[ 'title' ];
+			$origItem[ 0 ]->desc = $item[ 'description' ];
+			$origItem[ 0 ]->site_url = $item[ 'url' ];
+			$origItem[ 0 ]->cat = $item[ 'category' ];
+
+			if ( !isset( $item[ 'featured' ] ) ) {
+				$item[ 'featured' ] = 'false';
+			}
+			$origItem[ 0 ]->featured = $item[ 'featured' ];
+
+			$this->table->asXml( $this->tablePath );
+
+		}
+
+		else {
+			throw new Exception( "Invalid Item ID $itemId" );
+		}
+
+		return true;
+
 	}
 
 }

@@ -29,16 +29,13 @@ h2 {
 	margin: 35px 0 10px 0;
 }
 
-form {
-	width: 70%;
-}
-
-#wrapper {
+#wrapper,
+form{
 	position: relative;
 }
 
 #submit {
 	position: absolute;
+	bottom: 0;
 	right: 0;
-	top: 260px;
 }

@@ -1,169 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
     Document   : portfolioitems.xml
     Created on : 12 April 2013, 12:05
     Author     : andrew
     Description: All portfolio items.
 -->
+
 <portfolioItems>
 
-	<item id="1">
-		<name>Web Developers Conference '13 </name>
-		<desc>This site was designed for the Web Developers Conference in 2013 that is to occur in Bristol. </desc>
+	<item>
+		<name>Web Developers Conference '13</name>
+		<desc>This site was designed for the Web Developers Conference in 2013 that is to occur in Bristol.</desc>
 		<image_url>wdc.png</image_url>
-		<site_url></site_url>
+		<site_url>http://2013.webdevconf.com</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Web Design</subCat>
-		<featured>false</featured>
+		<featured />
 	</item>
 
-	<item id="2">
+	<item>
 		<name>Online Library</name>
 		<desc>Uses an XML database and retrieves data through API interfaces. The DOM manipulated through jQuery GET requests. This site also implements HTML5 localstorage for caching.</desc>
 		<image_url>atwd.png</image_url>
 		<site_url>http://andrewnevins.co.uk/atwd/courses</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
-		<featured>true</featured>
+		<featured />
 	</item>
 
-	<item id="3">
+	<item>
 		<name>Uncontainable Excitement</name>
 		<desc>Just for fun and utilising Illustrator's brushes</desc>
 		<image_url>box.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>no</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="4">
+	<item>
 		<name>Green Fingers</name>
 		<desc>A reward card if students were to recycle</desc>
 		<image_url>greenfingers_colour.png</image_url>
 		<site_url/>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="5">
+	<item>
 		<name>Information Overload</name>
 		<desc>A poster describing how not to make posters</desc>
 		<image_url>overload-poster.png</image_url>
 		<site_url>http://new.andrewnevins.co.uk/assets/i/infooverload2.pdf</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="6">
+
+	<item>
 		<name>Abstract Landscape</name>
 		<desc>Trying to replicate landscape in Illustrator's brushes</desc>
 		<image_url>landscape.png</image_url>
 		<site_url/>
 		<uni>no</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="7">
+	<item>
 		<name>Erewhon Action on Climate Control poster</name>
 		<desc>A poster describing how to prevent climate control locally</desc>
 		<image_url>eacc_newsletter.png</image_url>
 		<site_url>http://new.andrewnevins.co.uk/assets/i/newsletter.pdf</site_url>
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Illustration</subCat>
-		<featured>false</featured>
 	</item>
 	
-	<item id="8">
+	<item>
 		<name>Action for Climate Control</name>
 		<desc>For a local newspaper in wales (uni project)</desc>
 		<image_url>eacc_colour.png</image_url>
 		<site_url>http://andrewnevins.co.uk/images/newsletter.pdf</site_url>
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="9">
+	<item>
 		<name>Twin Cities</name>
 		<desc>To symbolise the link between two twinned cities (uni project)</desc>
 		<image_url>dsa_logo_colour.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="10">
+	<item>
 		<name>Coventry &amp; Cork</name>
-		<desc>Just an3 variation to show the link between two twinned cities (uni project)</desc>
+		<desc>Just another variation to show the link between two twinned cities (uni project)</desc>
 		<image_url>covcork_colour.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="11">
+	<item>
 		<name>Incolour</name>
 		<desc>A spectrum of colours made for fun</desc>
 		<image_url>incolour_colour.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="12">
+	<item>
 		<name>Smalltown Books</name>
 		<desc>For a bookshop website (uni project)</desc>
 		<image_url>smalltown_colour.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>yes</uni>
 		<year>1</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="13">
+	<item>
 		<name>WeFloor</name>
 		<desc>Experiment for a flooring organisation</desc>
 		<image_url>wefloor_colour.png</image_url>
-		<site_url/>
+		<site_url />
 		<uni>no</uni>
 		<year>2</year>
-		<cat>3</cat>
+		<cat>Other</cat>
 		<subCat>Logo</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="14">
+	<item>
 		<name>Literead App Design</name>
 		<desc>To help students manage their reading, an app was designed that provided students with their course literature and helped them make notes on that literature.
 		The problem we were trying to resolve was the messy uninified resource locations students have and how cumbersome it is to carry around physical copies of literature.
@@ -172,36 +164,34 @@
 		<site_url>http://andrewnevins.co.uk/id/</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>2</cat>
+		<cat>UX</cat>
 		<subCat>App</subCat>
-		<featured>true</featured>
+		<featured />
 	</item>
 	
-	<item id="15">
+	<item>
 		<name>Bristol Harbour Festival</name>
 		<desc>This project involved designing a graphical user interface for a touch-screen based information system, for the Bristol Harbour Festival. The interface was designed following the usability principles of Norman and Nielsen.</desc>
 		<image_url>hci_large.png</image_url>
 		<site_url>http://new.andrewnevins.co.uk/assets/i/hci.pdf</site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>2</cat>
+		<cat>UX</cat>
 		<subCat>Software</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="16">
+	<item>
 		<name>My New Portfolio</name>
 		<desc>Built in CodeIgniter using AJAX calls to internal functions</desc>
 		<image_url>portfolio_large.png</image_url>
 		<site_url/>
 		<uni>no</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="17">
+	<item>
 		<name>Twitter Happiness</name>
 		<desc>Produced data visualisations showing mood in the UK from Twitter. It utilises the D3js library to create bubble-like animations that can be interacted with. 
 		Cities are depicted in the United Kingdom with their averaged mood for the Christmas period. 
@@ -211,93 +201,87 @@
 		<site_url>http://andrewnevins.co.uk/application/view/all</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
-		<featured>true</featured>
+		<featured/>
 	</item>
 
-	<item id="18">
+	<item>
 		<name>Joe Tremlin Designs</name>
 		<desc>A freelance project to design and develop a portfolio website for a graphic designer. </desc>
 		<image_url>joetremlin_home_large.png</image_url>
 		<site_url>http://joetremlindesigns.co.uk</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="19">
+	<item>
 		<name>MJM Wood Machinery</name>
 		<desc>Design comps built into static template and converted to CodeIgniter</desc>
 		<image_url>mjm_home_large.png</image_url>
 		<site_url>http://www.mjmwoodmachines.com/</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="20">
+	<item>
 		<name>Cabot IT</name>
 		<desc>Design comps built into static template and converted to CodeIgniter</desc>
 		<image_url>cabot_home_large.png</image_url>
-		<site_url/>
+		<site_url></site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>CodeIgniter</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="21">
+	<item>
 		<name>Bristol Nights</name>
 		<desc>Design comps built into static template and separated to WordPress templates</desc>
 		<image_url>bnights_home_large.png</image_url>
 		<site_url>http://www.bristolnights.com/</site_url>
 		<uni>no</uni>
 		<year>3</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>WordPress</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="22">
+	<item>
 		<name>Sandford Festival</name>
 		<desc>Design and development of the Sandford Folk Festival website.</desc>
 		<image_url>wdp2_large_home.png</image_url>
 		<site_url/>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="23">
+	<item>
 		<name>Organic Fruit Shop</name>
 		<desc>Design and development of an organic fruit shop website.</desc>
 		<image_url>wp_large_exotic.png</image_url>
-		<site_url/>
+		<site_url></site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
-		<featured>false</featured>
 	</item>
 
-	<item id="24">
+	<item>
 		<name>Morgan &amp; Allen Developments</name>
 		<desc>Design and development of an energy saving consultant organisation.</desc>
 		<image_url>m_a_product_large.png</image_url>
 		<site_url>http://www.morgan-allen.co.uk</site_url>
 		<uni>yes</uni>
 		<year>2</year>
-		<cat>1</cat>
+		<cat>Front-End</cat>
 		<subCat>Custom</subCat>
-		<featured>false</featured>
 	</item>
+
 
 </portfolioItems>

@@ -5,7 +5,7 @@ function getItems( category ) {
 
 		items = $.parseJSON(items);
 
-		$.each(items, function(k,v) { console.log(v);
+		$.each(items, function(k,v) { 
 
 			if (typeof(v.site_url) == "object"){
 				var span = '';
@@ -17,7 +17,7 @@ function getItems( category ) {
 				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';
 			}
 
-			if (typeof(v.featured) == 'object') {
+			if ( v.featured != 'no') {
 				var featured = '<span class="featured">Final Year Project</span>';
 			}
 			else {

@@ -256,12 +256,12 @@
 		<name>Bristol Nights</name>
 		<desc>Design comps built into static template and separated to WordPress templates</desc>
 		<image_url>bnights_home_large.png</image_url>
-		<site_url>http://www.bristolnights.com/</site_url>
+		<site_url/>
 		<uni>no</uni>
 		<year>3</year>
 		<cat>1</cat>
 		<subCat>WordPress</subCat>
-		<featured>false</featured>
+		<featured/>
 	</item>
 
 	<item id="22">

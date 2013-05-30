@@ -20,12 +20,12 @@
 				$v->site_url = '';
 			}
 
-			//Set out the boolean values for the checkbox
 			$featured = false;
-			
-			if ( $v->featured == 'true' ) {
+
+			if ( $v->featured != 'false') {
 				$featured = true;
 			}
+		
 
 		?>
 			<h2><?php echo $v->name ?></h2>
@@ -72,9 +72,9 @@
 				"id"          => "sub_category",
 				"value"       => $v->subCat
 			);
-			
-			echo form_label( 'Featured', 'featured' );  
-			echo form_checkbox( 'featured', '', $featured);
+
+			echo form_label( 'Featured', 'featured' ); 
+			echo form_checkbox( 'featured', '' , $featured);
 
 			echo form_label('Sub-category', 'sub_category');
 			echo form_input( $data );

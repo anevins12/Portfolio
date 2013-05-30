@@ -17,7 +17,7 @@ function getItems( category ) {
 				var title = '<h4><a href="' + v.site_url + '">' + v.name + '</a></h4>';
 			}
 
-			if ( v.featured != 'no') {
+			if ( v.featured != 'false') {
 				var featured = '<span class="featured">Final Year Project</span>';
 			}
 			else {

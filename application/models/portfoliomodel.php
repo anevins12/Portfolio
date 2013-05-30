@@ -159,8 +159,8 @@ class Portfoliomodel extends CI_Model {
 			if ( !isset( $item[ 'featured' ] ) ) {
 				$item[ 'featured' ] = 'false';
 			}
-			$origItem[ 0 ]->featured = $item[ 'featured' ];
 
+			$origItem[ 0 ]->featured = $item[ 'featured' ];
 			$this->table->asXml( $this->tablePath );
 
 		}

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title><?php echo $title; ?></title>
+	<title></title>
 	<link href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/admin/style.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
 			$data = array(
 				"name"        => "url",
 				"id"          => "url",
-				"value"       => "http://$v->siteURL"
+				"value"       => "$v->siteURL"
 			);
 
 			echo form_label('Website link', 'url');
@@ -100,7 +100,6 @@
 
 		}
 
-
 		?>
 	</div>
 	
@@ -110,10 +109,58 @@
 
 		jQuery(document).ready(function($){
 
-			var selected = $('#mainCategory').find(':selected');
-			console.log(selected);
-			
+			// Only show sub-categories that belong to the parent
+			$('#subCategory').children().each(function(i,v){
 
+				if ( v.dataset.parentCategory != $('#mainCategory').find(':selected').val() ) { 
+					$(this).hide();
+				}
+				else {
+					$(this).show();
+				}
+				
+			});
+
+			$('#mainCategory').change(function() {
+
+				var subSelected = $(this).parent().find('#subCategory').find(':selected');
+				var mainSelected = $(this).find(':selected');
+				
+				$(this).parent().find('#subCategory').children().each(function(i,v){
+
+					//Check if the current <option> in the main category <select> is a parent of the sub category <option>
+					if ( mainSelected.val() == $(v)[0].dataset.parentCategory ) {
+						
+						$(v).show();
+					}
+					else {
+						$(v).hide();
+					}
+
+					//Trying to get rid of the selected <option> in the sub category
+					//That is no longer a child of the main category
+					if ( $(subSelected)[0].dataset.parentCategory != mainSelected.val() ) {
+
+						var oldSubCategorySelected = $(this).parent().find(':selected');
+						
+						if ( mainSelected.val() != $(oldSubCategorySelected)[0].dataset.parentCategory ) {
+
+							//Add the selected attribute to the next <option> that matches the main category ID
+							$(oldSubCategorySelected).nextAll('option[data-parent-category="' + mainSelected.val() + '"]:first')
+													 .attr('selected', 'selected');
+
+							//Remove the old selected attribute
+							$(oldSubCategorySelected).removeAttr('selected');
+							
+						}
+
+					}
+					
+				});
+
+			});
+
+			
 		});
 
 	</script>

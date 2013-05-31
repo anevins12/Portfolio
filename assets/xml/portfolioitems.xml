@@ -14,10 +14,10 @@
 		<site_url>dsa</site_url>
 		<uni>yes</uni>
 		<year>4</year>
-		<cat>3</cat>
-		<subCat>9</subCat>
+		<cat>1</cat>
+		<subCat>4</subCat>
 		<featured></featured>
-	<siteURL>dsa</siteURL></item>
+	<siteURL>http://http://http://http://dsa</siteURL></item>
 
 	<item id="2">
 		<name>Online Library</name>
@@ -28,8 +28,8 @@
 		<year>4</year>
 		<cat>1</cat>
 		<subCat>4</subCat>
-		<featured>true</featured>
-	</item>
+		<featured/>
+	<siteURL>http://http://http://http://http://</siteURL></item>
 
 	<item id="3">
 		<name>Uncontainable Excitement</name>

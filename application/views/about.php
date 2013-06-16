@@ -37,20 +37,20 @@
 				<div class="col large">
 					<h4>Where I am now</h4>
 					<p>
-						I live in Bristol and have done all my life. I'm in my final year of University studying Web Design.
+						I'm in Bristol and working at Nomensa as a Front-End Developer.
+					</p>
+					<p>
+						I've just finished my University course in Web Design and am expecting a 1st degree grade. 
 					</p>
 					<p>
 						Last year I did a placement year and had a really insightful experience
 						learning about Web Development and Front-End Development.
 						I worked with two web agencies, both based in Bristol.
 					</p>
-					<p>
-						I'm just about to finish my University course and am expecting a 1st degree grade. I am also looking forward to a career in Front-End Development.
-					</p>
 				</div>
 				<div class="col small">
 					<h4>Here I am</h4>
-					<img src="/assets/i/me.png" alt="Andrew Nevins" class="me" />
+					<img src="http://distilleryimage9.s3.amazonaws.com/2614be8ecb9611e29ce222000a1fd1f4_7.jpg" alt="Me taking a picture of the downs in Bristol on a sunny day" class="me" />
 				</div>
 
 				<div class="hobbies">

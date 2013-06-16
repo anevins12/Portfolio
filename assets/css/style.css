@@ -12,8 +12,12 @@
 
 @import "/assets/css/resets.css";
 
+strong {
+	font-weight: bold;
+}
+
 p {
-	margin: 10px 0;
+	margin: 10px 0 20px;
 	line-height: 1.6em;
 }
 
@@ -538,7 +542,12 @@ header nav .pointer {
 	margin-top: 7px;
 }
 
+.contact label {
+	display: none;
+}
+
 input[type="text"],
+input[type="password"],
 textarea {
 	border: 0;
 	-webkit-box-shadow: inset 0px 3px 5px 0px #cccccc;

@@ -11,6 +11,18 @@
 
 	<div id="wrapper">
 		<h1> Your portfolio items </h1>
+		<p id="loggedIn">
+			Logged in as
+			<strong>
+		<?php
+				echo $loggedInUsername;
+		?>.
+			</strong>
+		</p>
+		<p class="logOut">
+			<a href="/admin/logout">Log out.</a>
+		</p>
+
 		<?php
 		
 		foreach ( $items as $k => $v ) {
@@ -20,20 +32,19 @@
 				$v->site_url = '';
 			}
 
-			$featured = false;
-
-			if ( $v->featured != 'false') {
-				$featured = true;
-			}
+			$featured = $v->featured;
 
 		?>
 			<h2><?php echo $v->name ?></h2>
+
+		<?php if ( isset( $errors ) ) echo $errors; ?>
+			
 		<?php
 
 			$id = $v->attributes()->id;
 			$hidden = array( 'id' => $id );
 			
-			echo form_open('/admin/updateItem', '', $hidden);
+			echo form_open_multipart('/admin/updateItem', '', $hidden);
 			
 			$data = array(
 				"name" => "title",
@@ -57,6 +68,24 @@
 				"id"          => "url",
 				"value"       => "$v->siteURL"
 			);
+
+			echo form_label('Image', 'img');
+			
+			?>
+			
+			<input type="file" name="img" size="20" />
+
+			<?php
+
+			if ( isset( $img ) ) {
+
+			?>
+
+			<img src="<?php echo base_url() . "uploads/" . $img ?>" alt="Your uploaded image" width="200" height="200" />
+
+			<?php
+			
+			}
 
 			echo form_label('Website link', 'url');
 			echo form_input( $data );
@@ -130,7 +159,6 @@
 
 					//Check if the current <option> in the main category <select> is a parent of the sub category <option>
 					if ( mainSelected.val() == $(v)[0].dataset.parentCategory ) {
-						
 						$(v).show();
 					}
 					else {
@@ -150,7 +178,16 @@
 													 .attr('selected', 'selected');
 
 							//Remove the old selected attribute
-							$(oldSubCategorySelected).removeAttr('selected');
+							//$(oldSubCategorySelected).removeAttr('selected');
+							$(oldSubCategorySelected).parent().css('border', '1px solid red');
+
+							if ( $(this).parent().change() ) {
+
+							}
+							
+						}
+
+						else { 
 							
 						}
 

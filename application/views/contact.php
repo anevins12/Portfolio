@@ -88,6 +88,7 @@
 						  'size'        => '50'
 						);
 
+						echo form_label('Your name', 'name');
 						echo form_input($data);
 
 						$data = array(
@@ -98,6 +99,7 @@
 						  'size'        => '100'
 						);
 
+						echo form_label('Your email', 'email');
 						echo form_input($data);
 
 						$data = array(
@@ -106,6 +108,7 @@
 						  'value'       => $msg
 						);
 
+						echo form_label('Your message', 'msg');
 						echo form_textarea($data);
 						echo form_submit('submit', 'Send message');
 

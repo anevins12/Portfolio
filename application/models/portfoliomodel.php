@@ -128,7 +128,7 @@ class Portfoliomodel extends CI_Model {
 	public function updateItem( $item ){
 
 		$file = new DOMDocument();
-		$itemId = $item['id'];
+		$itemId = $item[ 'id' ];
 		
 		//load the XML file into the DOM, loading statically
 		$file->load( $this->tablePath );
@@ -157,8 +157,8 @@ class Portfoliomodel extends CI_Model {
 			$origItem[ 0 ]->cat = $item[ 'mainCategory' ];
 			$origItem[ 0 ]->subCat = $item[ 'subCategory' ]; 
 
-			if ( !isset( $item[ 'featured' ] ) ) {
-				$item[ 'featured' ] = 'false';
+			if ( $item[ 'featured' ]  === '' ) {
+				$item[ 'featured' ] = true;
 			}
 
 			$origItem[ 0 ]->featured = $item[ 'featured' ];

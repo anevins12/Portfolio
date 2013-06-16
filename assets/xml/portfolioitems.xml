@@ -15,9 +15,9 @@
 		<uni>yes</uni>
 		<year>4</year>
 		<cat>1</cat>
-		<subCat>4</subCat>
-		<featured></featured>
-	<siteURL>http://http://http://http://dsa</siteURL></item>
+		<subCat>5</subCat>
+		<featured>1</featured>
+	<siteURL></siteURL></item>
 
 	<item id="2">
 		<name>Online Library</name>
@@ -29,7 +29,7 @@
 		<cat>1</cat>
 		<subCat>4</subCat>
 		<featured/>
-	<siteURL>http://http://http://http://http://</siteURL></item>
+	<siteURL/></item>
 
 	<item id="3">
 		<name>Uncontainable Excitement</name>

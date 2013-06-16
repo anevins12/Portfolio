@@ -67,8 +67,9 @@ class Usersmodel extends CI_Model {
 			    );
 
 				$this->session->set_userdata($userData);
-
+				
 				return true;
+
 			}
 			
 		}

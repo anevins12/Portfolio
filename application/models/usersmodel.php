@@ -68,9 +68,6 @@ class Usersmodel extends CI_Model {
 
 				$this->session->set_userdata($userData);
 
-				$_SESSION[ 'logged_in' ] = true;
-				$_SESSION[ 'name' ]  = $username;
-
 				return true;
 			}
 			

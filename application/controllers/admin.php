@@ -86,15 +86,10 @@ class Admin extends CI_Controller {
 			$uploaded = $this->upload();
 			
 			if ( $uploaded[ 'status' ] == false ) {
-
 				$data[ 'errors' ] = $uploaded[0][ 'error' ];
- 
 			}
-
 			else {
-				
 				$data[ 'img' ] = $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
-
 			}
 			
 		}
@@ -122,7 +117,6 @@ class Admin extends CI_Controller {
 		}
 		
 		$data[ 'username' ] = $this->input->post( 'username' );
-	
 		$this->load->view( 'admin/login', $data );
 
 	}
@@ -208,7 +202,6 @@ class Admin extends CI_Controller {
 		$this->login();
 
 	}
-
 
 }
 

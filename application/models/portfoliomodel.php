@@ -82,31 +82,31 @@ class Portfoliomodel extends CI_Model {
 
 		foreach ( $items as $item ) {
 
-			$image_path = "assets/i/items/$item->image_url";
+			$source_image = $item->image_url;
 			
-			$name = str_replace('.png', '_thumb.png', $item->image_url);
-			$thumb_file = 'assets/i/items/' . $name;
-
-			if ( !file_exists( $thumb_file ) ) { 
+			$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb.png', $item->image_url);
+			$thumb_file = $_SERVER[ 'DOCUMENT_ROOT' ] . $_SERVER[ 'HTTP_HOST' ] . '/' . $thumb_name;
+			
+			if ( !file_exists( $thumb_file ) ) {
 
 				if( isset( $item->image_url ) ) {
 
-					$config[ 'source_image' ] =  $image_path;
+					$config[ 'source_image' ] = $source_image;
 					$this->image_lib->initialize( $config );
 
 					if ( !$this->image_lib->resize() ) {
 						echo $this->image_lib->display_errors();
 					}
 
-					$name = str_replace('.png', '_thumb.png', $item->image_url);
-					$thumb_file = base_url() . 'assets/i/items/' . $name;
+					$thumb_name = str_replace('.png', '_thumb.png', $item->image_url);
+					$thumb_file = base_url() . $thumb_name;
 
 					$item->thumb_url = $thumb_file;
 				}
 				
 			}
 			else {
-				$item->thumb_url = base_url() . $thumb_file;
+				$item->thumb_url = base_url() . $thumb_name;
 			}
 
 		}
@@ -151,11 +151,14 @@ class Portfoliomodel extends CI_Model {
 
 		if ( count( $origItem ) > 0 ) {
 
-			$origItem[ 0 ]->name = $item[ 'title' ];
-			$origItem[ 0 ]->desc = $item[ 'description' ];
-			$origItem[ 0 ]->siteURL = $item[ 'url' ];
-			$origItem[ 0 ]->cat = $item[ 'mainCategory' ];
-			$origItem[ 0 ]->subCat = $item[ 'subCategory' ]; 
+			$image_directory = 'uploads';
+
+			$origItem[ 0 ]->name    = $item[ 'title' ];
+			$origItem[ 0 ]->desc    = $item[ 'description' ];
+			$origItem[ 0 ]->site_url = $item[ 'url' ];
+			$origItem[ 0 ]->cat     = $item[ 'mainCategory' ];
+			$origItem[ 0 ]->subCat  = $item[ 'subCategory' ];
+			$origItem[ 0 ]->image_url     = $image_directory . '/' . $item[ 'img' ][ 'file_name' ];
 
 			if ( $item[ 'featured' ]  === '' ) {
 				$item[ 'featured' ] = true;

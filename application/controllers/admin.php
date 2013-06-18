@@ -63,6 +63,9 @@ class Admin extends CI_Controller {
 			$this->load->view( 'admin/login' );
 			return false;
 		}
+
+		$sessionDetails = $this->getSessionDetails();
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 		
 		$id			 = $this->input->post( 'id' );
 		$title		 = $this->input->post( 'title' );
@@ -81,6 +84,11 @@ class Admin extends CI_Controller {
 			$url = '';
 		}
 
+		$item = array( 'id' => $id, 'title' => $title, 'description' => $description,
+		   'url' => $url, 'mainCategory' => $category, 'subCategory' => $subCategory,
+		   'featured' => $featured
+		 );
+		
 		if ( isset( $image ) ) {
 			
 			$uploaded = $this->upload();
@@ -89,15 +97,16 @@ class Admin extends CI_Controller {
 				$data[ 'errors' ] = $uploaded[0][ 'error' ];
 			}
 			else {
-				$data[ 'img' ] = $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
+
+				$image = $uploaded[ 0 ][ 'upload_data' ];
+				$data[ 'img' ] = $image[ 'file_name' ];
+				$item[ 'img' ] = $image;
+
 			}
 			
 		}
 
-		$item = array( 'id' => $id, 'title' => $title, 'description' => $description,
-					   'url' => $url, 'mainCategory' => $category, 'subCategory' => $subCategory,
-					   'featured' => $featured
-					 );
+		
 
 		$data[ 'items' ] = $this->items;
 		$data[ 'mainCategories' ] = $this->mainCategories;

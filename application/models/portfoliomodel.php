@@ -87,7 +87,7 @@ class Portfoliomodel extends CI_Model {
 			$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb.png', $item->image_url);
 			$thumb_file = $_SERVER[ 'DOCUMENT_ROOT' ] . $_SERVER[ 'HTTP_HOST' ] . '/' . $thumb_name;
 			
-			if ( !file_exists( $thumb_file ) ) {
+			if ( !file_exists( $thumb_file ) ) { 
 
 				if( isset( $item->image_url ) ) {
 
@@ -153,12 +153,12 @@ class Portfoliomodel extends CI_Model {
 
 			$image_directory = 'uploads';
 
-			$origItem[ 0 ]->name    = $item[ 'title' ];
-			$origItem[ 0 ]->desc    = $item[ 'description' ];
-			$origItem[ 0 ]->site_url = $item[ 'url' ];
-			$origItem[ 0 ]->cat     = $item[ 'mainCategory' ];
-			$origItem[ 0 ]->subCat  = $item[ 'subCategory' ];
-			$origItem[ 0 ]->image_url     = $image_directory . '/' . $item[ 'img' ][ 'file_name' ];
+			$origItem[ 0 ]->name          = $item[ 'title' ];
+			$origItem[ 0 ]->desc          = $item[ 'description' ];
+			$origItem[ 0 ]->site_url      = $item[ 'url' ];
+			$origItem[ 0 ]->cat           = $item[ 'mainCategory' ];
+			$origItem[ 0 ]->subCat        = $item[ 'subCategory' ];
+			$origItem[ 0 ]->image_url     = $item[ 'img' ];
 
 			if ( $item[ 'featured' ]  === '' ) {
 				$item[ 'featured' ] = true;

@@ -77,12 +77,14 @@
 
 			<?php
 
-			if ( isset( $img ) ) {
+			if ( isset( $v->image_url ) ) {
 
 			?>
 
-			<img src="<?php echo base_url() . "uploads/" . $img ?>" alt="Your uploaded image" width="200" height="200" />
-
+			<div class="img">
+				<img src="<?php echo base_url() . $v->image_url; ?>" alt="Your uploaded image" />
+			</div>
+			
 			<?php
 			
 			}

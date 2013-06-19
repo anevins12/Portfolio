@@ -73,7 +73,7 @@ class Admin extends CI_Controller {
 		$url		 = $this->input->post( 'url' );
 		$category    = $this->input->post( 'mainCategory' );
 		$subCategory = $this->input->post( 'subCategory' );
-		$featured    = $this->input->post( 'featured' );
+		$featured    = $this->input->post( 'featured' ); 
 		$image       = $this->input->post( 'img' );
 
 		htmlentities($title);
@@ -94,15 +94,10 @@ class Admin extends CI_Controller {
 			$uploaded = $this->upload();
 			
 			if ( $uploaded[ 'status' ] == false ) {
-				$data[ 'errors' ] = $uploaded[0][ 'error' ];
-			}
-			else {
-
-				$image = $uploaded[ 0 ][ 'upload_data' ];
-				$data[ 'img' ] = $image[ 'file_name' ];
-				$item[ 'img' ] = $image;
-
-			}
+				$data[ 'errors' ] = $uploaded[ 0 ][ 'error' ];
+			} 
+			
+			$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
 			
 		}
 
@@ -161,7 +156,7 @@ class Admin extends CI_Controller {
 
 		$config['upload_path'] = './uploads';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '500';
+		$config['max_size']	= '5000';
 		$config['remove_spaces'] = true;
 
 		$this->load->library('upload', $config);

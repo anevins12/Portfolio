@@ -42,17 +42,14 @@ class Usersmodel extends CI_Model {
 			}
 
 		}
-
-		return $this->users[0];
+		
+		return $this->users[ 0 ];
 
 	}
 
 	public function validate() {
 
 		$user = $this->usersmodel->getUser();
-
-		//$password = 'test';
-		//$password = $this->phpass->hash( $password );
 
 		$username = $this->input->post( 'username' );
 		$password = $this->input->post( 'password' );

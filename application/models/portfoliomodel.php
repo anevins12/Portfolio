@@ -147,6 +147,7 @@ class Portfoliomodel extends CI_Model {
 		else {
 			show_error( "The XML file contains no nodes named 'item'" );
 			log_message( 'error', "XML file has no 'item' nodes" );
+			return false;
 		}
 
 		if ( count( $origItem ) > 0 ) {
@@ -158,7 +159,10 @@ class Portfoliomodel extends CI_Model {
 			$origItem[ 0 ]->site_url      = $item[ 'url' ];
 			$origItem[ 0 ]->cat           = $item[ 'mainCategory' ];
 			$origItem[ 0 ]->subCat        = $item[ 'subCategory' ];
-			$origItem[ 0 ]->image_url     = $item[ 'img' ];
+
+			if ( isset( $item[ 'img' ] ) ) {
+				$origItem[ 0 ]->image_url     = $item[ 'img' ];
+			}
 
 			if ( $item[ 'featured' ]  === '' ) {
 				$item[ 'featured' ] = true;

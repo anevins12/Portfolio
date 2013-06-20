@@ -73,8 +73,7 @@ class Admin extends CI_Controller {
 		$url		 = $this->input->post( 'url' );
 		$category    = $this->input->post( 'mainCategory' );
 		$subCategory = $this->input->post( 'subCategory' );
-		$featured    = $this->input->post( 'featured' ); 
-		$image       = $this->input->post( 'img' );
+		$featured    = $this->input->post( 'featured' );
 
 		htmlentities($title);
 		htmlentities($description);
@@ -88,20 +87,20 @@ class Admin extends CI_Controller {
 		   'url' => $url, 'mainCategory' => $category, 'subCategory' => $subCategory,
 		   'featured' => $featured
 		 );
-		
-		if ( isset( $image ) ) {
+			
+		// Check if image is being uploaded
+		if ( !empty( $_FILES['img']['name'] ) ) {
 			
 			$uploaded = $this->upload();
-			
+
 			if ( $uploaded[ 'status' ] == false ) {
 				$data[ 'errors' ] = $uploaded[ 0 ][ 'error' ];
-			} 
-			
-			$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
-			
-		}
+			}
+			else {
+				$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
+			}
 
-		
+		}
 
 		$data[ 'items' ] = $this->items;
 		$data[ 'mainCategories' ] = $this->mainCategories;

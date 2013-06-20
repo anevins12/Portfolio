@@ -69,7 +69,17 @@
 				"value"       => "$v->siteURL"
 			);
 
-			echo form_label('Image', 'img');
+			if ( isset( $v->image_url ) ) {
+
+				echo form_label('Upload a new image', 'img');
+
+			}
+
+			else {
+
+				echo form_label('Image', 'img');
+
+			}
 			
 			?>
 			
@@ -82,7 +92,8 @@
 			?>
 
 			<div class="img">
-				<img src="<?php echo base_url() . $v->image_url; ?>" alt="Your uploaded image" />
+				<p>Your current image &darr;</p>
+				<img src="<?php echo base_url() . $v->image_url; ?>" alt="" />
 			</div>
 			
 			<?php

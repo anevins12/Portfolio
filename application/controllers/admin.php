@@ -64,6 +64,12 @@ class Admin extends CI_Controller {
 			return false;
 		}
 
+		// If the page was refreshed on the 'updateItem' URL then just load the forms again
+		if( !$this->input->post() ) {
+			$this->index();
+			return false;
+		}
+
 		$sessionDetails = $this->getSessionDetails();
 		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 		

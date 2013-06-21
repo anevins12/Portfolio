@@ -19,7 +19,7 @@
 		?>.
 			</strong>
 		</p>
-		<p class="logOut">
+		<p id="logOut">
 			<a href="/admin/logout">Log out.</a>
 		</p>
 
@@ -28,19 +28,21 @@
 		foreach ( $items as $k => $v ) {
 
 			//Define undefined values (comes up as object in simpleXML)
-			if ( is_object( $v->site_url ) ) {
+			if ( empty( $v->site_url ) ) {
 				$v->site_url = '';
 			}
 
 			$featured = $v->featured;
 
 		?>
-			<h2><?php echo $v->name ?></h2>
+		<div class="item">
 
-		<?php if ( isset( $errors ) ) echo $errors; ?>
+			<h2><a href="#" class="toggle" id="<?php echo $v->name ?>"><?php echo $v->name ?></a></h2>
+
+			<?php if ( isset( $errors ) ) echo $errors; ?>
+
+			<?php
 			
-		<?php
-
 			$id = $v->attributes()->id;
 			$hidden = array( 'id' => $id );
 			
@@ -66,7 +68,7 @@
 			$data = array(
 				"name"        => "url",
 				"id"          => "url",
-				"value"       => "$v->siteURL"
+				"value"       => $v->site_url
 			);
 
 			if ( isset( $v->image_url ) ) {
@@ -74,7 +76,6 @@
 				echo form_label('Upload a new image', 'img');
 
 			}
-
 			else {
 
 				echo form_label('Image', 'img');
@@ -140,9 +141,15 @@
 			echo form_submit('submit', 'Update', 'id="submit"');
 			echo form_close();
 
+			?>
+
+		</div>
+		<?php
+		
 		}
 
 		?>
+		
 	</div>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -150,6 +157,12 @@
 	<script type="text/javascript">
 
 		jQuery(document).ready(function($){
+
+			$('form').hide();
+			$('.toggle').click(function(){
+				$(this).toggleClass('minimise');
+				$(this).parent().siblings('form').slideToggle();
+			});
 
 			// Only show sub-categories that belong to the parent
 			$('#subCategory').children().each(function(i,v){

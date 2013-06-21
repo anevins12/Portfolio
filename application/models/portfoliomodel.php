@@ -125,7 +125,7 @@ class Portfoliomodel extends CI_Model {
 		copy( realpath( $file ) , str_replace( '.xml', '', realpath( $file ) ) . '-' . date( "i-H-d-m-y" ) . '.xml' );
 	}
 
-	public function updateItem( $item ){
+	public function updateItem( $item ) {
 
 		$file = new DOMDocument();
 		$itemId = $item[ 'id' ];

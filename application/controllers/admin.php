@@ -15,6 +15,7 @@ class Admin extends CI_Controller {
 	private $items = array();
 	private $mainCategories = array();
 	private $subCategories = array();
+	private $itemsAndCategories = array();
 
 	public function __construct() {
 		parent::__construct();
@@ -32,7 +33,20 @@ class Admin extends CI_Controller {
 
 		$this->items = $this->portfoliomodel->getPortfolioItems();
 		$this->mainCategories = $this->categoriesmodel->getCategories();
-		$this->subCategories = $this->categoriesmodel->getCategories( $sub = true ); 
+		$this->subCategories = $this->categoriesmodel->getCategories( $sub = true );
+
+		$this->setItemsAndCategories();
+
+	}
+
+	private function setItemsAndCategories() {
+
+		foreach ( $this->mainCategories as $k => $v ) {
+
+			$this->itemsAndCategories[ $v ] = json_decode( $this->portfoliomodel->getPortfolioItemsFromCategory( $k ) );
+
+		}
+		
 	}
 
 	public function index() {
@@ -47,7 +61,9 @@ class Admin extends CI_Controller {
 		$data['loggedInUsername'] = $sessionDetails[ 'username' ];
 		$data['items'] = $this->items;
 		$data['mainCategories'] = $this->mainCategories;
-		$data['subCategories'] = $this->subCategories; 
+		$data['subCategories'] = $this->subCategories;
+		$data['itemsAndCategories'] = $this->itemsAndCategories;
+		
 		$this->load->view( 'admin/editItems', $data );
 
 	}
@@ -81,7 +97,7 @@ class Admin extends CI_Controller {
 		$subCategory = $this->input->post( 'subCategory' );
 		$featured    = $this->input->post( 'featured' );
 
-		htmlentities($title);
+		htmlentities($title); 
 		htmlentities($description);
 		htmlentities($url);
 
@@ -108,11 +124,15 @@ class Admin extends CI_Controller {
 
 		}
 
-		$data[ 'items' ] = $this->items;
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
 		
 		if ( $this->portfoliomodel->updateItem( $item ) ) {
+
+			//Have to set the items again because they have been updated
+			$this->setItemsAndCategories();
+			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+			
 			$this->load->view( 'admin/editItems', $data );
 		}
 

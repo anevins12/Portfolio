@@ -25,130 +25,145 @@
 
 		<?php
 		
-		foreach ( $items as $k => $v ) {
-
-			//Define undefined values (comes up as object in simpleXML)
-			if ( empty( $v->site_url ) ) {
-				$v->site_url = '';
-			}
-
-			$featured = $v->featured;
+		foreach ( $itemsAndCategories as $k => $items ) {
 
 		?>
-		<div class="item">
 
-			<h2><a href="#" class="toggle" id="<?php echo $v->name ?>"><?php echo $v->name ?></a></h2>
+		<div class="category">
+			<h2> <?php echo $k ?> </h2>
+		</div>
 
-			<?php if ( isset( $errors ) ) echo $errors; ?>
+		<?php
 
-			<?php
-			
-			$id = $v->attributes()->id;
-			$hidden = array( 'id' => $id );
-			
-			echo form_open_multipart('/admin/updateItem', '', $hidden);
-			
-			$data = array(
-				"name" => "title",
-				"id" => "title",
-				"value" => $v->name
-			);
-			echo form_label('Title', 'title');
-			echo form_input( $data );
+			foreach ( $items as $k => $v ) {
 
-			$data = array(
-				"name"        => "description",
-				"id"          => "description",
-				"value"       => $v->desc
-			);
-
-			echo form_label('Description', 'description');
-			echo form_textarea( $data );
-
-			$data = array(
-				"name"        => "url",
-				"id"          => "url",
-				"value"       => $v->site_url
-			);
-
-			if ( isset( $v->image_url ) ) {
-
-				echo form_label('Upload a new image', 'img');
-
-			}
-			else {
-
-				echo form_label('Image', 'img');
-
-			}
-			
-			?>
-			
-			<input type="file" name="img" size="20" />
-
-			<?php
-
-			if ( isset( $v->image_url ) ) {
-
-			?>
-
-			<div class="img">
-				<p>Your current image &darr;</p>
-				<img src="<?php echo base_url() . $v->image_url; ?>" alt="" />
-			</div>
-			
-			<?php
-			
-			}
-
-			echo form_label('Website link', 'url');
-			echo form_input( $data );
-
-			$options = $mainCategories;
-
-			echo form_label('Category', 'mainCategory');
-			echo form_dropdown( 'mainCategory', $options, $v->cat, 'id="mainCategory"' );
-
-			echo form_label( 'Featured', 'featured' ); 
-			echo form_checkbox( 'featured', '' , $featured);
-
-			echo form_label('Sub-category', 'subCategory');  
-			
-			
-			//Have to create my own dropdown
-			//Because I want to pass data attributes in the <option> elements
-			?>
-			<select name="subCategory" id="subCategory">
-			<?php
-			foreach ( $subCategories as $category ) {
-
-				$selected = '';
-
-				if ( $v->subCat == $category['id'] ) {
-					$selected = 'selected="selected"';
+				//Define undefined values (comes up as object in simpleXML)
+				if ( is_object( $v->site_url ) ) {
+					$v->site_url = '';
 				}
 
+				$featured = $v->featured;
+
 			?>
-				<option value="<?php echo $category['id'] ?>" data-parent-category="<?php echo $category['parentCategory'] ?>" <?php echo $selected ?>>
-					<?php echo $category['name'] ?>
-				</option>
+				<div class="item">
+
+					<h3><a href="#" class="toggle" id="<?php echo $v->name ?>"><?php echo $v->name ?></a></h3>
+
+					<?php if ( isset( $errors ) ) echo $errors; ?>
+
+					<?php
+
+					//get the ID
+					//http://stackoverflow.com/questions/4660291/how-to-access-a-member-of-an-stdclass-in-php-that-starts-with-an
+					$id = $v->{'@attributes'}->id;
+					$hidden = array( 'id' => $id );
+
+					echo form_open_multipart('/admin/updateItem', '', $hidden);
+
+					$data = array(
+						"name" => "title",
+						"id" => "title",
+						"value" => $v->name
+					);
+					echo form_label('Title', 'title');
+					echo form_input( $data );
+
+					$data = array(
+						"name"        => "description",
+						"id"          => "description",
+						"value"       => $v->desc
+					);
+
+					echo form_label('Description', 'description');
+					echo form_textarea( $data );
+
+					$data = array(
+						"name"        => "url",
+						"id"          => "url",
+						"value"       => $v->site_url
+					);
+
+					if ( isset( $v->image_url ) ) {
+
+						echo form_label('Upload a new image', 'img');
+
+					}
+					else {
+
+						echo form_label('Image', 'img');
+
+					}
+
+					?>
+
+					<input type="file" name="img" size="20" />
+
+					<?php
+
+					if ( isset( $v->image_url ) ) {
+
+					?>
+
+					<div class="img">
+						<p>Your current image &darr;</p>
+						<img src="<?php echo base_url() . $v->image_url; ?>" alt="" />
+					</div>
+
+					<?php
+
+					}
+
+					echo form_label('Website link', 'url');
+					echo form_input( $data );
+
+					$options = $mainCategories;
+
+					echo form_label('Category', 'mainCategory');
+					echo form_dropdown( 'mainCategory', $options, $v->cat, 'id="mainCategory"' );
+
+					echo form_label( 'Featured', 'featured' );
+					echo form_checkbox( 'featured', '' , $featured);
+
+					echo form_label('Sub-category', 'subCategory');
+
+
+					//Have to create my own dropdown
+					//Because I want to pass data attributes in the <option> elements
+					?>
+					<select name="subCategory" id="subCategory">
+					<?php
+					foreach ( $subCategories as $category ) {
+
+						$selected = '';
+
+						if ( $v->subCat == $category['id'] ) {
+							$selected = 'selected="selected"';
+						}
+
+					?>
+						<option value="<?php echo $category['id'] ?>" data-parent-category="<?php echo $category['parentCategory'] ?>" <?php echo $selected ?>>
+							<?php echo $category['name'] ?>
+						</option>
+					<?php
+					}
+					?>
+					</select>
+					<?php
+
+					echo form_submit('submit', 'Update', 'id="submit"');
+					echo form_close();
+
+					?>
+
+				</div>
+		
 			<?php
 			}
-			?>
-			</select>
-			<?php
 
-			echo form_submit('submit', 'Update', 'id="submit"');
-			echo form_close();
-
-			?>
-
-		</div>
-		<?php
-		
 		}
 
 		?>
+
 		
 	</div>
 	
@@ -162,6 +177,7 @@
 			$('.toggle').click(function(){
 				$(this).toggleClass('minimise');
 				$(this).parent().siblings('form').slideToggle();
+				return false;
 			});
 
 			// Only show sub-categories that belong to the parent

@@ -27,6 +27,8 @@ class Portfoliomodel extends CI_Model {
 			$this->items[] = $item;
 		} 
 
+		// By default keep them alphabetically sorted
+		$this->items = $this->sort( $this->items, 'name' );
     }
 
 	public function getPortfolioItems( $front = false ) {
@@ -178,6 +180,23 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		return true;
+
+	}
+
+	public function sort( $items, $type ) {
+
+		if ( $type == 'name' ) {
+			//sort the array by borrowedcount descending
+			//inspired by a comment on http://php.net/manual/en/function.array-multisort.php
+			foreach ( $items as $k => $v )  { 
+					$itemsSort[ $k ] = $v->name;
+			}
+
+			array_multisort( $itemsSort, SORT_STRING, $items );
+
+		}
+
+		return $items;
 
 	}
 

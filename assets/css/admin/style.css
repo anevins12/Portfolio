@@ -1,0 +1,141 @@
+/* 
+    Document   : style.css
+    Created on : 29-May-2013, 13:55:41
+    Author     : andrew
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+label {
+	display: block;
+	clear: left;
+}
+
+h1 {
+	margin-bottom: 70px;
+}
+
+h1, h2 {
+	text-align: left;
+	padding: 10px;
+}
+
+h2 {
+	margin: 35px 0 10px 0;
+	background: #eee;
+}
+
+h3 {
+	margin-left: 0;
+}
+
+form {
+	margin-left: 3em;
+}
+
+#wrapper,
+form{
+	position: relative;
+}
+
+#submit {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.img {
+	width: 500px;
+	max-height: 300px;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border-top: 2px dashed #eee;
+}
+
+.img p {
+	margin-bottom: 5px;
+	color: #999;
+}
+
+.img img {
+	max-width: 100%;
+}
+
+#loggedIn,
+#logOut {
+	float: left;
+}
+
+#loggedIn {
+	margin-right: 20px;
+}
+
+.toggle:after {
+	content: "+ ";
+	float: right;
+}
+
+.toggle.minimise:after {
+	content: "- ";
+}
+
+.category {
+	background: #eee;
+	margin: 20px 0 20px;
+}
+
+
+.item {
+	margin-left: 3em;
+}
+
+.item h3 {
+    margin: 20px 0;
+	color: #000000;
+	
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 36%,
+		#fcf9fc 50%,
+		#edeaed);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.36, #ffffff),
+		color-stop(0.50, #fcf9fc),
+		to(#edeaed));
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 0px solid #ffbf00;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.3),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.3),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.3),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.1),
+		0px 1px 0px rgba(255,255,255,1);
+}
+
+.item h3 a {
+	text-decoration: none;
+	display: block;
+	padding: 10px 20px;
+}
+
+.category,
+.item {
+	clear: both;
+}

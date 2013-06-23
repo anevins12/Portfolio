@@ -33,9 +33,23 @@ class Admin extends CI_Controller {
 
 		$this->items = $this->portfoliomodel->getPortfolioItems();
 		$this->mainCategories = $this->categoriesmodel->getCategories();
-		$this->subCategories = $this->categoriesmodel->getCategories( $sub = true );
+		
+		foreach ( $this->mainCategories as $k => $v ) { 
+			$this->subCategories[ $k ] = $this->categoriesmodel->getCategoryByParentID( $k );
+		}
 
+		$this->getSubCategoriesWithParents();
 		$this->setItemsAndCategories();
+
+	}
+
+	private function getSubCategoriesWithParents() {
+
+		if (is_array( $this->mainCategories ) ) {
+
+			
+
+		}
 
 	}
 

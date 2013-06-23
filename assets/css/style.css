@@ -570,7 +570,8 @@ textarea {
 	height: 100px;
 }
 
-input {
+input,
+textarea {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;

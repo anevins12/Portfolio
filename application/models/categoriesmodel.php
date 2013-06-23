@@ -21,15 +21,19 @@ class Categoriesmodel extends CI_Model {
 		
 	}
 
-	public function getCategoryName( $id ) {
+	public function getCategoryByParentId( $id ) {
 
-		foreach ( $this->categories as $k => $v ) {
+		$subCategories = array();
 
-			if ( $id == $k ) {
-				return $v;
+		foreach ( $this->getCategories( true ) as $k => $v ) {
+
+			if ( $id == $v[ 'parentCategory' ] ) {
+				$subCategories[] = $v ;
 			}
-
+			
 		}
+
+		return $subCategories;
 
 	}
 

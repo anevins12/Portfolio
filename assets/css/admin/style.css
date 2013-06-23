@@ -79,10 +79,17 @@ form{
 .toggle:after {
 	content: "+ ";
 	float: right;
+	font-size: 1.2em;
 }
 
 .toggle.minimise:after {
 	content: "- ";
+}
+
+.pointer {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #ddd;
 }
 
 .category {
@@ -127,6 +134,36 @@ form{
 	text-shadow:
 		0px -1px 0px rgba(000,000,000,0.1),
 		0px 1px 0px rgba(255,255,255,1);
+	font-size: 1em;
+}
+
+.item h3.selected {
+	border-bottom: 5px solid #f5642f;
+}
+
+.item h3:hover {
+
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 36%,
+		#fcf9fc 50%,
+		#edeaed);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.36, #fcf9fc),
+		color-stop(0.50, #fcf9fc),
+		to(#edeaed));
+	box-shadow:
+		0px 1px 10px #999,
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-moz-box-shadow:
+		0px 1px 10px #999,
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 10px #999,
+		inset 0px 0px 3px rgba(255,255,255,1);
 }
 
 .item h3 a {

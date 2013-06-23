@@ -38,18 +38,7 @@ class Admin extends CI_Controller {
 			$this->subCategories[ $k ] = $this->categoriesmodel->getCategoryByParentID( $k );
 		}
 
-		$this->getSubCategoriesWithParents();
 		$this->setItemsAndCategories();
-
-	}
-
-	private function getSubCategoriesWithParents() {
-
-		if (is_array( $this->mainCategories ) ) {
-
-			
-
-		}
 
 	}
 

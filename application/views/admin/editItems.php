@@ -124,7 +124,7 @@
 					$options = $mainCategories;
 
 					echo form_label('Category', 'mainCategory');
-					echo form_dropdown( 'mainCategory', $options, $v->cat, 'id="mainCategory"' );
+					echo form_dropdown( 'mainCategory', $options, $v->cat, 'class="mainCategory"' );
 
 					echo form_label( 'Featured', 'featured' );
 					echo form_checkbox( 'featured', '' , $featured);
@@ -196,27 +196,30 @@
 				return false;
 			});
 
-			// Get the value of the main category
-			var mainCategory = $('#mainCategory').val();
-			$('#mainCategory').change(function(){
-				mainCategory = $(this).val();
-			});
+			$('form').each(function(){
 
-			// Get the "select" element that belongs to the selected main category element
-			var subCategorySelected = $( '#cat-' + mainCategory );
+				// Get the value of the main category
+				var mainCategory = $('.mainCategory').val();
+				$('.mainCategory').change(function(){
+					mainCategory = $(this).val();
+				});
 
-			// Make all subcategory select elements disabled
-			// Using the prop method instead of "attr" http://stackoverflow.com/questions/3806685/jquery-add-disabled-attribute-to-input
-			$('.subCat').not( '#cat-' + mainCategory ).prop('disabled',true);
+				// Get the "select" element that belongs to the selected main category element
+				var subCategorySelected = $( '#cat-' + mainCategory );
 
-			$('[disabled]').hide();
-			$('#mainCategory').change(function(){
-				$('.subCat').removeAttr('disabled');
-				$('.subCat').not( '#cat-' + $(this).val() ).prop('disabled',true);
+				// Make all subcategory select elements disabled
+				// Using the prop method instead of "attr" http://stackoverflow.com/questions/3806685/jquery-add-disabled-attribute-to-input
+				$('.subCat').not( '#cat-' + mainCategory ).prop('disabled',true);
+
 				$('[disabled]').hide();
-				$('select').not('[disabled]').show();
-			});
+				$('.mainCategory').change(function(){
+					$('.subCat').removeAttr('disabled');
+					$('.subCat').not( '#cat-' + $(this).val() ).prop('disabled',true);
+					$('[disabled]').hide();
+					$('select').not('[disabled]').show();
+				});
 
+			});
 			
 
 

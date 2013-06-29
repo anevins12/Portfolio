@@ -133,6 +133,11 @@ h2 .toggle.selected:hover {
 
 h2 .toggle:hover:after {
 	color: tomato;
+	-webkit-transition: color .1s ease-in-out;
+	-moz-transition: color .1s ease-in-out;
+	-ms-transition: color .1s ease-in-out;
+	-o-transition: color .1s ease-in-out;
+	transition: color .1s ease-in-out;
 }
 
 .toggle:after {

@@ -42,7 +42,14 @@
 					$v->site_url = '';
 				}
 
-				$featured = $v->featured;
+				// Featured is going to return an empty string or '1'
+
+				if ( is_object( $v->featured ) ) {
+					$v->featured = false;
+				}
+				if ( (string) $v->featured == '1' ) {
+					$v->featured = true;
+				}
 
 			?>
 				<div class="item">
@@ -127,7 +134,7 @@
 					echo form_dropdown( 'mainCategory', $options, $v->cat, 'class="mainCategory"' );
 
 					echo form_label( 'Featured', 'featured' );
-					echo form_checkbox( 'featured', '' , $featured);
+					echo form_checkbox( 'featured', '' , $v->featured);
 
 					echo form_label('Sub-category', 'subCategory');
 

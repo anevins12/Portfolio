@@ -40,12 +40,13 @@
 						I'm in Bristol and working at Nomensa as a Front-End Developer.
 					</p>
 					<p>
-						I've just finished my University course in Web Design and am expecting a 1st degree grade. 
+						I've just finished my University course in Web Design and have achieved a <strong>1st class degree</strong> :) and
+						Graduation is soon so I can't wait for that. 
 					</p>
 					<p>
+					<p>
 						Last year I did a placement year and had a really insightful experience
-						learning about Web Development and Front-End Development.
-						I worked with two web agencies, both based in Bristol.
+						learning about Web Development and Front-End Development in 2 digital agencies.
 					</p>
 				</div>
 				<div class="col small">
@@ -66,7 +67,7 @@
 						<h6><a href="http://web.stagram.com/n/andrewn12/">My Instagram Feed</a></h6>
 					</div>
 
-					<div class="col">
+					<div class="col swim">
 						<h6>Swim</h6>
 						<p>
 							After training for a swimming test for a canoe club,

@@ -98,7 +98,7 @@ class Admin extends CI_Controller {
 		$url		 = $this->input->post( 'url' );
 		$category    = $this->input->post( 'mainCategory' );
 		$subCategory = $this->input->post( 'subCategory' );
-		$featured    = $this->input->post( 'featured' );
+		$featured    = $this->input->post( 'featured' ); 
 
 		htmlentities($title); 
 		htmlentities($description);
@@ -129,7 +129,7 @@ class Admin extends CI_Controller {
 
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
-		
+
 		if ( $this->portfoliomodel->updateItem( $item ) ) {
 
 			//Have to set the items again because they have been updated

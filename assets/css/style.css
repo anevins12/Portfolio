@@ -703,3 +703,8 @@ footer nav li.front-end {
 .overlay {
 	background: black;
 }
+
+.about #container .hobbies .swim h6,
+.about #container .hobbies .swim p{
+	text-shadow: 0 1px 4px #666;
+}

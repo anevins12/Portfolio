@@ -35,6 +35,7 @@ h2 a.toggle {
 	padding: 10px;
 	display: block;
 	border-bottom: 2px solid #464747;
+	text-decoration: none;
 }
 
 h2 a.toggle:hover {
@@ -50,6 +51,12 @@ h2 a.selected {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	border-bottom: 2px solid tomato;
+}
+
+h2 a span {
+	font-size: .8em;
+	color: #999;
+	margin-left: 1em;
 }
 
 h3 {

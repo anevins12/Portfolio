@@ -30,7 +30,7 @@
 		?>
 
 		<div class="category" data-category="<?php echo $category ?>">
-			<h2> <a href="#" class="toggle"> <?php echo $category ?><span>(category)</span> </a> </h2>
+			<h2> <a href="#" class="toggle"> <?php echo $category ?><span>(<?php echo count( $items ) ?>)</span> </a> </h2>
 		</div>
 
 		<?php

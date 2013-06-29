@@ -29,8 +29,8 @@
 
 		?>
 
-		<div class="category">
-			<h2> <?php echo $category ?> </h2>
+		<div class="category" data-category="<?php echo $category ?>">
+			<h2> <a href="#" class="toggle"> <?php echo $category ?> </a> </h2>
 		</div>
 
 		<?php
@@ -52,7 +52,7 @@
 				}
 
 			?>
-				<div class="item">
+				<div class="item <?php echo $category ?>">
 
 					<h3>
 						<a href="#" class="toggle" id="<?php echo $v->name ?>">
@@ -194,13 +194,33 @@
 
 		jQuery(document).ready(function($){
 
-			$('form').hide();
+			$('form, .item').hide();
 			$('.toggle').click(function(){
+				
 				$(this).toggleClass('minimise');
-				$(this).parent().toggleClass('selected');
-				$(this).parent().siblings('form').slideToggle();
 
+				if ( $(this).parent().parent().hasClass('item') ) {
+
+					$(this).parent().toggleClass('selected');
+					$(this).parent().siblings('form').slideToggle();
+
+				}
+
+				else {
+
+					$(this).toggleClass('selected');
+					var category = $(this).parents('.category');
+					var categoryName = $(category).data('category');
+
+
+
+					//Toggle siblings within the same category
+					$(category).siblings( '.' + categoryName ).fadeToggle('fast');
+
+				}
+				
 				return false;
+
 			});
 
 			$('form').each(function(){
@@ -218,16 +238,17 @@
 				// Using the prop method instead of "attr" http://stackoverflow.com/questions/3806685/jquery-add-disabled-attribute-to-input
 				$('.subCat').not( '#cat-' + mainCategory ).prop('disabled',true);
 
-				$('[disabled]').hide();
-				$('.mainCategory').change(function(){
-					$('.subCat').removeAttr('disabled');
-					$('.subCat').not( '#cat-' + $(this).val() ).prop('disabled',true);
-					$('[disabled]').hide();
-					$('select').not('[disabled]').show();
+				$( '[disabled]' ).hide();
+				$( '.mainCategory' ).change(function() {
+					$( '.subCat' ).removeAttr( 'disabled' );
+					$( '.subCat' ).not( '#cat-' + $(this).val() ).prop( 'disabled', true );
+					$( '[disabled]' ).hide();
+					$( 'select' ).not( '[disabled]' ).show();
 				});
 
 			});
 
+		});
 	</script>
 </body>
 </html>

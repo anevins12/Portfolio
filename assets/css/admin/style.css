@@ -27,7 +27,29 @@ h1, h2 {
 
 h2 {
 	margin: 35px 0 10px 0;
-	background: #eee;
+	padding: 0;
+	background: none;
+}
+
+h2 a.toggle {
+	padding: 10px;
+	display: block;
+	border-bottom: 2px solid #464747;
+}
+
+h2 a.toggle:hover {
+	-webkit-transition: background .1s ease-in-out;
+	-moz-transition: background .1s ease-in-out;
+	-ms-transition: background .1s ease-in-out;
+	-o-transition: background .1s ease-in-out;
+	transition: background .1s ease-in-out;
+}
+
+h2 a.selected {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-bottom: 2px solid tomato;
 }
 
 h3 {
@@ -76,6 +98,36 @@ form{
 	margin-right: 20px;
 }
 
+h2 .toggle:after {
+	padding: 0 5px;
+	background: #464747;
+	font-weight: bold;
+}
+
+h2 .toggle:after,
+h2 .toggle.selected:hover:after {
+	color: #eee;
+}
+
+h2 .toggle.minimise:after {
+	padding: 0 8px;
+	background: tomato;
+	color: #fcfcfc;
+	text-shadow: 0 0 10px yellow;
+}
+
+h2 .toggle:hover {
+	background: #eee;
+}
+
+h2 .toggle.selected:hover {
+	background: none;
+}
+
+h2 .toggle:hover:after {
+	color: tomato;
+}
+
 .toggle:after {
 	content: "+ ";
 	float: right;
@@ -93,7 +145,6 @@ form{
 }
 
 .category {
-	background: #eee;
 	margin: 20px 0 20px;
 }
 

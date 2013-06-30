@@ -16,6 +16,10 @@ label {
 	clear: left;
 }
 
+header {
+	padding-top: 0;
+}
+
 h1 {
 	margin-bottom: 70px;
 }
@@ -96,13 +100,44 @@ form{
 	max-width: 100%;
 }
 
-#loggedIn,
-#logOut {
-	float: left;
+#loggedIn {
+	border-top: 5px solid deepskyblue;
 }
 
-#loggedIn {
-	margin-right: 20px;
+#loggedIn p,
+p#logOut a {
+	-webkit-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#loggedIn p {
+	float: left;
+	padding: 10px;
+	background: deepskyblue;
+	color: white;
+	text-transform: uppercase;
+	margin-top: 0;
+	font-size: .85em;
+	font-style: italic;
+}
+
+#loggedIn strong {
+	font-size: 1.1em;
+	font-style: initial;
+}
+
+p#logOut {
+	font-style: normal;
+	float: right;
+	padding: 0;
+	background: none;
+}
+
+p#logOut a {
+	text-decoration: none;
+	background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPXr1/3YUQWAwloampugQvCBECKwILIAmBBdAGQIACjUBLXTfw7qAAAAABJRU5ErkJggg==");
+	padding: 10px;
+	display: block;
 }
 
 h2 .toggle:after {

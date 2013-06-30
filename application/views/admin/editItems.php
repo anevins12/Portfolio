@@ -10,18 +10,20 @@
 <body>
 
 	<div id="wrapper">
-		<h1> Your portfolio items </h1>
-		<p id="loggedIn">
-			Logged in as
-			<strong>
-		<?php
-				echo $loggedInUsername;
-		?>.
-			</strong>
-		</p>
-		<p id="logOut">
-			<a href="/admin/logout">Log out.</a>
-		</p>
+
+		<header id="loggedIn">
+			<p>
+				Logged in as
+				<strong>
+				<?php
+						echo $loggedInUsername;
+				?>
+				</strong>
+			</p>
+			<p id="logOut">
+				<a href="/admin/logout">Log out</a>
+			</p>
+		</header>
 
 		<?php
 		

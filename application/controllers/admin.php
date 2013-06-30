@@ -157,7 +157,8 @@ class Admin extends CI_Controller {
 	public function validate() {
 
 		//if someone have gone to this function without submitting the form
-		if ( isset( $this->input->post ) ) {
+		$posted = $this->input->post();
+		if ( isset( $posted ) ) {
 
 			$username = $this->input->post( 'username' );
 

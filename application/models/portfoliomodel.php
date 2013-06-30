@@ -128,7 +128,55 @@ class Portfoliomodel extends CI_Model {
 	}
 
 	public function updateItem( $item ) {
+		$sessionDetails = $this->getSessionDetails();
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 
+		$id			 = $this->input->post( 'id' );
+		$title		 = $this->input->post( 'title' );
+		$description = $this->input->post( 'description' );
+		$url		 = $this->input->post( 'url' );
+		$category    = $this->input->post( 'mainCategory' );
+		$subCategory = $this->input->post( 'subCategory' );
+		$featured    = $this->input->post( 'featured' );
+
+		htmlentities($title);
+		htmlentities($description);
+		htmlentities($url);
+
+		if ( $url == 'http://' ) {
+			$url = '';
+		}
+
+		$item = array( 'id' => $id, 'title' => $title, 'description' => $description,
+		   'url' => $url, 'mainCategory' => $category, 'subCategory' => $subCategory,
+		   'featured' => $featured
+		 );
+
+		// Check if image is being uploaded
+		if ( !empty( $_FILES['img']['name'] ) ) {
+
+			$uploaded = $this->upload();
+
+			if ( $uploaded[ 'status' ] == false ) {
+				$data[ 'errors' ] = $uploaded[ 0 ][ 'error' ];
+			}
+			else {
+				$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
+			}
+
+		}
+
+		$data[ 'mainCategories' ] = $this->mainCategories;
+		$data[ 'subCategories' ] = $this->subCategories;
+
+		if ( $this->portfoliomodel->updateItem( $item ) ) {
+
+			//Have to set the items again because they have been updated
+			$this->setItemsAndCategories();
+			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+
+			$this->load->view( 'admin/editItems', $data );
+		}
 		$file = new DOMDocument();
 		$itemId = $item[ 'id' ];
 		
@@ -183,6 +231,28 @@ class Portfoliomodel extends CI_Model {
 
 	}
 
+	public function getSessionDetails() {
+
+		if ( $this->loggedIn() ) {
+			return $this->session->all_userdata();
+		}
+
+		return false;
+
+	}
+
+	public function loggedIn() {
+
+		$sessionUserData = $this->session->all_userdata();
+
+		if ( @$sessionUserData[ 'logged_in' ] == true ) {
+			return true;
+		}
+
+		return false;
+		
+	}
+
 	public function sort( $items, $type ) {
 
 		if ( $type == 'name' ) {
@@ -197,6 +267,30 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		return $items;
+
+	}
+
+	public function upload() {
+
+		$config['upload_path'] = './uploads';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '5000';
+		$config['remove_spaces'] = true;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload( 'img' ) ) {
+
+			$error = array('error' => $this->upload->display_errors());
+			return array( 'status' => false, $error );
+
+		}
+		else {
+
+			$data = array('upload_data' => $this->upload->data());
+			return array( 'status' => true, $data );
+
+		}
 
 	}
 

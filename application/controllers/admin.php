@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
 	private $itemsAndCategories = array();
 
 	public function __construct() {
+		
 		parent::__construct();
 		$this->load->model('portfoliomodel');
 		$this->load->model('categoriesmodel');
@@ -182,56 +183,38 @@ class Admin extends CI_Controller {
 
 	public function upload() {
 
-		$config['upload_path'] = './uploads';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '5000';
-		$config['remove_spaces'] = true;
-
-		$this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload( 'img' ) ) {
-
-			$error = array('error' => $this->upload->display_errors());
-			return array( 'status' => false, $error );
-			
-		}
-		else {
-
-			$data = array('upload_data' => $this->upload->data());
-			return array( 'status' => true, $data );
-			
-		}
+		$this->portfoliomodel->upload();
 
 	}
 
 	public function loggedIn() {
 
-		$sessionUserData = $this->session->all_userdata();
-		
-		if ( @$sessionUserData[ 'logged_in' ] == true ) {
-			return true;
-		}
-
-		return false;
+		$loggedIn = $this->portfoliomodel->loggedIn(); 
+		return $loggedIn;
 
 	}
 
+
 	private function getSessionDetails() {
 
-		if ( $this->loggedIn() ) {
-			return $this->session->all_userdata();
-		}
-
-		return false;
+		return $this->portfoliomodel->getSessionDetails();
 
 	}
 
 	public function logout() {
-
+ 
 		$sessionDetails = $this->getSessionDetails();
 
 		$this->session->unset_userdata($sessionDetails); 
 		$this->login();
+
+	}
+
+	public function newItem() {
+
+		$emptyForm = $this->load->view( 'admin/newItem' );
+		$data[ 'emptyForm' ] = $emptyForm;
+
 
 	}
 

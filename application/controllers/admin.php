@@ -156,26 +156,37 @@ class Admin extends CI_Controller {
 
 	public function validate() {
 
-		$username = $this->input->post( 'username' );
-		
-		if ( !$this->usersmodel->validate() ) {
+		//if someone have gone to this function without submitting the form
+		if ( isset( $this->input->post ) ) {
 
-			$data[ 'errors' ] = "Invalid username and/or password" ;
+			$username = $this->input->post( 'username' );
 
-			if ( isset( $username ) ) {
-				$data[ 'username' ] = $username;
+			if ( !$this->usersmodel->validate() ) {
+
+				$data[ 'errors' ] = "Invalid username and/or password" ;
+
+				if ( isset( $username ) ) {
+					$data[ 'username' ] = $username;
+				}
+
+				else {
+					$data[ 'username' ] = '';
+				}
+
+				$this->login( $data );
+
 			}
-			
 			else {
-				$data[ 'username' ] = '';
+
+				$this->index();
+
 			}
-			
-			$this->login( $data );
 			
 		}
 		else {
 
 			$this->index();
+			return false;
 
 		}
 

@@ -11,7 +11,7 @@
 
 	<div id="wrapper">
 
-		<header id="loggedIn">
+		<header id="loggedIn" class="clearfix">
 			<p>
 				Logged in as
 				<strong>

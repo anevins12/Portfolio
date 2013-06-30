@@ -90,48 +90,14 @@ class Admin extends CI_Controller {
 			return false;
 		}
 
+
 		$sessionDetails = $this->getSessionDetails();
-		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 		
-		$id			 = $this->input->post( 'id' );
-		$title		 = $this->input->post( 'title' );
-		$description = $this->input->post( 'description' );
-		$url		 = $this->input->post( 'url' );
-		$category    = $this->input->post( 'mainCategory' );
-		$subCategory = $this->input->post( 'subCategory' );
-		$featured    = $this->input->post( 'featured' ); 
-
-		htmlentities($title); 
-		htmlentities($description);
-		htmlentities($url);
-
-		if ( $url == 'http://' ) {
-			$url = '';
-		}
-
-		$item = array( 'id' => $id, 'title' => $title, 'description' => $description,
-		   'url' => $url, 'mainCategory' => $category, 'subCategory' => $subCategory,
-		   'featured' => $featured
-		 );
-			
-		// Check if image is being uploaded
-		if ( !empty( $_FILES['img']['name'] ) ) {
-			
-			$uploaded = $this->upload();
-
-			if ( $uploaded[ 'status' ] == false ) {
-				$data[ 'errors' ] = $uploaded[ 0 ][ 'error' ];
-			}
-			else {
-				$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
-			}
-
-		}
-
+		$data['loggedInUsername'] = $sessionDetails[ 'username' ];
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
 
-		if ( $this->portfoliomodel->updateItem( $item ) ) {
+		if ( $this->portfoliomodel->updateItem() ) {
 
 			//Have to set the items again because they have been updated
 			$this->setItemsAndCategories();

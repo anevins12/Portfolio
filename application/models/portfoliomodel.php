@@ -127,7 +127,8 @@ class Portfoliomodel extends CI_Model {
 		copy( realpath( $file ) , str_replace( '.xml', '', realpath( $file ) ) . '-' . date( "i-H-d-m-y" ) . '.xml' );
 	}
 
-	public function updateItem( $item ) {
+	public function updateItem() {
+		
 		$sessionDetails = $this->getSessionDetails();
 		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 
@@ -166,20 +167,21 @@ class Portfoliomodel extends CI_Model {
 
 		}
 
-		$data[ 'mainCategories' ] = $this->mainCategories;
-		$data[ 'subCategories' ] = $this->subCategories;
+		if ( $this->doUpdateItem( $item ) ) {
 
-		if ( $this->portfoliomodel->updateItem( $item ) ) {
-
-			//Have to set the items again because they have been updated
-			$this->setItemsAndCategories();
-			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
-
-			$this->load->view( 'admin/editItems', $data );
+			return true;
+			
 		}
+
+		return false;
+
+	}
+
+	private function doUpdateItem( $item ) {
+
 		$file = new DOMDocument();
 		$itemId = $item[ 'id' ];
-		
+
 		//load the XML file into the DOM, loading statically
 		$file->load( $this->tablePath );
 
@@ -193,7 +195,7 @@ class Portfoliomodel extends CI_Model {
 		if ( $file->getElementsByTagName( 'item' ) ) {
 			//get all book by book id
 			$origItem = $this->table->xpath( "//*[@id='$itemId']" );
-		} 
+		}
 		else {
 			show_error( "The XML file contains no nodes named 'item'" );
 			log_message( 'error', "XML file has no 'item' nodes" );
@@ -228,7 +230,6 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		return true;
-
 	}
 
 	public function getSessionDetails() {

@@ -144,21 +144,22 @@
 					//Have to create my own dropdown
 					//Because I want to pass data attributes in the <option> elements
 					?>
-<!--					-->
-					<?php 
-					foreach ( $subCategories as $k => $v ) {
+
+					<?php
+					foreach ( $subCategories as $k => $val ) {
 
 						$selected = '';
+						
 					?>
 
 					<select class="subCat" name="subCategory" id="cat-<?php echo $k ?>">
 
 					<?php
-//						if ( $v->subCat == $v[ $k ][ 'id' ] ) {
-//							$selected = 'selected="selected"';
-//						}
 
-						foreach ( $v as $subCategory ) {
+						foreach ( $val as $subCategory ) {
+							
+							if ( $subCategory[ 'id' ] == $v->subCat ) $selected = 'selected="selected"';
+
 					?>
 							<option value="<?php echo $subCategory['id'] ?>" <?php echo $selected ?>>
 								<?php echo $subCategory['name'] ?>

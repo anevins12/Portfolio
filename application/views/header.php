@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title><?php echo $title; ?></title>
+		<meta name="google-site-verification" content="G0LJNKLFh-QbalJoX3GKn-AhGYlLc9d_xtPuyOSiox4" />
 		<link href="<?php echo base_url(); ?>/assets/css/jquery.fancybox.css" rel="stylesheet" />
 		<link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet" />
 		<script>

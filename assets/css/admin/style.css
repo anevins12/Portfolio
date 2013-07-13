@@ -246,6 +246,34 @@ h2 .toggle.minimised:hover {
 
 #container .title {
 	margin: 4% 0;
+	position: relative;
+}
+
+#container .title a.close {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	height: 18px;
+	width: 18px;
+
+	border: 2px solid white;
+	border-radius: 100%;
+
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-family: tahoma;
+	font-size: 11px;
+	text-indent: -1px;
+	text-decoration: none;
+	line-height: 16px;
+}
+
+#container .title a:hover.close {
+	color: #333;
+	background: white;
+	border-color: #333;
 }
 
 .category {

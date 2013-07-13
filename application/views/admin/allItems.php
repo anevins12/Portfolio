@@ -29,6 +29,7 @@
 
 		<div class="title">
 			<h3>Overview of your work</h3>
+			<a class="close" href="#" title="close">x</a>
 			<p>
 				On this page you can see all of your portfolio items that are categorised in columns.
 			</p>
@@ -84,7 +85,7 @@
 
 		jQuery(document).ready(function($){
 
-		$('.category').find('h2 a').addClass('minimised');
+			$('.category').find('h2 a').addClass('minimised');
 
 			$('.toggle').click(function(){
 				
@@ -92,6 +93,10 @@
 				$(this).parents('.category').find('ul').slideToggle('slow');
 				return false;
 
+			});
+
+			$('.close').click(function(){
+				$(this).parent().slideUp();
 			});
 
 		});

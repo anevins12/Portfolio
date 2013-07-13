@@ -1,16 +1,3 @@
-/* 
-    Document   : style.css
-    Created on : 29-May-2013, 13:55:41
-    Author     : andrew
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
 label {
 	display: block;
 	clear: left;
@@ -20,6 +7,12 @@ header {
 	padding-top: 0;
 	overflow: visible;
 	width: 100%;
+}
+
+a:hover,
+h2 a:hover span {
+	color: tomato;
+	border-color: tomato;
 }
 
 h1 {
@@ -32,31 +25,19 @@ h1, h2 {
 }
 
 h2 {
-	margin: 35px 0 10px 0;
+	margin: 0 0 10px 0;
 	padding: 0;
 	background: none;
 }
 
 h2 a.toggle {
-	padding: 10px;
+	padding: 10px 0;
 	display: block;
 	border-bottom: 2px solid #464747;
 	text-decoration: none;
 }
 
-h2 a.toggle:hover,
-p#logOut a:hover {
-	-webkit-transition: background .1s ease-in-out;
-	-moz-transition: background .1s ease-in-out;
-	-ms-transition: background .1s ease-in-out;
-	-o-transition: background .1s ease-in-out;
-	transition: background .1s ease-in-out;
-}
-
-h2 a.selected {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+h2 a.minimised {
 	border-bottom: 2px solid tomato;
 }
 
@@ -85,6 +66,10 @@ form{
 	right: 0;
 }
 
+select,
+input[type="checkbox"] {
+	margin: 10px 0;
+}
 .img {
 	width: 500px;
 	max-height: 300px;
@@ -104,20 +89,13 @@ form{
 }
 
 #loggedIn {
-	border-top: 5px solid deepskyblue;
-}
-
-#loggedIn p,
-p#logOut a {
-	-webkit-border-radius: 0px 0px 10px 10px;
-	border-radius: 0px 0px 10px 10px;
+	border-top: 5px solid #333;
 }
 
 #loggedIn p {
 	float: left;
 	padding: 10px;
-	background: deepskyblue;
-	color: white;
+	color: #333;
 	text-transform: uppercase;
 	margin-top: 0;
 	font-size: .85em;
@@ -138,20 +116,9 @@ p#logOut {
 
 p#logOut a {
 	text-decoration: none;
-	background: #fcfcfc;
 	padding: 10px;
 	display: block;
-	-webkit-box-shadow:  0px 2px 2px 0px #eeeeee;
-    box-shadow:  0px 2px 2px 0px #eeeeee;
-}
-
-p#logOut a:hover {
-	background: #fff;
-	-webkit-box-shadow:  0px 2px 10px 0px #ddd;
-	box-shadow:  0px 2px 10px 0px #ddd;
-	 transition: all 0.1s ease-in-out;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
+	border-bottom: 2px solid tomato;
 }
 
 h2 .toggle:after {
@@ -161,32 +128,19 @@ h2 .toggle:after {
 }
 
 h2 .toggle:after,
-h2 .toggle.selected:hover:after {
+h2 .toggle.minimised:hover:after {
 	color: #eee;
 }
 
-h2 .toggle.minimise:after {
+h2 .toggle.minimised:after {
 	padding: 0 8px;
 	background: tomato;
 	color: #fcfcfc;
 	text-shadow: 0 0 10px yellow;
 }
 
-h2 .toggle:hover {
-	background: #eee;
-}
-
-h2 .toggle.selected:hover {
+h2 .toggle.minimised:hover {
 	background: none;
-}
-
-h2 .toggle:hover:after {
-	color: tomato;
-	-webkit-transition: color .1s ease-in-out;
-	-moz-transition: color .1s ease-in-out;
-	-ms-transition: color .1s ease-in-out;
-	-o-transition: color .1s ease-in-out;
-	transition: color .1s ease-in-out;
 }
 
 .toggle:after {
@@ -195,7 +149,7 @@ h2 .toggle:hover:after {
 	font-size: 1.2em;
 }
 
-.toggle.minimise:after {
+.toggle.minimised:after {
 	content: "- ";
 }
 
@@ -209,7 +163,6 @@ h2 .toggle:hover:after {
 	margin: 20px 0 20px;
 }
 
-
 .item {
 	margin-left: 3em;
 }
@@ -217,7 +170,7 @@ h2 .toggle:hover:after {
 .item h3 {
     margin: 20px 0;
 	color: #000000;
-	
+
 	background: -moz-linear-gradient(
 		top,
 		#ffffff 0%,
@@ -249,7 +202,7 @@ h2 .toggle:hover:after {
 	font-size: 1em;
 }
 
-.item h3.selected {
+.item h3.minimised {
 	border-bottom: 5px solid #f5642f;
 }
 
@@ -284,7 +237,75 @@ h2 .toggle:hover:after {
 	padding: 10px 20px;
 }
 
-.category,
-.item {
-	clear: both;
+/* ALL ITEMS TEMPLATE
+----------------------------------- */
+#container {
+	width: auto;
+	float: none;
+}
+
+#container .title {
+	margin: 4% 0;
+}
+
+.category {
+	float: left;
+	width: 26%;
+	margin: 0 5%;
+	background: url("/assets/i/vert-separator.png") repeat-y;
+	background-position: 100%;
+	padding-right: 6%;
+}
+
+.category:nth-child(1n),
+.category:nth-child(3n) {
+	margin-left: 0;
+}
+
+.category:nth-child(4n) {
+	margin-right: 0;
+}
+
+.category:nth-child(4) {
+	background: none;
+	padding-right: 0;
+}
+
+.category img {
+	width: 100%;
+	-webkit-filter: grayscale(99%);
+}
+
+.category h3 {
+	margin: 20% 0 4% 0;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPHjx//z4gsBhKwtLRkhAvCBECKwILIAmBBdAGQIADWnxNagHbKQAAAAABJRU5ErkJggg==);
+}
+
+.category li a {
+	line-height: 1.4em;
+}
+
+.category li h3,
+.category li a {
+	border: 0;
+	color: tomato;
+	padding-bottom: 1px;
+}
+
+.category li a:hover {
+	text-decoration: underline;
+}
+
+.category li a:hover img {
+	border-bottom: 5px solid tomato;
+	-webkit-filter: grayscale(0%);
+	-webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.category h3 span {
+	padding-right: 10px;
+	background: white;
 }

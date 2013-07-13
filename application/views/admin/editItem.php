@@ -130,13 +130,13 @@
 					echo form_label('Website link', 'url');
 					echo form_input( $data );
 
+					echo form_label( 'Featured', 'featured' );
+					echo form_checkbox( 'featured', '' , $v->featured);
+
 					$options = $mainCategories;
 
 					echo form_label('Category', 'mainCategory');
 					echo form_dropdown( 'mainCategory', $options, $v->cat, 'class="mainCategory"' );
-
-					echo form_label( 'Featured', 'featured' );
-					echo form_checkbox( 'featured', '' , $v->featured);
 
 					echo form_label('Sub-category', 'subCategory');
 
@@ -198,6 +198,36 @@
 		jQuery(document).ready(function($){
 
 			$('form, .item').hide();
+
+			$('.item form').submit(function() {
+
+
+				var form = $(this),
+				$id			= $(form).find('input[name="id"]').val(),
+				$title		= $(form).find('input[name="title"]').val(),
+				$description = $(form).find('input[name="description"]').val(),
+				$url         = $(form).find('input[name="url"]').val(),
+				$mainCategory = $(form).find('select[name="mainCategory"]').val(),
+				$subCategory  = $(form).find('select[name="subCategory"]').val();
+
+				$.post('admin/updateItem', {
+					
+					id: $id,
+					title: $title,
+					description: $description,
+					url: $url,
+					mainCategory: $mainCategory,
+					subCategory: $subCategory,
+					json: true
+					
+				}, function(data) {
+
+					console.log(data);
+
+				});
+
+			});
+
 			$('.toggle').click(function(){
 				
 				$(this).toggleClass('minimise');
@@ -214,8 +244,6 @@
 					$(this).toggleClass('selected');
 					var category = $(this).parents('.category');
 					var categoryName = $(category).data('category');
-
-
 
 					//Toggle siblings within the same category
 					$(category).siblings( '.' + categoryName ).fadeToggle('fast');

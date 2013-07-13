@@ -68,7 +68,7 @@ class Admin extends CI_Controller {
 		$data['subCategories'] = $this->subCategories;
 		$data['itemsAndCategories'] = $this->itemsAndCategories;
 		
-		$this->load->view( 'admin/editItems', $data );
+		$this->load->view( 'admin/allItems', $data );
 
 	}
 
@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
 		return $xml;
 	}
 
-	public function updateItem() {
+	public function updateItem( $json = false ) {
 
 		if( !$this->loggedIn() ) {
 			$this->load->view( 'admin/login' );
@@ -89,11 +89,10 @@ class Admin extends CI_Controller {
 			$this->index();
 			return false;
 		}
-
-
+		
 		$sessionDetails = $this->getSessionDetails();
 		
-		$data['loggedInUsername'] = $sessionDetails[ 'username' ];
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
 
@@ -102,8 +101,15 @@ class Admin extends CI_Controller {
 			//Have to set the items again because they have been updated
 			$this->setItemsAndCategories();
 			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+
+			if ( $json ) {
+
+				$data[ 'message' ] = "Item successfully updated";
+				return $data;
+
+			}
 			
-			$this->load->view( 'admin/editItems', $data );
+			$this->load->view( 'admin/editItem', $data );
 		}
 
 	}
@@ -111,7 +117,7 @@ class Admin extends CI_Controller {
 	public function login( $data = false ) {
 
 		if( $this->loggedIn() ) { 
-			$this->load->view( 'admin/editItems' ); 
+			$this->load->view( 'admin/allItems' );
 			return true;
 		}
 		

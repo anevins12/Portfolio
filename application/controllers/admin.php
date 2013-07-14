@@ -72,6 +72,25 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function item( $id ) {
+		
+		if( !$this->loggedIn() ) {
+			$this->load->view( 'admin/login' );
+			return false;
+		}
+
+		$sessionDetails = $this->getSessionDetails();
+
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
+		$data[ 'item' ] = $this->portfoliomodel->getPortfolioItem( $id );
+		$data[ 'mainCategories' ] = $this->mainCategories;
+		$data[ 'subCategories' ] = $this->subCategories;
+		$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+		
+		$this->load->view( 'admin/editItem', $data );
+
+	}
+
 	private function loadFile( $file ) {
 		$xml = $this->portfoliomodel->checkFile( $file );
 		return $xml;
@@ -89,9 +108,13 @@ class Admin extends CI_Controller {
 			$this->index();
 			return false;
 		}
+
+		$posted = $this->input->post();
+		$id = $posted[ 'id' ];
 		
 		$sessionDetails = $this->getSessionDetails();
-		
+
+		$data[ 'item' ] = $this->portfoliomodel->getPortfolioItem( $id );
 		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
@@ -101,13 +124,8 @@ class Admin extends CI_Controller {
 			//Have to set the items again because they have been updated
 			$this->setItemsAndCategories();
 			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
-
-			if ( $json ) {
-
-				$data[ 'message' ] = "Item successfully updated";
-				return $data;
-
-			}
+			$data[ 'updated' ][ 'status' ] = true;
+			$data[ 'updated' ][ 'message' ] = 'Successfully updated';
 			
 			$this->load->view( 'admin/editItem', $data );
 		}

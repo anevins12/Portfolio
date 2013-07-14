@@ -4,10 +4,9 @@
 <head>
 	<title></title>
 	<link href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" rel="stylesheet" />
-	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/admin/style.css" rel="stylesheet" />
 </head>
-<body>
+<body class="editItem">
 
 	<div id="wrapper">
 
@@ -25,168 +24,185 @@
 			</p>
 		</header>
 
-		<?php
-		
-		foreach ( $itemsAndCategories as $category => $items ) {
+		<div id="container">
 
-		?>
-
-		<div class="category" data-category="<?php echo $category ?>">
-			<h2> <a href="#" class="toggle"> <?php echo $category ?><span>(<?php echo count( $items ) ?>)</span> </a> </h2>
-		</div>
-
-		<?php
-
-			foreach ( $items as $k => $v ) {
-
-				//Define undefined values (comes up as object in simpleXML)
-				if ( is_object( $v->site_url ) ) {
-					$v->site_url = '';
-				}
-
-				// Featured is going to return an empty string or '1'
-
-				if ( is_object( $v->featured ) ) {
-					$v->featured = false;
-				}
-				if ( (string) $v->featured == '1' ) {
-					$v->featured = true;
-				}
-
-			?>
-				<div class="item <?php echo $category ?>">
-
-					<h3>
-						<a href="#" class="toggle" id="<?php echo $v->name ?>">
-							<?php echo $v->name ?>
+			<div class="breadcrumb">
+				<ul>
+					<li class="first">
+						<a href="<?php echo base_url() ?>admin">
+							Work overview
 						</a>
-					</h3>
+					</li>
+					<li class="last">
+						Editing: <?php echo $item->name ?>
+					</li>
+				</ul>
+			</div>
 
-					<?php if ( isset( $errors ) ) echo $errors; ?>
+			<div class="title">
+				<h1>Edit your work</h1>
+				<a class="close" href="#" title="close">x</a>
+				<p>
+					Here you'll find a form that consists of one of your work pieces. By updating that form you are updating the information in that work piece.
+				</p>
+			</div>
+			<?php
 
-					<?php
-
-					//get the ID
-					//http://stackoverflow.com/questions/4660291/how-to-access-a-member-of-an-stdclass-in-php-that-starts-with-an
-					$id = $v->{'@attributes'}->id;
-					$hidden = array( 'id' => $id );
-
-					echo form_open_multipart('/admin/updateItem', '', $hidden);
-
-					$data = array(
-						"name" => "title",
-						"id" => "title",
-						"value" => $v->name
-					);
-
-					echo form_label('Title', 'title');
-					echo form_input( $data );
-
-					$data = array(
-						"name"        => "description",
-						"id"          => "description",
-						"value"       => $v->desc
-					);
-
-					echo form_label('Description', 'description');
-					echo form_textarea( $data );
-
-					$data = array(
-						"name"        => "url",
-						"id"          => "url",
-						"value"       => $v->site_url
-					);
-
-					if ( isset( $v->image_url ) ) {
-
-						echo form_label('Upload a new image', 'img');
-
-					}
-					else {
-
-						echo form_label('Image', 'img');
-
+					//Define undefined values (comes up as object in simpleXML)
+					if ( is_object( $item->site_url ) ) {
+						$item->site_url = '';
 					}
 
-					?>
+					// Featured is going to return an empty string or '1'
 
-					<input type="file" name="img" size="20" />
-
-					<?php
-
-					if ( isset( $v->image_url ) ) {
-
-					?>
-
-					<div class="img">
-						<p>Your current image &darr;</p>
-						<img src="<?php echo base_url() . $v->image_url; ?>" alt="" />
-					</div>
-
-					<?php
-
+					if ( is_object( $item->featured ) ) {
+						$item->featured = false;
+					}
+					if ( (string) $item->featured == '1' ) {
+						$item->featured = true;
 					}
 
-					echo form_label('Website link', 'url');
-					echo form_input( $data );
+				?>
+					<div class="item">
 
-					echo form_label( 'Featured', 'featured' );
-					echo form_checkbox( 'featured', '' , $v->featured);
+						<h2>
+							Editing: <?php echo $item->name ?>
+						</h2>
 
-					$options = $mainCategories;
-
-					echo form_label('Category', 'mainCategory');
-					echo form_dropdown( 'mainCategory', $options, $v->cat, 'class="mainCategory"' );
-
-					echo form_label('Sub-category', 'subCategory');
-
-
-					//Have to create my own dropdown
-					//Because I want to pass data attributes in the <option> elements
-					?>
-
-					<?php
-					foreach ( $subCategories as $k => $val ) {
-
-						$selected = '';
-						
-					?>
-
-					<select class="subCat" name="subCategory" id="cat-<?php echo $k ?>">
-
-					<?php
-
-						foreach ( $val as $subCategory ) {
-							
-							if ( $subCategory[ 'id' ] == $v->subCat ) $selected = 'selected="selected"';
-
-					?>
-							<option value="<?php echo $subCategory['id'] ?>" <?php echo $selected ?>>
-								<?php echo $subCategory['name'] ?>
-							</option>
-					<?php
-						}
+						<?php
+							if ( isset( $updated ) ) {
+								if ( $updated[ 'status' ] ) {
 						?>
 
-					</select>
+						<h3 class="message">
+							<?php echo $updated[ 'message' ] ?><a href="#" class="close" title="close">x</a>
+						</h3>
 
-					<?php
-					}
+						<?php
+								}
+							}
+						?>
+						<?php if ( isset( $errors ) ) echo $errors; ?>
+
+						<?php
+
+						//get the ID
+						//http://stackoverflow.com/questions/4660291/how-to-access-a-member-of-an-stdclass-in-php-that-starts-with-an
+						$id = (string) $item->attributes();
+						
+						$hidden = array( 'id' => $id );
+
+						echo form_open_multipart('/admin/updateItem', '', $hidden);
+
+						$data = array(
+							"name" => "title",
+							"id" => "title",
+							"value" => $item->name
+						);
+
+						echo form_label('Title', 'title');
+						echo form_input( $data );
+
+						$data = array(
+							"name"        => "description",
+							"id"          => "description",
+							"value"       => $item->desc
+						);
+
+						echo form_label('Description', 'description');
+						echo form_textarea( $data );
+
+						$data = array(
+							"name"        => "url",
+							"id"          => "url",
+							"value"       => $item->site_url
+						);
+
+						if ( isset( $item->image_url ) ) {
+
+							echo form_label('Upload a new image', 'img');
+
+						}
+						else {
+
+							echo form_label('Image', 'img');
+
+						}
+
+						?>
+
+						<input type="file" name="img" size="20" />
+
+						<?php
+
+						if ( isset( $item->image_url ) ) {
+
+						?>
+
+						<div class="img">
+							<p>Your current image &darr;</p>
+							<img src="<?php echo base_url() . $item->image_url; ?>" alt="" />
+						</div>
+
+						<?php
+
+						}
+
+						echo form_label('Website link', 'url');
+						echo form_input( $data );
+
+						echo form_label( 'Featured', 'featured' );
+						echo form_checkbox( 'featured', '' , $item->featured);
+
+						$options = $mainCategories;
+
+						echo form_label('Category', 'mainCategory');
+						echo form_dropdown( 'mainCategory', $options, $item->cat, 'class="mainCategory"' );
+
+						echo form_label('Sub-category', 'subCategory');
 
 
-					echo form_submit('submit', 'Update', 'id="submit"');
-					echo form_close();
+						//Have to create my own dropdown
+						//Because I want to pass data attributes in the <option> elements
+						?>
 
-					?>
+						<?php
+						foreach ( $subCategories as $k => $val ) {
+
+							$selected = '';
+
+						?>
+
+						<select class="subCat" name="subCategory" id="cat-<?php echo $k ?>">
+
+						<?php
+
+							foreach ( $val as $subCategory ) {
+
+								if ( $subCategory[ 'id' ] == $item->subCat ) $selected = 'selected="selected"';
+
+						?>
+								<option value="<?php echo $subCategory['id'] ?>" <?php echo $selected ?>>
+									<?php echo $subCategory['name'] ?>
+								</option>
+						<?php
+							}
+							?>
+
+						</select>
+
+						<?php
+						}
+
+
+						echo form_submit('submit', 'Update', 'id="submit"');
+						echo form_close();
+
+						?>
 
 				</div>
-		
-			<?php
-			}
 
-		}
-
-		?>
+		</div> <!-- /container -->
 
 		
 	</div>
@@ -197,7 +213,6 @@
 
 		jQuery(document).ready(function($){
 
-			$('form, .item').hide();
 
 			$('.item form').submit(function() {
 
@@ -277,6 +292,10 @@
 					$( 'select' ).not( '[disabled]' ).show();
 				});
 
+			});
+
+			$('.close').click(function(){
+				$(this).parent().slideUp();
 			});
 
 		});

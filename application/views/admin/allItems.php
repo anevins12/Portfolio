@@ -4,7 +4,6 @@
 <head>
 	<title></title>
 	<link href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" rel="stylesheet" />
-	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/admin/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -27,21 +26,29 @@
 
 		<div id="container">
 
-		<div class="title">
-			<h3>Overview of your work</h3>
-			<a class="close" href="#" title="close">x</a>
-			<p>
-				On this page you can see all of your portfolio items that are categorised in columns.
-			</p>
-		</div>
-		<?php
-		
-		foreach ( $itemsAndCategories as $category => $items ) {
+			<div class="breadcrumb">
+				<ul>
+					<li class="first last">
+						Work overview
+					</li>
+				</ul>
+			</div>
 
-		?>
+			<div class="title">
+				<h1>Overview of your work</h1>
+				<a class="close" href="#" title="close">x</a>
+				<p>
+					On this page you can see all of your portfolio items that are categorised in columns.
+				</p>
+			</div>
+			<?php
+
+			foreach ( $itemsAndCategories as $category => $items ) {
+
+			?>
 
 			<div class="category" data-category="<?php echo $category ?>">
-				<h2> 
+				<h2>
 					<a href="#" class="toggle"> <?php echo $category ?>
 						<span>(<?php echo count( $items ) ?>)</span>
 					</a>
@@ -51,10 +58,11 @@
 				<?php
 
 					foreach ( $items as $k => $v ) {
+						$id = $v->{'@attributes'}->id;
 
 						?>
 						<li>
-							<a href="#">
+							<a href="<?php echo base_url() ?>admin/item/<?php echo $id ?>">
 								<h3> <span><?php echo $v->name ?></span> </h3>
 								<img src=" <?php echo base_url() . $v->image_url ?> " alt="" />
 							</a>
@@ -70,9 +78,9 @@
 
 			<?php
 
-		}
+			}
 
-		?>
+			?>
 
 	</div> <!-- /container -->
 

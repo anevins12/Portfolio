@@ -45,16 +45,18 @@ class Portfoliomodel extends CI_Model {
 		
 	}
 
-	public function getPortfolioItem( $name ) {
+	public function getPortfolioItem( $id ) {
 
 		foreach ( $this->items as $item ) {
 			
-			if (  $item[ 'name' ] == $name ) {
-				$portfolioItem = $item;
+			$item_id = (string) $item->attributes(); 
+
+			if ( $item_id == $id ) { 
+				return $item;
 			}
 		}
 
-		return $portfolioItem;
+		return false;
 
 	}
 

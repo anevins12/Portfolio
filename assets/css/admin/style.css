@@ -1,3 +1,5 @@
+@import url('./default.css');
+
 label {
 	display: block;
 	clear: left;
@@ -51,19 +53,9 @@ h3 {
 	margin-left: 0;
 }
 
-form {
-	margin-left: 3em;
-}
-
 #wrapper,
 form{
 	position: relative;
-}
-
-#submit {
-	position: absolute;
-	bottom: 0;
-	right: 0;
 }
 
 select,
@@ -249,7 +241,12 @@ h2 .toggle.minimised:hover {
 	position: relative;
 }
 
-#container .title a.close {
+#container .title,
+#container .item {
+	clear: both;
+}
+
+a.close {
 	position: absolute;
 	top: 7px;
 	right: 7px;
@@ -270,7 +267,7 @@ h2 .toggle.minimised:hover {
 	line-height: 16px;
 }
 
-#container .title a:hover.close {
+a:hover.close {
 	color: #333;
 	background: white;
 	border-color: #333;
@@ -286,15 +283,15 @@ h2 .toggle.minimised:hover {
 }
 
 .category:nth-child(1n),
-.category:nth-child(3n) {
+.category:nth-child(4n + 3) {
 	margin-left: 0;
 }
 
-.category:nth-child(4n) {
+.category:nth-child(4n + 1) {
 	margin-right: 0;
 }
 
-.category:nth-child(4) {
+.category:nth-child(3n + 5) {
 	background: none;
 	padding-right: 0;
 }
@@ -302,6 +299,19 @@ h2 .toggle.minimised:hover {
 .category img {
 	width: 100%;
 	-webkit-filter: grayscale(99%);
+}
+
+.category h2 a:hover.toggle,
+.category h2 a:hover.toggle span {
+	color: tomato;
+}
+
+.category h2 a:hover.toggle {
+	border-color: tomato;
+}
+
+.category h2 a:hover:after {
+	color: tomato;
 }
 
 .category h3 {
@@ -320,6 +330,10 @@ h2 .toggle.minimised:hover {
 	padding-bottom: 1px;
 }
 
+.category li a img {
+	border-bottom: 5px solid white;
+}
+
 .category li a:hover {
 	text-decoration: underline;
 }
@@ -336,4 +350,102 @@ h2 .toggle.minimised:hover {
 .category h3 span {
 	padding-right: 10px;
 	background: white;
+}
+
+/* EDIT PAGE ITEM
+----------------------------------- */
+/* body.editItem */
+.editItem #wrapper,
+.editItem form {
+	overflow: hidden;
+}
+
+.editItem #wrapper {
+	margin-bottom: 10%;
+}
+
+.editItem .message,
+.editItem .message:hover {
+	background: #B2D235 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7du36z4gsBhJwc3NjhAvCBECKwILIAmBBdAGQIADG7hMzgv70LQAAAABJRU5ErkJggg==");
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	moz-box-shadow: none;
+	color: white;
+	text-shadow: none;
+	font-weight: bold;
+}
+
+.editItem .message {
+	padding: 10px;
+	text-shadow: 0 1px 0 #333;
+	position: relative;
+}
+
+.editItem .message:before {
+	content: "\02713";
+}
+
+.editItem .message a {
+	padding: 0;
+	margin: 0;
+}
+
+.editItem .item {
+	margin-left: 0;
+}
+
+.editItem .item label {
+	font-style: italic;
+	margin: 2% 0 1%;
+}
+
+.editItem .item #submit {
+	width: 100%;
+	margin-top: 3%;
+}
+
+.editItem .item h2,
+.editItem .item form{
+	border-bottom: 2px solid #464747;
+	padding-bottom: 10px;
+}
+
+.editItem .item h2 {
+	margin: 5% 0 1%;
+}
+
+.editItem .item input,
+.editItem .item textarea {
+	color: #333;
+	font-style: normal;
+}
+
+.editItem .item input[type="submit"] {
+	color: white;
+}
+
+.editItem .item textarea {
+	line-height: 1.6em;
+}
+
+/* GENERAL
+----------------------------------- */
+.breadcrumb li {
+	float: left;
+	font-weight: normal;
+	margin: 0 10px 10px 0;
+}
+
+.breadcrumb li:after {
+	content: ">";
+	margin-left: 10px;
+	font-family: serif;
+}
+
+.breadcrumb li.last:after {
+	content: "";
+}
+
+.breadcrumb li a {
+	border-color: tomato;
 }

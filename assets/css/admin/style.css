@@ -159,76 +159,6 @@ h2 .toggle.minimised:hover {
 	margin-left: 3em;
 }
 
-.item h3 {
-    margin: 20px 0;
-	color: #000000;
-
-	background: -moz-linear-gradient(
-		top,
-		#ffffff 0%,
-		#ffffff 36%,
-		#fcf9fc 50%,
-		#edeaed);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#ffffff),
-		color-stop(0.36, #ffffff),
-		color-stop(0.50, #fcf9fc),
-		to(#edeaed));
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	border: 0px solid #ffbf00;
-	-moz-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.3),
-		inset 0px 0px 3px rgba(255,255,255,1);
-	-webkit-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.3),
-		inset 0px 0px 3px rgba(255,255,255,1);
-	box-shadow:
-		0px 1px 3px rgba(000,000,000,0.3),
-		inset 0px 0px 3px rgba(255,255,255,1);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.1),
-		0px 1px 0px rgba(255,255,255,1);
-	font-size: 1em;
-}
-
-.item h3.minimised {
-	border-bottom: 5px solid #f5642f;
-}
-
-.item h3:hover {
-
-	background: -moz-linear-gradient(
-		top,
-		#ffffff 0%,
-		#ffffff 36%,
-		#fcf9fc 50%,
-		#edeaed);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#ffffff),
-		color-stop(0.36, #fcf9fc),
-		color-stop(0.50, #fcf9fc),
-		to(#edeaed));
-	box-shadow:
-		0px 1px 10px #999,
-		inset 0px 0px 3px rgba(255,255,255,1);
-	-moz-box-shadow:
-		0px 1px 10px #999,
-		inset 0px 0px 3px rgba(255,255,255,1);
-	-webkit-box-shadow:
-		0px 1px 10px #999,
-		inset 0px 0px 3px rgba(255,255,255,1);
-}
-
-.item h3 a {
-	text-decoration: none;
-	display: block;
-	padding: 10px 20px;
-}
-
 /* ALL ITEMS TEMPLATE
 ----------------------------------- */
 #container {
@@ -239,10 +169,12 @@ h2 .toggle.minimised:hover {
 #container .title {
 	margin: 4% 0;
 	position: relative;
+	float: left;
+	width: 100%;
 }
 
 #container .title,
-#container .item {
+#container .item{
 	clear: both;
 }
 
@@ -287,11 +219,8 @@ a:hover.close {
 	margin-left: 0;
 }
 
-.category:nth-child(4n + 1) {
+.category:nth-child(3n + 3) {
 	margin-right: 0;
-}
-
-.category:nth-child(3n + 5) {
 	background: none;
 	padding-right: 0;
 }
@@ -354,18 +283,18 @@ a:hover.close {
 
 /* EDIT PAGE ITEM
 ----------------------------------- */
-/* body.editItem */
-.editItem #wrapper,
-.editItem form {
+/* body.item */
+body.item #wrapper,
+body.item form {
 	overflow: hidden;
 }
 
-.editItem #wrapper {
+body.item #wrapper {
 	margin-bottom: 10%;
 }
 
-.editItem .message,
-.editItem .message:hover {
+body.item .message,
+body.item .message:hover {
 	background: #B2D235 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO7du36z4gsBhJwc3NjhAvCBECKwILIAmBBdAGQIADG7hMzgv70LQAAAABJRU5ErkJggg==");
 	box-shadow: none;
 	-webkit-box-shadow: none;
@@ -373,63 +302,68 @@ a:hover.close {
 	color: white;
 	text-shadow: none;
 	font-weight: bold;
+	text-shadow: 0 1px 10px #999;
 }
 
-.editItem .message {
+body.item .message {
 	padding: 10px;
-	text-shadow: 0 1px 0 #333;
 	position: relative;
 }
 
-.editItem .message:before {
+body.item .message:before {
 	content: "\02713";
 }
 
-.editItem .message a {
+body.item .message a {
 	padding: 0;
 	margin: 0;
 }
 
-.editItem .item {
+body.item .item {
 	margin-left: 0;
 }
 
-.editItem .item label {
+body.item label {
 	font-style: italic;
 	margin: 2% 0 1%;
 }
 
-.editItem .item #submit {
+body.item #submit {
 	width: 100%;
 	margin-top: 3%;
 }
 
-.editItem .item h2,
-.editItem .item form{
+body.item h2,
+body.item form{
 	border-bottom: 2px solid #464747;
 	padding-bottom: 10px;
 }
 
-.editItem .item h2 {
+body.item h2 {
 	margin: 5% 0 1%;
 }
 
-.editItem .item input,
-.editItem .item textarea {
+body.item input,
+body.item textarea {
 	color: #333;
 	font-style: normal;
 }
 
-.editItem .item input[type="submit"] {
+body.item input[type="submit"] {
 	color: white;
 }
 
-.editItem .item textarea {
+body.item textarea {
 	line-height: 1.6em;
 }
 
 /* GENERAL
 ----------------------------------- */
+.breadcrumb {
+	width: 80%;
+	float: left;
+}
+
 .breadcrumb li {
 	float: left;
 	font-weight: normal;
@@ -448,4 +382,42 @@ a:hover.close {
 
 .breadcrumb li a {
 	border-color: tomato;
+}
+
+.newItem {
+	width: 20%;
+}
+
+.newItem,
+.newItem a {
+	float: right;
+}
+
+.newItem a {
+	background: #63c8dc;
+	padding: 10px 20px;
+	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	
+	color: white;
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,1);
+
+}
+
+.gradient {
+   filter: none;
 }

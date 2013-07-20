@@ -33,12 +33,15 @@
 					</li>
 				</ul>
 			</div>
+			<div class="newItem">
+				<a class="gradient" href="<?php echo base_url() ?>admin/newItem">Add new work</a>
+			</div>
 
 			<div class="title">
 				<h1>Overview of your work</h1>
 				<a class="close" href="#" title="close">x</a>
 				<p>
-					On this page you can see all of your portfolio items that are categorised in columns.
+					On this page you can see all of your work. Click on a work piece to edit it.
 				</p>
 			</div>
 			<?php

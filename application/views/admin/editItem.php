@@ -6,7 +6,7 @@
 	<link href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/admin/style.css" rel="stylesheet" />
 </head>
-<body class="editItem">
+<body class="editItem item">
 
 	<div id="wrapper">
 
@@ -278,7 +278,7 @@
 				});
 
 				// Get the "select" element that belongs to the selected main category element
-				var subCategorySelected = $( '#cat-' + mainCategory );
+				var subCategorySelected = $( '#cat-' + mainCategory ); 
 
 				// Make all subcategory select elements disabled
 				// Using the prop method instead of "attr" http://stackoverflow.com/questions/3806685/jquery-add-disabled-attribute-to-input

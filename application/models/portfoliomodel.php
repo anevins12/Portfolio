@@ -129,7 +129,7 @@ class Portfoliomodel extends CI_Model {
 		copy( realpath( $file ) , str_replace( '.xml', '', realpath( $file ) ) . '-' . date( "i-H-d-m-y" ) . '.xml' );
 	}
 
-	public function updateItem() {
+	public function updateItem( $newItem = false ) {
 		
 		$sessionDetails = $this->getSessionDetails();
 		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
@@ -166,6 +166,13 @@ class Portfoliomodel extends CI_Model {
 			else {
 				$item[ 'img' ] =  'uploads' . '/' . $uploaded[ 0 ][ 'upload_data' ][ 'file_name' ];
 			}
+
+		}
+
+		if ( $newItem ) {
+
+			$this->doInsertItem( $item );
+			return true;
 
 		}
 
@@ -232,6 +239,57 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		return true;
+
+	}
+
+	private function doInsertItem( $item ) {
+
+		$file = new DOMDocument();
+		//load the XML file into the DOM, loading statically
+		$file->load( $this->tablePath );
+
+		//check if file has loaded
+		if ( !$file ) {
+			show_error('There was no XML file loaded');
+			log_message('error', 'No XML file was loaded');
+		}
+
+		//if there is a root node
+		if ( $file->getElementsByTagName( 'portfolioItems' ) ) {
+			//get that root document
+			$root = $this->table->xpath( "//portfolioItems" ); 
+		}
+		else {
+			show_error( "The XML file contains no root node named 'portfolioItems'" );
+			log_message( 'error', "XML file has no 'portfolioItems' node" );
+			return false;
+		}
+
+		//Just getting out of the array (of 1 item)
+		$root = $root[0];
+		
+		//count the current items
+		$countedItems = count( $this->getPortfolioItems() );
+
+		//start the new xml for the new item
+		$rootItem = $root->addChild( 'item' );
+
+		//set the ID to be one above the countedItems
+		$rootItem->addAttribute( 'id', $countedItems + 1 );
+
+		//add the item details as children elements to the "item" element
+		$rootItem->addChild( 'name', $item[ 'title' ] );
+		$rootItem->addChild( 'desc', $item[ 'description' ] );
+		$rootItem->addChild( 'image_url', $item[ 'img' ] );
+		$rootItem->addChild( 'site_url', $item[ 'url' ] );
+		$rootItem->addChild( 'cat', $item[ 'mainCategory' ] );
+		$rootItem->addChild( 'subCat', $item[ 'subCategory' ] );
+		$rootItem->addChild( 'featured', $item[ 'featured' ] );
+
+		$this->table->asXml( $this->tablePath );
+
+		return true;
+
 	}
 
 	public function getSessionDetails() {

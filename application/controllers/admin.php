@@ -213,10 +213,42 @@ class Admin extends CI_Controller {
 	}
 
 	public function newItem() {
+		
+		$sessionDetails = $this->getSessionDetails();
+		
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
+		$data[ 'mainCategories' ] = $this->mainCategories;
+		$data[ 'subCategories' ] = $this->subCategories;
+		$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
 
-		$emptyForm = $this->load->view( 'admin/newItem' );
-		$data[ 'emptyForm' ] = $emptyForm;
+		$this->load->view( 'admin/newItem', $data );
 
+	}
+
+	public function insertNewItem() {
+
+		if( !$this->loggedIn() ) {
+			$this->load->view( 'admin/login' );
+			return false;
+		}
+
+		// If the page was refreshed on the 'updateItem' URL then just load the forms again
+		if( !$this->input->post() ) {
+			$this->index();
+			return false;
+		}
+
+		$this->portfoliomodel->updateItem( true );
+		
+		$sessionDetails = $this->getSessionDetails();
+
+		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
+		$data[ 'mainCategories' ] = $this->mainCategories;
+		$data[ 'subCategories' ] = $this->subCategories;
+		$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+
+		$this->load->view( 'admin/newItem', $data );
+		
 
 	}
 

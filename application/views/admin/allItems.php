@@ -60,14 +60,17 @@
 				<ul>
 				<?php
 
-					foreach ( $items as $k => $v ) {
+					foreach ( $items as $k => $v ) { 
 						$id = $v->{'@attributes'}->id;
 
 						?>
 						<li>
 							<a href="<?php echo base_url() ?>admin/item/<?php echo $id ?>">
 								<h3> <span><?php echo $v->name ?></span> </h3>
-								<img src=" <?php echo base_url() . $v->image_url ?> " alt="" />
+								<img src=" <?php echo $v->thumb_url ?> " alt="" />
+							</a>
+							<a href="<?php echo base_url() ?>admin/deleteItem/<?php echo $id ?>">
+								Delete 
 							</a>
 						</li>
 						<?php

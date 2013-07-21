@@ -34,6 +34,8 @@ class Admin extends CI_Controller {
 		$this->load->helper('form');
 
 		$this->items = $this->portfoliomodel->getPortfolioItems();
+		$this->items = $this->portfoliomodel->resizeImages( $this->items );
+		
 		$this->mainCategories = $this->categoriesmodel->getCategories();
 		
 		foreach ( $this->mainCategories as $k => $v ) { 
@@ -62,7 +64,7 @@ class Admin extends CI_Controller {
 		}
 
 		$sessionDetails = $this->getSessionDetails();
-		
+
 		$data['loggedInUsername'] = $sessionDetails[ 'username' ];
 		$data['items'] = $this->items;
 		$data['mainCategories'] = $this->mainCategories;
@@ -128,7 +130,6 @@ class Admin extends CI_Controller {
 			$data[ 'updated' ][ 'status' ] = true;
 			$data[ 'updated' ][ 'message' ] = 'Successfully updated';
 
-			$this->resizeImages();
 			$this->load->view( 'admin/editItem', $data );
 		}
 
@@ -240,24 +241,48 @@ class Admin extends CI_Controller {
 			return false;
 		}
 
-		$this->portfoliomodel->updateItem( true );
-		
-		$sessionDetails = $this->getSessionDetails();
+		if ( $this->portfoliomodel->updateItem( true ) ) {
 
-		$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
-		$data[ 'mainCategories' ] = $this->mainCategories;
-		$data[ 'subCategories' ] = $this->subCategories;
-		$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+			$sessionDetails = $this->getSessionDetails();
+			$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
+			$data[ 'updated' ][ 'status' ] = true;
+			$data[ 'updated' ][ 'message' ] = 'Successfully updated';
+			$data[ 'mainCategories' ] = $this->mainCategories;
+			$data[ 'subCategories' ] = $this->subCategories;
+			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+
+		}
+		else {
+			return false;
+		}
 		
 		$this->load->view( 'admin/newItem', $data );
 		
-
 	}
 
-	public function resizeImages() {
-		$this->portfoliomodel->resizeImages( $this->items );
-	}
+	public function deleteItem( $id ) {
 
+		if ( $this->portfoliomodel->deleteItem( $id ) ) {
+
+			$this->items = $this->portfoliomodel->getPortfolioItems();
+			$sessionDetails = $this->getSessionDetails();
+			$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
+			$data[ 'updated' ][ 'status' ] = true;
+			$data[ 'updated' ][ 'message' ] = 'Successfully deleted';
+			$data[ 'mainCategories' ] = $this->mainCategories;
+			$data[ 'subCategories' ] = $this->subCategories;
+			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
+
+			$this->load->view( 'admin/allItems', $data );
+
+		}
+		else {
+
+			return false;
+		
+		}
+
+	}
 
 }
 

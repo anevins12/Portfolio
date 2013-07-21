@@ -40,7 +40,19 @@
 			</div>
 
 			<div class="item">
+				<?php
+					if ( isset( $updated ) ) {
+						if ( $updated[ 'status' ] ) {
+				?>
 
+				<h3 class="message">
+					<?php echo $updated[ 'message' ] ?><a href="#" class="close" title="close">x</a>
+				</h3>
+
+				<?php
+						}
+					}
+				?>
 				<h3>
 					New portfolio item
 				</h3>

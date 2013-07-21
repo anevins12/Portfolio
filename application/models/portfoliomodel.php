@@ -103,7 +103,6 @@ class Portfoliomodel extends CI_Model {
 						echo $this->image_lib->display_errors();
 					}
 
-//					$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb.png', strtolower( $item->image_url ) );
 					$thumb_file = base_url() . $thumb_name;
 
 					$item->thumb_url = $thumb_file;
@@ -290,7 +289,7 @@ class Portfoliomodel extends CI_Model {
 		$rootItem->addChild( 'featured', $item[ 'featured' ] );
 
 		$this->table->asXml( $this->tablePath );
-		$this->resizeImages();
+		$this->resizeImages( $this->items );
 
 		return true;
 
@@ -356,6 +355,47 @@ class Portfoliomodel extends CI_Model {
 			return array( 'status' => true, $data );
 
 		}
+
+	}
+
+	public function deleteItem( $id ) {
+
+		$file = new DOMDocument();
+		//load the XML file into the DOM, loading statically
+		$file->load( $this->tablePath );
+
+		//check if file has loaded
+		if ( !$file ) {
+			show_error('There was no XML file loaded');
+			log_message('error', 'No XML file was loaded');
+		}
+
+		//if there is a root node
+		//Don't know why I'm using DOM here and not xPath
+		//Probably a bad habit picked up from Uni ATWD (module name) assignment
+		if ( $file->getElementsByTagName( 'portfolioItems' ) ) {
+			//get that root document
+			$root = $this->table->xpath( "//portfolioItems" );
+		}
+		else {
+			show_error( "The XML file contains no root node named 'portfolioItems'" );
+			log_message( 'error', "XML file has no 'portfolioItems' node" );
+			return false;
+		}
+
+		//http://stackoverflow.com/questions/262351/remove-a-child-with-a-specific-attribute-in-simplexml-for-php
+		
+
+		foreach( $this->table->item as $item ) {
+			if( $item[ 'id' ] == $id ) {
+				$dom = dom_import_simplexml( $item );
+				$dom->parentNode->removeChild( $dom );
+			}
+		}
+
+		$this->table->asXml( $this->tablePath );
+		
+		return true;
 
 	}
 

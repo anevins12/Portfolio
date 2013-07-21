@@ -28,6 +28,7 @@ class Admin extends CI_Controller {
 		$this->load->library('phpass');
 		$this->load->library('session');
 		$this->load->library('encrypt');
+		$this->load->library('image_lib');
 
 		$this->load->helper('url');
 		$this->load->helper('form');
@@ -126,7 +127,8 @@ class Admin extends CI_Controller {
 			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
 			$data[ 'updated' ][ 'status' ] = true;
 			$data[ 'updated' ][ 'message' ] = 'Successfully updated';
-			
+
+			$this->resizeImages();
 			$this->load->view( 'admin/editItem', $data );
 		}
 
@@ -246,11 +248,16 @@ class Admin extends CI_Controller {
 		$data[ 'mainCategories' ] = $this->mainCategories;
 		$data[ 'subCategories' ] = $this->subCategories;
 		$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
-
+		
 		$this->load->view( 'admin/newItem', $data );
 		
 
 	}
+
+	public function resizeImages() {
+		$this->portfoliomodel->resizeImages( $this->items );
+	}
+
 
 }
 

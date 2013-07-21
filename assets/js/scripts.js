@@ -23,7 +23,7 @@ function getItems( category ) {
 			else {
 				var featured = '';
 			}
-
+console.log(v);
 			var html = '<li>\n\
 							' + title + '	\n\
 							<a class="fancybox" href="/' + v.image_url + '"> '

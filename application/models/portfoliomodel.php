@@ -64,7 +64,7 @@ class Portfoliomodel extends CI_Model {
 
 		$categoryItems = array();
 
-		foreach ( $this->items as $item ) {
+		foreach ( $this->items as $item ) { 
 
 			if ( $item->cat == $category ) { 
 				$categoryItems[] = $item;
@@ -87,13 +87,14 @@ class Portfoliomodel extends CI_Model {
 		foreach ( $items as $item ) {
 
 			$source_image = $item->image_url;
+			$extension = strstr( $source_image, '.' );
 			
-			$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb.png', $item->image_url);
+			$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb' . $extension, strtolower( $source_image ) );
 			$thumb_file = $_SERVER[ 'DOCUMENT_ROOT' ] . $_SERVER[ 'HTTP_HOST' ] . '/' . $thumb_name;
-			
+
 			if ( !file_exists( $thumb_file ) ) { 
 
-				if( isset( $item->image_url ) ) {
+				if( isset( $item->image_url ) ) { 
 
 					$config[ 'source_image' ] = $source_image;
 					$this->image_lib->initialize( $config );
@@ -102,7 +103,7 @@ class Portfoliomodel extends CI_Model {
 						echo $this->image_lib->display_errors();
 					}
 
-					$thumb_name = str_replace('.png', '_thumb.png', $item->image_url);
+//					$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb.png', strtolower( $item->image_url ) );
 					$thumb_file = base_url() . $thumb_name;
 
 					$item->thumb_url = $thumb_file;
@@ -255,6 +256,8 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		//if there is a root node
+		//Don't know why I'm using DOM here and not xPath
+		//Probably a bad habit picked up from Uni ATWD (module name) assignment
 		if ( $file->getElementsByTagName( 'portfolioItems' ) ) {
 			//get that root document
 			$root = $this->table->xpath( "//portfolioItems" ); 
@@ -287,6 +290,7 @@ class Portfoliomodel extends CI_Model {
 		$rootItem->addChild( 'featured', $item[ 'featured' ] );
 
 		$this->table->asXml( $this->tablePath );
+		$this->resizeImages();
 
 		return true;
 

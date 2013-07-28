@@ -67,7 +67,23 @@
 						<li>
 							<a href="<?php echo base_url() ?>admin/item/<?php echo $id ?>">
 								<h3> <span><?php echo $v->name ?></span> </h3>
-								<img src=" <?php echo $v->thumb_url ?> " alt="" />
+
+								<?php 
+								if ( $v->thumb_url != base_url() ) {
+								?>
+
+								<img src="<?php echo $v->thumb_url ?> " alt="" />
+
+								<?php
+								}
+								else {
+								?>
+
+								<img src="<?php echo base_url() ?>/assets/i/placeholder.png" alt="" />
+								
+								<?php
+								}
+								?>
 							</a>
 							<a href="<?php echo base_url() ?>admin/deleteItem/<?php echo $id ?>">
 								Delete 

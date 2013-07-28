@@ -249,6 +249,8 @@ class Admin extends CI_Controller {
 			$data[ 'updated' ][ 'message' ] = 'Successfully updated';
 			$data[ 'mainCategories' ] = $this->mainCategories;
 			$data[ 'subCategories' ] = $this->subCategories;
+
+		$this->setItemsAndCategories();
 			$data[ 'itemsAndCategories' ] = $this->itemsAndCategories;
 
 		}
@@ -264,8 +266,10 @@ class Admin extends CI_Controller {
 
 		if ( $this->portfoliomodel->deleteItem( $id ) ) {
 
-			$this->items = $this->portfoliomodel->getPortfolioItems();
+			$this->items = $this->portfoliomodel->getPortfolioItems(); 
 			$sessionDetails = $this->getSessionDetails();
+			$this->setItemsAndCategories();
+			
 			$data[ 'loggedInUsername' ] = $sessionDetails[ 'username' ];
 			$data[ 'updated' ][ 'status' ] = true;
 			$data[ 'updated' ][ 'message' ] = 'Successfully deleted';

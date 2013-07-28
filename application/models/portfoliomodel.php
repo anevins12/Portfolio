@@ -87,7 +87,7 @@ class Portfoliomodel extends CI_Model {
 		foreach ( $items as $item ) {
 
 			$source_image = $item->image_url;
-			$extension = strstr( $source_image, '.' );
+			$extension = strstr( $source_image, '.' ); 
 			
 			$thumb_name = str_replace( array( '.png', '.jpg', '.gif' ), '_thumb' . $extension, strtolower( $source_image ) );
 			$thumb_file = $_SERVER[ 'DOCUMENT_ROOT' ] . $_SERVER[ 'HTTP_HOST' ] . '/' . $thumb_name;
@@ -277,12 +277,19 @@ class Portfoliomodel extends CI_Model {
 		$rootItem = $root->addChild( 'item' );
 
 		//set the ID to be one above the countedItems
-		$rootItem->addAttribute( 'id', $countedItems + 1 );
+		$rootItem->addAttribute( 'id', $countedItems + 2 );
 
 		//add the item details as children elements to the "item" element
 		$rootItem->addChild( 'name', $item[ 'title' ] );
 		$rootItem->addChild( 'desc', $item[ 'description' ] );
-		$rootItem->addChild( 'image_url', $item[ 'img' ] );
+
+		if ( isset( $item[ 'img' ] ) ) {
+			$rootItem->addChild( 'image_url', $item[ 'img' ] );
+		}
+		else {
+			$rootItem->addChild( 'image_url', '' );
+		}
+		
 		$rootItem->addChild( 'site_url', $item[ 'url' ] );
 		$rootItem->addChild( 'cat', $item[ 'mainCategory' ] );
 		$rootItem->addChild( 'subCat', $item[ 'subCategory' ] );
@@ -384,16 +391,25 @@ class Portfoliomodel extends CI_Model {
 		}
 
 		//http://stackoverflow.com/questions/262351/remove-a-child-with-a-specific-attribute-in-simplexml-for-php
-		
-
 		foreach( $this->table->item as $item ) {
+			
 			if( $item[ 'id' ] == $id ) {
 				$dom = dom_import_simplexml( $item );
 				$dom->parentNode->removeChild( $dom );
 			}
+
 		}
 
+		//save
 		$this->table->asXml( $this->tablePath );
+
+		//Have to empty the array otherwise the old and deleted item stays in there
+		$this->items = array();
+
+		//Set the items again
+		foreach ( $this->table->item as $item ) {
+			$this->items[] = $item;
+		}
 		
 		return true;
 

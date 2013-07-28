@@ -28,6 +28,14 @@
 
 			<div class="breadcrumb">
 				<ul>
+					<li class="first">
+						<a href="<?php echo base_url() ?>admin">
+							Work overview
+						</a>
+					</li>
+					<li class="last">
+						Add new work
+					</li>
 				</ul>
 			</div>
 			
